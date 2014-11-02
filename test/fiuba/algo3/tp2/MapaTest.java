@@ -22,4 +22,15 @@ public class MapaTest {
 		Assert.assertEquals(mapa.obtenerEstadoEn(2, 3),true);
 		Assert.assertEquals(mapa.obtenerEstadoEn(3, 3),false);//lugar vecino sin construir
 	}
+	
+	@Test
+	public void MapaPuedeDaniarCorrectamenteCualquierLoteEnElMapa(){
+		Mapa mapa = new Mapa();
+		int vidaRestante;
+		Construccion unaCasa = new Casa();
+		mapa.insertarConstruccionEn(5, 5, unaCasa);
+		mapa.daniarLote(5, 5, 15);
+		vidaRestante = mapa.obtenerVidaDeConstruccionEnLote(5, 5);
+		Assert.assertEquals(vidaRestante, 85);
+	}
 }
