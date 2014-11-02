@@ -24,12 +24,17 @@ public class Lote {
 		return coordY;
 	}
 	
-	public void daniarConstruccion(int factor){
-		construccion.decrementarVida(factor);
+	public void daniarConstruccion(double factor){
+		if (construccion!=null){
+			construccion.decrementarVida(factor);
+		}
 	}
 	
-	public int obtenerVidaConstruccion(){
-		return (construccion.obtenerVida());
+	public double obtenerVidaConstruccion(){
+		if (construccion!=null){
+			return (construccion.obtenerVida());
+		} else return 0;
+			
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){

@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2;
 
 public class Construccion {
-	int vida = 100;
+	double vida = 100;
 	boolean enPie = true;
 	
-	public void decrementarVida(int factor){
+	public void decrementarVida(double factor){
 		vida = vida - factor;
 		if (vida <= 0) {
 			vida = 0;
@@ -12,7 +12,7 @@ public class Construccion {
 		}
 	}
 	
-	public int obtenerVida(){
+	public double obtenerVida(){
 		return vida;
 	}
 	
