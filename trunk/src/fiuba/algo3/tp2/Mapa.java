@@ -27,4 +27,16 @@ public class Mapa {
 		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 		temp.insertarConstruccion(unaConstruccion);
 	}
+	
+	public void daniarLote(int coordX, int coordY, int factor){
+		Lote unLote;
+		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
+		unLote.daniarConstruccion(factor);
+	}
+	
+	public int obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
+		Lote unLote;
+		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
+		return (unLote.obtenerVidaConstruccion());
+	}
 }
