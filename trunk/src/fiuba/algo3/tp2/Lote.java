@@ -16,6 +16,14 @@ public class Lote {
 		return estado;
 	}
 	
+	public int obtenerCoordX(){
+		return coordX;
+	}
+	
+	public int obtenerCoordY(){
+		return coordY;
+	}
+	
 	public void insertarConstruccion(Construccion unaConstruccion){
 		construccion=unaConstruccion;
 		estado=true;
