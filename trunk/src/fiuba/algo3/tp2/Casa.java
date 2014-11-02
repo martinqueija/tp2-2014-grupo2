@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2;
 
-public class Casa {
+public class Casa extends Construccion { //Casa es una instancia construible
 	
 	public String doFoo() {
 		return "Foo";
