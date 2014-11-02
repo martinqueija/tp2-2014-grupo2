@@ -4,5 +4,10 @@ import org.junit.Test;
 
 public class CasaTest {
 
-
+	@Test
+	public void CasaDecrementaLaVidaCorrectamente(){
+		Casa unaCasa = new Casa();
+		((Construccion)unaCasa).decrementarVida(10);
+		Assert.assertEquals(((Construccion)unaCasa).obtenerVida(), 90);
+	}
 }
