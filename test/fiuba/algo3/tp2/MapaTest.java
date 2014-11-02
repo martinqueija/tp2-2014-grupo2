@@ -13,4 +13,13 @@ public class MapaTest {
 			}	
 		}
 	}
+	
+	@Test
+	public void mapaResuelveCorrectamenteEspecficiaUbicacion() {
+		Mapa mapa = new Mapa();
+		Construccion unaCasa = new Casa();
+		mapa.insertarConstruccionEn(2, 3, unaCasa);
+		Assert.assertEquals(mapa.obtenerEstadoEn(2, 3),true);
+		Assert.assertEquals(mapa.obtenerEstadoEn(3, 3),false);//lugar vecino sin construir
+	}
 }
