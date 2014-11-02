@@ -22,7 +22,7 @@ public class Mapa {
 	
 	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
 		Lote temp;
-		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
+		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY); //esa formula busca el lote determinado en el arreglo continuo de lotes. es facil de entender
 		return (temp.obtenerEstado());
 	}
 	

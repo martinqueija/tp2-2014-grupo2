@@ -11,5 +11,29 @@ public class LoteTest {
 		Assert.assertEquals(2, lote.obtenerCoordX());
 		Assert.assertEquals(3, lote.obtenerCoordY());
 	}
+	
+	@Test
+	public void LoteDaniaCorrectamenteUnaConstruccion(){
+		Lote lote = new Lote(2,3);
+		Construccion unaCasa = new Casa();
+		
+		lote.insertarConstruccion(unaCasa);
+		lote.daniarConstruccion(15.0);
+		
+		Assert.assertEquals(unaCasa.obtenerVida(), 85.0);
+	}
+	
+	@Test
+	public void LoteConConstruccionSeCreaCorrectamente(){
+		Lote lote = new Lote(2,3);
+		Construccion unaCasa = new Casa();
+		
+		lote.insertarConstruccion(unaCasa);
+	
+		Assert.assertEquals(lote.obtenerVidaConstruccion(), 100.0);
+		Assert.assertEquals(lote.obtenerEstado(),true);
+		
+	}
+
 
 }
