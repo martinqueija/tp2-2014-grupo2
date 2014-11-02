@@ -31,6 +31,15 @@ public class MapaTest {
 		mapa.insertarConstruccionEn(5, 5, unaCasa);
 		mapa.daniarConstruccionDelLote(5, 5, 15);
 		vidaRestante = mapa.obtenerVidaDeConstruccionEnLote(5, 5);
-		Assert.assertEquals(vidaRestante, 85);
+		Assert.assertEquals(vidaRestante, 85.0);
 	}
+
+	@Test
+	public void MapaDebeDevolverLaVidaCorrectaDeCualquierCostruccionEnElMapa(){
+		Mapa mapa = new Mapa();
+		Construccion unaCasa = new Casa();
+		mapa.insertarConstruccionEn(2, 3, unaCasa);
+		Assert.assertEquals(mapa.obtenerVidaDeConstruccionEnLote(2, 3),100.0);
+	}
+
 }
