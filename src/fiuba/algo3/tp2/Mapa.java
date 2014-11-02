@@ -16,7 +16,11 @@ public class Mapa {
 		}
 	}
 	
-	public boolean obtenerEstadoEn(int coordX, int coordY){
+	public int obtenerTamanioLado(){
+		return tamanioLadoMapa;
+	}
+	
+	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
 		Lote temp;
 		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 		return (temp.obtenerEstado());
@@ -28,13 +32,13 @@ public class Mapa {
 		temp.insertarConstruccion(unaConstruccion);
 	}
 	
-	public void daniarLote(int coordX, int coordY, int factor){
+	public void daniarConstruccionDelLote(int coordX, int coordY, double factor){
 		Lote unLote;
 		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 		unLote.daniarConstruccion(factor);
 	}
 	
-	public int obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
+	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
 		Lote unLote;
 		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 		return (unLote.obtenerVidaConstruccion());
