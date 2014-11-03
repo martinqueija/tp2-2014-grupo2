@@ -8,10 +8,10 @@ public class Terremoto {
 		if (x1>x2) { diferenciaX = x1-x2; } else { diferenciaX = x2-x1; };
 		if (y1>y2) { diferenciaY = y1-y2; } else { diferenciaY = y2-y1; };
 		
-		diferenciaX = (diferenciaX)*(diferenciaX);
-		diferenciaY = (diferenciaY)*(diferenciaY);
+		int diferenciaX2 = (diferenciaX)*(diferenciaX);
+		int diferenciaY2 = (diferenciaY)*(diferenciaY);
 		
-		double sumaCuadrados = diferenciaX + diferenciaY;
+		double sumaCuadrados = diferenciaX2 + diferenciaY2;
 		int distancia = (int) Math.sqrt(sumaCuadrados);
 		
 		return distancia;
@@ -25,6 +25,7 @@ public class Terremoto {
 			for (int j=0;j<tamanioLadoMapa;j++){
 				distancia = calcularDistanciaEntreLotes(coordX, coordY, i, j);
 				factor = ((100)-(distancia*1.5));
+				if (factor<0) {factor=0;}
 				elMapa.daniarConstruccionDelLote(i, j, factor);
 			}	
 		}

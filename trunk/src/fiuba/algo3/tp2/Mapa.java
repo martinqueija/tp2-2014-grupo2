@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 
 public class Mapa {
-	int tamanioLadoMapa = 12; //define la cantidad de lotes en un lado de la cuadrilla
+	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
 	
 	public Mapa(){

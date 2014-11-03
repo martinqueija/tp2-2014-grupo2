@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 import junit.framework.Assert;
+
 import org.junit.Test;
 
 public class TerremotoTest {
@@ -31,4 +32,20 @@ public class TerremotoTest {
 		Assert.assertEquals(100.0-97.0, unMapa.obtenerVidaDeConstruccionEnLote(3,5));
 		Assert.assertEquals(100.0-95.5, unMapa.obtenerVidaDeConstruccionEnLote(4, 2));
 	}
+	
+	@Test
+	public void TerremotoNoDeberiaAfectarConstruccionesQueEstenAmasDe67unidadesDeDistancia(){
+		Mapa unMapa = new Mapa();
+		Terremoto unTerremoto = new Terremoto();
+		Construccion unaCasa = new Casa();
+		Construccion otraCasa = new Casa();
+		
+		unMapa.insertarConstruccionEn(1, 1, unaCasa);
+		unMapa.insertarConstruccionEn(15, 15, otraCasa);
+		unTerremoto.iniciarTerremotoEn(180, 180, unMapa);
+		
+		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(1,1));
+		Assert.assertEquals(100.0, ((Construccion)otraCasa).obtenerVida());
+	}
+
 }
