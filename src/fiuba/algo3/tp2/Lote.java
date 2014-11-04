@@ -5,7 +5,7 @@ public class Lote {
 	int coordX; // ubicacion del lote en el mapa
 	int coordY;
 	
-	Construccion construccion;
+	private Construccion construccion;
 	
 	public Lote(int coordenadaX,int coordenadaY){
 		coordX = coordenadaX;
