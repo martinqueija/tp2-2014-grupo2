@@ -15,7 +15,7 @@ public class MapaTest {
 	}
 	
 	@Test
-	public void mapaResuelveCorrectamenteUnaEspecficiaUbicacionYConstruyeUnaCasa() {
+	public void mapaResuelveCorrectamenteUnaEspecficaUbicacionYConstruyeUnaCasa() {
 		Mapa mapa = new Mapa();
 		Construccion unaCasa = new Casa();
 		mapa.insertarConstruccionEn(2, 3, unaCasa);

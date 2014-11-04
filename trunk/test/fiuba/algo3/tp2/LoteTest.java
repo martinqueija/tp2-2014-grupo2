@@ -13,7 +13,7 @@ public class LoteTest {
 	}
 	
 	@Test
-	public void LoteDaniaCorrectamenteUnaConstruccion(){
+	public void LoteDeberiaDaniarCorrectamenteUnaConstruccion(){
 		Lote lote = new Lote(2,3);
 		Construccion unaCasa = new Casa();
 		
