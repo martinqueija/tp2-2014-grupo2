@@ -19,4 +19,9 @@ public class Construccion {
 	public boolean obtenerEstado(){
 		return enPie;
 	}
+
+	public boolean puedeConstruirEnSuperficie(Superficie superficieDelLote) {
+		//deberia estar implementada en una clase inferior
+		return true;
+	}
 }

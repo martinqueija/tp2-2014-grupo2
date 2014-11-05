@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Mapa {
 	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
-	
+	TerrenoLLano terreno = new TerrenoLLano();
 	public Mapa(){
 		Lote temp;
 		for (int i=0;i<tamanioLadoMapa;i++){
 			for (int j=0;j<tamanioLadoMapa;j++){
 				temp = new Lote(i,j);
+				temp.definirTerrerno(terreno);  //provisorio implementar algoritmo mapa
 				lotes.add(temp);
 			}	
 		}
@@ -23,7 +24,7 @@ public class Mapa {
 	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
 		Lote temp;
 		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY); //esa formula busca el lote determinado en el arreglo continuo de lotes. es facil de entender
-		return (temp.obtenerEstado());
+		return (temp.hayConstruccion());
 	}
 	
 	public void insertarConstruccionEn(int coordX, int coordY, Construccion unaConstruccion){

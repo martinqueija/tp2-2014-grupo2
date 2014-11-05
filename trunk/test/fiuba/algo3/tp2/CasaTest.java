@@ -10,4 +10,5 @@ public class CasaTest {
 		((Construccion)unaCasa).decrementarVida(10);
 		Assert.assertEquals(((Construccion)unaCasa).obtenerVida(), 90.0);
 	}
+
 }
