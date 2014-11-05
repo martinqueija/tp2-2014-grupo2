@@ -65,6 +65,18 @@ public class LoteTest {
 		Assert.assertEquals(lote.hayConstruccion(), true);
 		
 	}
-
+	
+	@Test
+	public void LoteDeberiaPoderConstruirsePosoDeAguaSobreAgua(){
+		Construccion posoDeAgua = new PosoDeAgua();
+		Lote lote = new Lote(1,1);
+		Agua agua = new Agua();
+		lote.definirTerrerno(agua);
+		
+		lote.insertarConstruccion((Construccion)posoDeAgua);
+		
+		Assert.assertEquals(lote.hayConstruccion(), true);
+		
+	}
 
 }
