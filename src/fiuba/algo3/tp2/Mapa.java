@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class Mapa {
 	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
-	TerrenoLLano terreno = new TerrenoLLano();
+
 	public Mapa(){
+		TerrenoLLano terreno = new TerrenoLLano();
 		Lote temp;
 		for (int i=0;i<tamanioLadoMapa;i++){
 			for (int j=0;j<tamanioLadoMapa;j++){
@@ -44,4 +45,20 @@ public class Mapa {
 		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 		return (unLote.obtenerVidaConstruccion());
 	}
+	
+	public int calcularDistanciaEntreLotes(int x1, int y1, int x2, int y2){
+		int diferenciaX;
+		int diferenciaY;
+		if (x1>x2) { diferenciaX = x1-x2; } else { diferenciaX = x2-x1; };
+		if (y1>y2) { diferenciaY = y1-y2; } else { diferenciaY = y2-y1; };
+		
+		int diferenciaX2 = (diferenciaX)*(diferenciaX);
+		int diferenciaY2 = (diferenciaY)*(diferenciaY);
+		
+		double sumaCuadrados = diferenciaX2 + diferenciaY2;
+		int distancia = (int) Math.sqrt(sumaCuadrados);
+		
+		return distancia;
+	}
+	
 }
