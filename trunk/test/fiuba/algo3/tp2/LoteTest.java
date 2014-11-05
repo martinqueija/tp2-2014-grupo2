@@ -41,7 +41,7 @@ public class LoteTest {
 	}
 	
 	@Test
-	public void CasaNoDeberiaPoderConstruirseSobreAgua(){
+	public void LoteNoDeberiaPoderConstruirseCasaSobreAgua(){
 		Casa unaCasa = new Casa();
 		Lote lote = new Lote(1,1);
 		Agua agua = new Agua();
@@ -50,6 +50,19 @@ public class LoteTest {
 		lote.insertarConstruccion((Construccion)unaCasa);
 		
 		Assert.assertEquals(lote.hayConstruccion(), false);
+		
+	}
+	
+	@Test
+	public void LoteDeberiaPoderConstruirseCasaSobreTerrenoLlano(){
+		Casa unaCasa = new Casa();
+		Lote lote = new Lote(1,1);
+		TerrenoLLano tierra = new TerrenoLLano();
+		lote.definirTerrerno(tierra);
+		
+		lote.insertarConstruccion((Construccion)unaCasa);
+		
+		Assert.assertEquals(lote.hayConstruccion(), true);
 		
 	}
 
