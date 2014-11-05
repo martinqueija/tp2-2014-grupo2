@@ -1,9 +1,10 @@
 package fiuba.algo3.tp2;
 
 public class Lote {
-	boolean estado = false; //variable booleana que define si el lote tiene algo construido o no.
+	boolean hayConstruccion = false; //variable booleana que define si el lote tiene algo construido o no.
 	int coordX; // ubicacion del lote en el mapa
 	int coordY;
+	Superficie superficieDelLote;
 	
 	private Construccion construccion;
 	
@@ -12,8 +13,8 @@ public class Lote {
 		coordY = coordenadaY;
 	}
 	
-	public boolean obtenerEstado(){
-		return estado;
+	public boolean hayConstruccion(){
+		return hayConstruccion;
 	}
 	
 	public int obtenerCoordX(){
@@ -38,7 +39,17 @@ public class Lote {
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){
-		construccion=unaConstruccion;
-		estado=true;
+		if(unaConstruccion.puedeConstruirEnSuperficie(superficieDelLote)){
+			construccion=unaConstruccion;
+			hayConstruccion=true;	
+		}
+		else {
+			//excepcion
+		}
+	}
+
+	public void definirTerrerno(Superficie superficieRecibida) {
+		superficieDelLote = superficieRecibida;
+		
 	}
 }
