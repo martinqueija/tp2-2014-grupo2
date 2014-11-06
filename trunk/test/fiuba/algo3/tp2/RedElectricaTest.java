@@ -28,16 +28,6 @@ public class RedElectricaTest {
 		
 	}
 	
-	@Test
-	public void UnLoteSuficientemteCercaDeUnaCentralDeberiaTenerTensionSinTenerUnaLineaTest(){
-		Mapa mapa =new Mapa();
-		CentralEolica nuevaCentral = new CentralEolica(1,5);
-		
-		mapa.agregarALaRedElectrica(nuevaCentral);
-			
-		Assert.assertEquals(mapa.getTieneElecticidadLote(1,4), true);
-		
-	}
 	
 	public void UnLoteSuficientemteLejosDeUnaCentralMpDeberiaTenerTensionSinTenerUnaLinea(){
 		Mapa mapa =new Mapa();
