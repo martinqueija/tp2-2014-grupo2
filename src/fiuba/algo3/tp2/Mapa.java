@@ -5,8 +5,24 @@ import java.util.ArrayList;
 public class Mapa {
 	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
+	RedElectrica redElectrica = new RedElectrica();
+	
+	
+	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
+		redElectrica.agregarCentralElectrica(nuevaCentral);
+		
+		this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
+	}
+	
+	public void agregarALaRedElectrica(LineaDeTension lineaDeTension){
+		redElectrica.agregarLineaDeTension(lineaDeTension);
+		Lote unLote;
+		unLote = lotes.get(((lineaDeTension.getPosicionX())*tamanioLadoMapa)+lineaDeTension.getPosicionY());
+		unLote.agregarLineaDeTension(lineaDeTension);
+	}
 
 	public Mapa(){
+		redElectrica.agregarMapa(this);
 		TerrenoLLano terreno = new TerrenoLLano();
 		Lote temp;
 		for (int i=0;i<tamanioLadoMapa;i++){
@@ -61,4 +77,29 @@ public class Mapa {
 		return distancia;
 	}
 	
+	public int getConsumoElecticoDeLote(int x, int y){
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		return unLote.getConsumoElectrico();
+				
+	}
+	public boolean getTieneElecticidadLote(int x, int y){
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		return unLote.getTieneElectricidad();
+		
+	}
+	public void setElectricidadLote(int x,int y, boolean valor){
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		unLote.setElectricidadLote(valor);
+		
+	}
+
+	public void setCentralQueAlimentaLote(int x,int y,CentralElectrica centraltemporal) {
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		unLote.setCentralElectricaQueAlmentaLote(centraltemporal);
+		
+	}
 }
