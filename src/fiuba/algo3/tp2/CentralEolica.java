@@ -13,7 +13,6 @@ public class CentralEolica extends CentralElectrica{
 		posicionY=y;
 
 
-
 	}
 
 	public int getUsoActual(){

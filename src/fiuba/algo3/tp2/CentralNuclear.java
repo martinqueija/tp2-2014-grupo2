@@ -1,13 +1,19 @@
 package fiuba.algo3.tp2;
 
-public class CentralElectrica extends Construccion { //Casa es una instancia construible
-	
-	int capacidadAbastecimiento;
+public class CentralNuclear extends CentralElectrica {
+	int capacidadAbastecimiento=1000;
 	int posicionX;
 	int posicionY;
-	int radioAlcance;
-	int usoActual=0;
-	
+	int radioAlcance=25;
+
+	public CentralNuclear(int x, int y) {
+		super(x, y);
+		posicionX=x;
+		posicionY=y;
+
+
+	}
+
 	public int getUsoActual(){
 		return usoActual;
 	}
@@ -23,13 +29,7 @@ public class CentralElectrica extends Construccion { //Casa es una instancia con
 		return radioAlcance;		
 	}
 	
-	public CentralElectrica(int x, int y){
 
-		posicionX=x;
-		posicionY=y;
-		
-	}
-	
 	public boolean puedeConstruirEnSuperficie(Superficie superficieDelLote) {
 		if (superficieDelLote.esTerrenoLLano()) {
 			return true;	
@@ -51,9 +51,9 @@ public class CentralElectrica extends Construccion { //Casa es una instancia con
 	int getPosicionY(){
 		return posicionY;
 	}
-	
 	public int getCapacidadAbastecimiento(){
 		return capacidadAbastecimiento;
 		
 	}
+
 }
