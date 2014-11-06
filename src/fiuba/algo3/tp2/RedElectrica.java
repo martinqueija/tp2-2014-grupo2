@@ -19,7 +19,7 @@ public class RedElectrica {
 				if(lineatemporal.getTieneElectricidad()){
 					centraltemporal=lineatemporal.getCentralElectrica();
 					consumoDeLote=mapa.getConsumoElecticoDeLote(lineaDeTension.getPosicionX(), lineaDeTension.getPosicionY());
-					if((int)centraltemporal.getUsoActual()+(int)consumoDeLote<(int)centraltemporal.capacidadAbastecimiento){
+					if((int)centraltemporal.getUsoActual()+(int)consumoDeLote<(int)centraltemporal.getCapacidadAbastecimiento()){
 						lineaDeTension.setTieneElectricidad(centraltemporal);
 						centraltemporal.agregarAConsumoDeEnergia(consumoDeLote);
 						return true;
