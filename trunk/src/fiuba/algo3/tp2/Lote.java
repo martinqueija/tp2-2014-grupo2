@@ -5,7 +5,7 @@ public class Lote {
 	boolean hayConstruccion = false; //variable booleana que define si el lote tiene algo construido o no.
 	int coordX; // ubicacion del lote en el mapa
 	int coordY;
-	Superficie superficieDelLote;
+	Superficie superficieDelLote;//agua o tierra
 	private Construccion construccion;
 	private LineaDeTension lineaDeTension;
 	boolean TieneElectridadLote=false;
@@ -14,7 +14,6 @@ public class Lote {
 	public void agregarLineaDeTension(LineaDeTension nuevaLineaDeTension){
 		lineaDeTension=nuevaLineaDeTension;
 		setElectricidadLote(nuevaLineaDeTension.getTieneElectricidad());
-		
 	}
 	
 	public void setElectricidadLote(boolean valor){
@@ -57,13 +56,15 @@ public class Lote {
 		if (construccion!=null){
 			construccion.decrementarVida(factor);
 		}
+		if (lineaDeTension!=null){
+			lineaDeTension.decrementarVida(factor);
+		}
 	}
 	
 	public double obtenerVidaConstruccion(){
 		if (construccion!=null){
 			return (construccion.obtenerVida());
-		} else return 0;
-			
+		} else return 0;		
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){
@@ -77,8 +78,7 @@ public class Lote {
 	}
 
 	public void definirTerrerno(Superficie superficieRecibida) {
-		superficieDelLote = superficieRecibida;
-		
+		superficieDelLote = superficieRecibida;		
 	}
 
 	public LineaDeTension getLineaDeTension() {

@@ -6,6 +6,18 @@ import org.junit.Test;
 public class TerremotoTest {
 	
 	@Test
+	public void TerrerotoDeberiaDestruirPorCompletoLaLineaDeTensionEnElEpicentro(){
+		Mapa unMapa = new Mapa();
+		Terremoto unTerremoto = new Terremoto();
+		LineaDeTension lineaDeTension = new LineaDeTension(5,5);
+		
+		unMapa.agregarALaRedElectrica(lineaDeTension);
+		unTerremoto.iniciarTerremotoEn(5, 5, unMapa);
+		
+		Assert.assertEquals(0.0, lineaDeTension.obtenerVida());
+	}
+	
+	@Test
 	public void TerremotoDeberiaDestruirPorCompletoLaConstruccionEnElEpicentro(){
 		Mapa unMapa = new Mapa();
 		Terremoto unTerremoto = new Terremoto();
@@ -15,7 +27,6 @@ public class TerremotoTest {
 		unTerremoto.iniciarTerremotoEn(5, 5, unMapa);
 		
 		Assert.assertEquals(0.0, unMapa.obtenerVidaDeConstruccionEnLote(5,5));
-
 	}
 	
 	@Test
