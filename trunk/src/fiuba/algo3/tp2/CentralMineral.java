@@ -55,5 +55,11 @@ public class CentralMineral extends CentralElectrica { //Casa es una instancia c
 		return capacidadAbastecimiento;
 		
 	}
+	
+	public void reparacionBomberos(){
+		double vidaActual = this.obtenerVida();
+		double factorReparacion = ((vidaActual/100)*10); //repara el 10% de una Mineral
+		this.incrementarVida(factorReparacion);
+	}
 
 }

@@ -55,5 +55,11 @@ public class CentralNuclear extends CentralElectrica {
 		return capacidadAbastecimiento;
 		
 	}
+	
+	public void reparacionBomberos(){
+		double vidaActual = this.obtenerVida();
+		double factorReparacion = ((vidaActual/100)*3); //repara el 3% de una Nuclear
+		this.incrementarVida(factorReparacion);
+	}
 
 }
