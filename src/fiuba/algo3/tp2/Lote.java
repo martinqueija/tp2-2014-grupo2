@@ -12,13 +12,17 @@ public class Lote {
 	private boolean hayConstruccion = false; //variable booleana que define si el lote tiene algo construido o no.
 	private int coordX; // ubicacion del lote en el mapa
 	private int coordY;
-	private boolean TieneElectridadLote=false;
+	private boolean tieneElectridadLote=false;
+	private boolean tieneAguaLote=false;
 
 	
-	public boolean tieneAgua(){
-			return tuberia.tieneAgua();
+	public boolean getTieneAgua(){
+			return tieneAguaLote;
 	}
 	
+	public void setAgua(boolean valor){
+		tieneAguaLote=valor;
+	}
 	
 	public void agregarTuberiaDeAgua(TuberiaDeAgua nuevaTuberia){
 		tuberia=nuevaTuberia;
@@ -30,12 +34,12 @@ public class Lote {
 	}
 	
 	public void setElectricidadLote(boolean valor){
-		TieneElectridadLote=valor;	
+		tieneElectridadLote=valor;	
 		
 	}
 	
 	public boolean getTieneElectricidad(){
-		return TieneElectridadLote;
+		return tieneElectridadLote;
 		
 	}
 	
