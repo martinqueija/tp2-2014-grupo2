@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2;
 
-public class CentralMineral extends CentralElectrica { //Casa es una instancia construible
+public class CentralMineral extends CentralElectrica {
 	int capacidadAbastecimiento=400;
 	int posicionX;
 	int posicionY;
