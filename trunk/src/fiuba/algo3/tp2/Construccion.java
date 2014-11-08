@@ -24,4 +24,8 @@ public class Construccion {
 		//deberia estar implementada en una clase inferior
 		return true;
 	}
+	
+	public void reparacionBomberos(){
+		//subclassResponsibility
+	}
 }
