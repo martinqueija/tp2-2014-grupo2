@@ -12,6 +12,11 @@ public class Construccion {
 		}
 	}
 	
+	public void incrementarVida(double factor){
+		vida = vida + factor;
+		if (vida > 100) { vida = 100; }
+	}
+	
 	public double obtenerVida(){
 		return vida;
 	}
