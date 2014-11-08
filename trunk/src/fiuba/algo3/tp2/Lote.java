@@ -111,6 +111,8 @@ public class Lote {
 	}
 	
 	public void reparacionBomberos(){
-		construccion.reparacionBomberos();		
+		if (construccion!=null){
+			construccion.reparacionBomberos();
+		}
 	}
 }
