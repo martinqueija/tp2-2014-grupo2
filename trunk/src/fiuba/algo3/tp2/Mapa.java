@@ -8,6 +8,10 @@ public class Mapa {
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
 	
+	public void actualizarMapa(){
+		redElectrica.actualizarRed();
+		redDeAgua.actualizarRed();
+	}
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
 		redElectrica.agregarCentralElectrica(nuevaCentral);
@@ -128,7 +132,12 @@ public class Mapa {
 	public boolean getTieneAguaLote(int x, int y) {
 		Lote unLote;
 		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-		return 	unLote.tieneAgua();
+		return 	unLote.getTieneAgua();
 	}
-		
+	public void setTieneAguaLote(int x, int y,boolean valor) {
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		unLote.setAgua(valor);
+
+	}
 }

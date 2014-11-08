@@ -6,22 +6,25 @@ import org.junit.Test;
 
 public class RedDeAguaTest {
 	@Test
-	public void asd(){
+	public void TuberiaDeberiaTenerAguaCuandoSeLoConectaAUnPozo(){
 		Mapa mapa = new Mapa();
-		Lote lote = mapa.obtenerLote(5, 5);
 		PozoDeAgua pozo = new PozoDeAgua(5,5);
-		TuberiaDeAgua tuberia = new TuberiaDeAgua(5,5);
-		Agua agua = new Agua();
-		
-
-		Assert.assertEquals(tuberia.tieneAgua(), false);
-		
-		lote.definirTerrerno(agua);
 		mapa.agregarALaRedDeAgua(pozo);
+		
+		Assert.assertEquals(mapa.getTieneAguaLote(5, 8), false);
+	
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(5,5);
+		mapa.agregarALaRedDeAgua(tuberia);
+		tuberia = new TuberiaDeAgua(5,6);
+		mapa.agregarALaRedDeAgua(tuberia);
+		tuberia = new TuberiaDeAgua(5,7);
+		mapa.agregarALaRedDeAgua(tuberia);
+		tuberia = new TuberiaDeAgua(5,8);
 		mapa.agregarALaRedDeAgua(tuberia);
 		
-		Assert.assertEquals(tuberia.tieneAgua(), true);				
+		Assert.assertEquals(mapa.getTieneAguaLote(5, 8), true);				
 		
 	}
+
 
 }

@@ -30,11 +30,28 @@ public class RedDeAgua {
 				}
 			}
 		this.actualizarTuberiasDeAgua();
+		this.actualizarAguaEnLotes();
 
 		}
 		
 	}
 	
+	private void actualizarAguaEnLotes() {
+		TuberiaDeAgua tuberiaTem;
+		for(int i=0; i<mapa.obtenerTamanioLado();i++){
+			for(int j=0;j<mapa.obtenerTamanioLado();j++){
+				mapa.setTieneAguaLote(i, j, false);
+			}
+		}
+		for(int i=0;i<tuberiasDeAgua.size();i++){
+			tuberiaTem=tuberiasDeAgua.get(i);
+			if(tuberiaTem.tieneAgua){
+				mapa.setTieneAguaLote(tuberiaTem.getCoordenadaX(), tuberiaTem.getCoordenadaY(), true);
+			}
+		}
+		
+	}
+
 	private void actualizarTuberiasDeAgua() {
 		TuberiaDeAgua tuberiaTem;
 		for(int i=0; i< tuberiasDeAgua.size();i++){
