@@ -109,4 +109,8 @@ public class Lote {
 	public CentralElectrica getCentralElectrica(){
 		return centralElectrica;
 	}
+	
+	public void reparacionBomberos(){
+		construccion.reparacionBomberos();		
+	}
 }
