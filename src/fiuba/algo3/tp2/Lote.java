@@ -1,15 +1,28 @@
 package fiuba.algo3.tp2;
 
 public class Lote {
-	int consumoElectrico=0;
-	boolean hayConstruccion = false; //variable booleana que define si el lote tiene algo construido o no.
-	int coordX; // ubicacion del lote en el mapa
-	int coordY;
-	Superficie superficieDelLote;//agua o tierra
+
+	private Superficie superficieDelLote;//agua o tierra
 	private Construccion construccion;
 	private LineaDeTension lineaDeTension;
-	boolean TieneElectridadLote=false;
 	private CentralElectrica centralElectrica;
+	private TuberiaDeAgua tuberia;
+
+	private int consumoElectrico=0;
+	private boolean hayConstruccion = false; //variable booleana que define si el lote tiene algo construido o no.
+	private int coordX; // ubicacion del lote en el mapa
+	private int coordY;
+	private boolean TieneElectridadLote=false;
+
+	
+	public boolean tieneAgua(){
+			return tuberia.tieneAgua();
+	}
+	
+	
+	public void agregarTuberiaDeAgua(TuberiaDeAgua nuevaTuberia){
+		tuberia=nuevaTuberia;
+	}
 	
 	public void agregarLineaDeTension(LineaDeTension nuevaLineaDeTension){
 		lineaDeTension=nuevaLineaDeTension;

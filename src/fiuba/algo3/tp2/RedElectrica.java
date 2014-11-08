@@ -31,23 +31,20 @@ public class RedElectrica {
 		return false;
 	}
 	
-	public boolean actualizarRed(){
+	public  void actualizarRed(){
 		LineaDeTension lineatemporal;
 		for(int i=0;i<lineasDeTension.size();i++){
 			lineatemporal=lineasDeTension.get(i);
 			if(lineatemporal.tieneElectricidad==false){
 				if(hayElectricidadAdyacente(lineatemporal)){
 					this.actualizarRed();
-					return true;
 				}
 				if(existeCentralCercana(lineatemporal)){
-					this.actualizarRed();
-					return true;	
+					this.actualizarRed();	
 				}
 			}
 		}
 		actualizarElectricidadEnLotes();
-		return true;
 	}
 	
 	private void actualizarElectricidadEnLotes() {

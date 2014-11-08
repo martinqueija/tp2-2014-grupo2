@@ -6,6 +6,27 @@ import junit.framework.Assert;
 public class LoteTest {
 	
 	@Test
+	public void SiLaTuberiaTieneAguaElLoteDeberiaTenerAgua(){
+		Mapa mapa = new Mapa();
+		Lote lote = mapa.obtenerLote(5, 5);
+		PozoDeAgua pozo = new PozoDeAgua(5,5);
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(5,5);
+		Agua agua = new Agua();
+		
+
+		Assert.assertEquals(tuberia.tieneAgua(), false);
+		
+		lote.definirTerrerno(agua);
+		mapa.agregarALaRedDeAgua(pozo);
+		mapa.agregarALaRedDeAgua(tuberia);
+		
+		Assert.assertEquals(tuberia.tieneAgua(), true);		
+		
+		Assert.assertEquals(mapa.getTieneAguaLote(5,5), true);	
+		
+	}
+	
+	@Test
 	public void LoteDeberiaCrearseVacioYenCoordenadasSolicitadas(){
 		Lote lote = new Lote(2,3);
 		Assert.assertEquals(lote.hayConstruccion(), false);
@@ -68,7 +89,7 @@ public class LoteTest {
 	
 	@Test
 	public void LoteDeberiaPoderConstruirsePosoDeAguaSobreAgua(){
-		Construccion posoDeAgua = new PosoDeAgua();
+		Construccion posoDeAgua = new PozoDeAgua();
 		Lote lote = new Lote(1,1);
 		Agua agua = new Agua();
 		lote.definirTerrerno(agua);
