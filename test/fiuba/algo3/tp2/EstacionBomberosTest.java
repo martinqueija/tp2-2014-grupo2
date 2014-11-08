@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 import org.junit.Test;
+
 import junit.framework.Assert;
 
 public class EstacionBomberosTest {
@@ -94,5 +95,62 @@ public class EstacionBomberosTest {
 		unaEstacionBomberos.repararMapa(unMapa);
 		
 		Assert.assertEquals(3.0+(3.0*0.20), unaEstacionBomberos.obtenerVida());//para estaciones de bomberos reparan 20%
+	}
+	
+	@Test
+	public void EstacionDeBomberosDeberiaRepararCentralEolicaConDanios(){
+		Mapa unMapa = new Mapa();
+		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
+		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
+		CentralEolica nuevaCentral = new CentralEolica(5,5);
+		
+		unMapa.agregarALaRedElectrica(nuevaCentral);
+					
+		Terremoto unTerremoto = new Terremoto();
+		unTerremoto.iniciarTerremotoEn(7, 7, unMapa);
+		
+		Assert.assertEquals(3.0,nuevaCentral.obtenerVida());
+		
+		unaEstacionBomberos.repararMapa(unMapa);
+		
+		Assert.assertEquals(3.0+(3.0*0.15), nuevaCentral.obtenerVida());
+	}
+	
+	@Test
+	public void EstacionDeBomberosDeberiaRepararCentralMineralConDanios(){
+		Mapa unMapa = new Mapa();
+		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
+		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
+		CentralMineral nuevaCentral = new CentralMineral(5,5);
+		
+		unMapa.agregarALaRedElectrica(nuevaCentral);
+					
+		Terremoto unTerremoto = new Terremoto();
+		unTerremoto.iniciarTerremotoEn(7, 7, unMapa);
+		
+		Assert.assertEquals(3.0,nuevaCentral.obtenerVida());
+		
+		unaEstacionBomberos.repararMapa(unMapa);
+		
+		Assert.assertEquals(3.0+(3.0*0.10), nuevaCentral.obtenerVida());
+	}
+	
+	@Test
+	public void EstacionDeBomberosDeberiaRepararCentralNuclearConDanios(){
+		Mapa unMapa = new Mapa();
+		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
+		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
+		CentralNuclear nuevaCentral = new CentralNuclear(5,5);
+		
+		unMapa.agregarALaRedElectrica(nuevaCentral);
+					
+		Terremoto unTerremoto = new Terremoto();
+		unTerremoto.iniciarTerremotoEn(7, 7, unMapa);
+		
+		Assert.assertEquals(3.0,nuevaCentral.obtenerVida());
+		
+		unaEstacionBomberos.repararMapa(unMapa);
+		
+		Assert.assertEquals(3.0+(3.0*0.03), nuevaCentral.obtenerVida());
 	}
 }
