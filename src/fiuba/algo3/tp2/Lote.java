@@ -13,16 +13,14 @@ public class Lote {
 	private int coordX; // ubicacion del lote en el mapa
 	private int coordY;
 	private boolean tieneElectridadLote=false;
-	private boolean tieneAguaLote=false;
 
 	
 	public boolean getTieneAgua(){
-			return tieneAguaLote;
+		if(tuberia==null)
+			return false;
+		return tuberia.tieneAgua;
 	}
 	
-	public void setAgua(boolean valor){
-		tieneAguaLote=valor;
-	}
 	
 	public void agregarTuberiaDeAgua(TuberiaDeAgua nuevaTuberia){
 		tuberia=nuevaTuberia;

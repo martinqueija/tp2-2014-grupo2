@@ -134,10 +134,5 @@ public class Mapa {
 		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
 		return 	unLote.getTieneAgua();
 	}
-	public void setTieneAguaLote(int x, int y,boolean valor) {
-		Lote unLote;
-		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-		unLote.setAgua(valor);
 
-	}
 }
