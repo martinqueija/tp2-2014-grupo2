@@ -56,5 +56,11 @@ public class CentralEolica extends CentralElectrica{
 		return capacidadAbastecimiento;
 		
 	}
+	
+	public void reparacionBomberos(){
+		double vidaActual = this.obtenerVida();
+		double factorReparacion = ((vidaActual/100)*15); //repara el 15% de una Eolica
+		this.incrementarVida(factorReparacion);
+	}
 
 }

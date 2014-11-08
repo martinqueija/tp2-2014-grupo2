@@ -11,5 +11,11 @@ public class EstacionBomberos extends Construccion {
 			}
 		}
 	}
+	
+	public void reparacionBomberos(){
+		double vidaActual = this.obtenerVida();
+		double factorReparacion = ((vidaActual/100)*20); //repara el 20% de una estacion de bomberos
+		this.incrementarVida(factorReparacion);
+	}
 
 }

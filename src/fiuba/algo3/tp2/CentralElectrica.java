@@ -56,4 +56,5 @@ public class CentralElectrica extends Construccion { //Casa es una instancia con
 		return capacidadAbastecimiento;
 		
 	}
+	
 }

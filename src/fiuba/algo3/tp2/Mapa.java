@@ -8,6 +8,20 @@ public class Mapa {
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
 	
+	public Mapa(){
+		redElectrica.agregarMapa(this);
+		redDeAgua.agregarMpa(this);
+		TerrenoLLano terreno = new TerrenoLLano();
+		Lote temp;
+		for (int i=0;i<tamanioLadoMapa;i++){
+			for (int j=0;j<tamanioLadoMapa;j++){
+				temp = new Lote(i,j);
+				temp.definirTerrerno(terreno);  //provisorio implementar algoritmo mapa
+				lotes.add(temp);
+			}	
+		}
+	}
+	
 	public void actualizarMapa(){
 		redElectrica.actualizarRed();
 		redDeAgua.actualizarRed();
@@ -24,20 +38,6 @@ public class Mapa {
 		Lote unLote;
 		unLote = lotes.get(((lineaDeTension.getPosicionX())*tamanioLadoMapa)+lineaDeTension.getPosicionY());
 		unLote.agregarLineaDeTension(lineaDeTension);
-	}
-
-	public Mapa(){
-		redElectrica.agregarMapa(this);
-		redDeAgua.agregarMpa(this);
-		TerrenoLLano terreno = new TerrenoLLano();
-		Lote temp;
-		for (int i=0;i<tamanioLadoMapa;i++){
-			for (int j=0;j<tamanioLadoMapa;j++){
-				temp = new Lote(i,j);
-				temp.definirTerrerno(terreno);  //provisorio implementar algoritmo mapa
-				lotes.add(temp);
-			}	
-		}
 	}
 	
 	public int obtenerTamanioLado(){
