@@ -6,6 +6,7 @@ public class Mapa {
 	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
 	RedElectrica redElectrica = new RedElectrica();
+	RedDeAgua redDeAgua = new RedDeAgua();
 	
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
@@ -23,6 +24,7 @@ public class Mapa {
 
 	public Mapa(){
 		redElectrica.agregarMapa(this);
+		redDeAgua.agregarMpa(this);
 		TerrenoLLano terreno = new TerrenoLLano();
 		Lote temp;
 		for (int i=0;i<tamanioLadoMapa;i++){
@@ -38,6 +40,26 @@ public class Mapa {
 		return tamanioLadoMapa;
 	}
 	
+	public Lote obtenerLote(int x, int y){
+		return lotes.get(((x)*tamanioLadoMapa)+y);
+	}
+	
+	public int calcularDistanciaEntreLotes(int x1, int y1, int x2, int y2){
+		int diferenciaX;
+		int diferenciaY;
+		if (x1>x2) { diferenciaX = x1-x2; } else { diferenciaX = x2-x1; };
+		if (y1>y2) { diferenciaY = y1-y2; } else { diferenciaY = y2-y1; };
+		
+		int diferenciaX2 = (diferenciaX)*(diferenciaX);
+		int diferenciaY2 = (diferenciaY)*(diferenciaY);
+		
+		double sumaCuadrados = diferenciaX2 + diferenciaY2;
+		int distancia = (int) Math.sqrt(sumaCuadrados);
+		
+		return distancia;
+	}
+	
+
 	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
 		Lote temp;
 		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY); //esa formula busca el lote determinado en el arreglo continuo de lotes. es facil de entender
@@ -62,20 +84,6 @@ public class Mapa {
 		return (unLote.obtenerVidaConstruccion());
 	}
 	
-	public int calcularDistanciaEntreLotes(int x1, int y1, int x2, int y2){
-		int diferenciaX;
-		int diferenciaY;
-		if (x1>x2) { diferenciaX = x1-x2; } else { diferenciaX = x2-x1; };
-		if (y1>y2) { diferenciaY = y1-y2; } else { diferenciaY = y2-y1; };
-		
-		int diferenciaX2 = (diferenciaX)*(diferenciaX);
-		int diferenciaY2 = (diferenciaY)*(diferenciaY);
-		
-		double sumaCuadrados = diferenciaX2 + diferenciaY2;
-		int distancia = (int) Math.sqrt(sumaCuadrados);
-		
-		return distancia;
-	}
 	
 	public int getConsumoElecticoDeLote(int x, int y){
 		Lote unLote;
@@ -102,4 +110,25 @@ public class Mapa {
 		unLote.setCentralElectricaQueAlmentaLote(centraltemporal);
 		
 	}
+
+	public void agregarALaRedDeAgua(PozoDeAgua pozo) {
+		redDeAgua.agregarPozo(pozo);	
+		this.insertarConstruccionEn(pozo.getCoordenadaX(),pozo.getCoordenadaY(),pozo);
+	}
+
+	public void agregarALaRedDeAgua(TuberiaDeAgua tuberia) {
+		redDeAgua.agregarTuberia(tuberia);
+		Lote unLote;
+		unLote = lotes.get(((tuberia.getCoordenadaX())*tamanioLadoMapa)+tuberia.getCoordenadaY());
+		unLote.agregarTuberiaDeAgua(tuberia);
+
+		
+	}
+
+	public boolean getTieneAguaLote(int x, int y) {
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		return 	unLote.tieneAgua();
+	}
+		
 }
