@@ -2,3 +2,4 @@ SUPUESTOS::
 
 Las estaciones de bomberos se reparan a si mismas por un factor de 20%.
 Dinero inicial 1000.
+el mapa se crea estatico y siempre con la misma distribuicion de tierra agua.
