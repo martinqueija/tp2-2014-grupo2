@@ -91,6 +91,10 @@ public class Lote {
 			//excepcion
 		}
 	}
+	
+	public Superficie obtenerSuperficieDelLote(){
+		return (superficieDelLote);
+	}
 
 	public void definirTerrerno(Superficie superficieRecibida) {
 		superficieDelLote = superficieRecibida;		
