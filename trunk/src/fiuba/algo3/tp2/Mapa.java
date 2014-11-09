@@ -11,13 +11,23 @@ public class Mapa {
 	public Mapa(){
 		redElectrica.agregarMapa(this);
 		redDeAgua.agregarMpa(this);
-		TerrenoLLano terreno = new TerrenoLLano();
-		Lote temp;
+		TerrenoLLano terrenoLlano = new TerrenoLLano();
+		Agua agua = new Agua();
+		Lote loteTemp;
+		
 		for (int i=0;i<tamanioLadoMapa;i++){
 			for (int j=0;j<tamanioLadoMapa;j++){
-				temp = new Lote(i,j);
-				temp.definirTerrerno(terreno);  //provisorio implementar algoritmo mapa
-				lotes.add(temp);
+				loteTemp = new Lote(i,j);
+				
+				if (i<(int)(tamanioLadoMapa*(3/4))) {
+					loteTemp.definirTerrerno(terrenoLlano);  //provisorio implementar algoritmo mapa
+				} else {
+					if ((i+j)>((int)(tamanioLadoMapa*(3/4)*(6/4)))){
+						loteTemp.definirTerrerno(agua);
+					}
+				}
+				
+				lotes.add(loteTemp);
 			}	
 		}
 	}
