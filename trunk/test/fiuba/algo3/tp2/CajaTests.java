@@ -5,7 +5,7 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class CajaTests {
-//ruta 10 lineaTen 5 tuboAgua 5 pozo agua
+//FALTANTES ruta 10 lineaTen 5 tuboAgua 5 pozo agua
 
 	@Test
 	public void CajaDeberiaConstruirCasaYdecrementarLaCantidadDeDinero(){
