@@ -100,4 +100,27 @@ public class LoteTest {
 		
 	}
 
+	@Test
+	public void LoteDebeDevolverCorrectamenteLaSuperficieQueSeLeAsignoAgua(){
+		Lote unLote = new Lote(1,1);
+		Superficie sup;
+		Agua agua = new Agua();
+		unLote.definirTerrerno(agua);
+		sup = unLote.obtenerSuperficieDelLote();
+		
+		Assert.assertEquals(sup.esAgua(), true);
+		Assert.assertEquals(sup.esTerrenoLLano(), false);
+	}
+	
+	@Test
+	public void LoteDebeDevolverCorrectamenteLaSuperficieQueSeLeAsignoTerrenoLlano(){
+		Lote unLote = new Lote(1,1);
+		Superficie sup;
+		TerrenoLLano terreno = new TerrenoLLano();
+		unLote.definirTerrerno(terreno);
+		sup = unLote.obtenerSuperficieDelLote();
+		
+		Assert.assertEquals(sup.esAgua(), false);
+		Assert.assertEquals(sup.esTerrenoLLano(), true);
+	}
 }
