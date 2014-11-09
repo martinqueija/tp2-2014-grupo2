@@ -14,19 +14,21 @@ public class Mapa {
 		TerrenoLLano terrenoLlano = new TerrenoLLano();
 		Agua agua = new Agua();
 		Lote loteTemp;
+		int var = (int)tamanioLadoMapa*3/4;
 		
 		for (int i=0;i<tamanioLadoMapa;i++){
 			for (int j=0;j<tamanioLadoMapa;j++){
 				loteTemp = new Lote(i,j);
 				
-				if (i<(int)(tamanioLadoMapa*(3/4))) {
+				if (j<var) {
 					loteTemp.definirTerrerno(terrenoLlano);  //provisorio implementar algoritmo mapa
 				} else {
-					if ((i+j)>((int)(tamanioLadoMapa*(3/4)*(6/4)))){
+					if ((i+j)>2*var){
 						loteTemp.definirTerrerno(agua);
+					} else {
+						loteTemp.definirTerrerno(terrenoLlano);
 					}
-				}
-				
+				}				
 				lotes.add(loteTemp);
 			}	
 		}
