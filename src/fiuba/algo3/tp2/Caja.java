@@ -15,6 +15,12 @@ public class Caja {
 		return Saldo;
 	}
 	
+	public void RecoleccionImpuestosPorPoblacion(Poblacion laPoblacion){
+		int poblacion = laPoblacion.getCantidadPoblacion();
+		int ganancia = poblacion*10;
+		this.IncrementarSaldo(ganancia);
+	}
+	
 	public void ComprarCasaEnCoord(int x, int y, Mapa elMapa){
 		Casa unaCasa = new Casa();
 		elMapa.insertarConstruccionEn(x, y, unaCasa);
