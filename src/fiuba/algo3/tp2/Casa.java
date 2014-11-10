@@ -13,5 +13,10 @@ public class Casa extends Construccion { //Casa es una instancia construible
 		double factorReparacion = ((vidaActual/100)*10); //repara el 10% de una casa
 		this.incrementarVida(factorReparacion);
 	}
+	
+	public boolean esCasa(){
+		return true;
+	}
+	
 
 }

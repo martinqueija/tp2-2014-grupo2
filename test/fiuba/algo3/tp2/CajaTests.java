@@ -5,7 +5,18 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 public class CajaTests {
-//FALTANTES ruta 10 
+	
+	@Test
+	public void CajaDeberiaConstruirUnaRutaYdecrementarLaCantidadDeDinero(){
+		Caja unaCaja = new Caja();
+		Mapa unMapa = new Mapa();
+		
+
+		unaCaja.ComprarUnaRutaEnCoord(5,5,unMapa);
+		
+		Assert.assertEquals(1000-10, unaCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+	}
 	
 	@Test
 	public void CajaDeberiaConstruirUnaTuberiaDeAguaYdecrementarLaCantidadDeDinero(){
@@ -113,4 +124,5 @@ public class CajaTests {
 		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
+
 }

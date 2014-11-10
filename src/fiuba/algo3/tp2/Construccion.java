@@ -33,4 +33,13 @@ public class Construccion {
 	public void reparacionBomberos(){
 		//subclassResponsibility
 	}
+	
+	public boolean esCasa(){
+		return false;
+	}
+	
+	public boolean esRuta(){
+		return false;
+	}
+	
 }

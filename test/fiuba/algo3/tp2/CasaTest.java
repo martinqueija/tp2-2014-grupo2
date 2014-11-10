@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 import junit.framework.Assert;
+
 import org.junit.Test;
 
 public class CasaTest {
@@ -10,5 +11,10 @@ public class CasaTest {
 		((Construccion)unaCasa).decrementarVida(10);
 		Assert.assertEquals(((Construccion)unaCasa).obtenerVida(), 90.0);
 	}
+	@Test
+	public void CasaDeberiaDevolverVerdaderoAlPreguntarleSiEsCasa(){
+		Construccion casa = new Casa();
 
+		Assert.assertEquals(casa.esCasa(),true);
+	}
 }

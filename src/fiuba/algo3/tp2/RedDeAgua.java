@@ -65,7 +65,7 @@ public class RedDeAgua {
 
 
 
-	public void agregarMpa(Mapa nuevoMapa) {
+	public void agregarMapa(Mapa nuevoMapa) {
 		mapa = nuevoMapa;
 		
 	}

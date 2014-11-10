@@ -3,14 +3,16 @@ import java.util.ArrayList;
 
 
 public class Mapa {
-	int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
+	private int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
+	Poblacion poblacion = new Poblacion();
 	
 	public Mapa(){
 		redElectrica.agregarMapa(this);
-		redDeAgua.agregarMpa(this);
+		redDeAgua.agregarMapa(this);
+		poblacion.agregarMapa(this);
 		TerrenoLLano terrenoLlano = new TerrenoLLano();
 		Agua agua = new Agua();
 		Lote loteTemp;
@@ -37,6 +39,7 @@ public class Mapa {
 	public void actualizarMapa(){
 		redElectrica.actualizarRed();
 		redDeAgua.actualizarRed();
+		poblacion.actualizar();
 	}
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
@@ -77,6 +80,9 @@ public class Mapa {
 	
 
 	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
+		if(this.sonCoordendadasValidas(coordX,coordY)==false){
+			return false;
+		}
 		Lote temp;
 		temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY); //esa formula busca el lote determinado en el arreglo continuo de lotes. es facil de entender
 		return (temp.hayConstruccion());
@@ -109,6 +115,9 @@ public class Mapa {
 				
 	}
 	public boolean getTieneElecticidadLote(int x, int y){
+		if(this.sonCoordendadasValidas(x,y)==false){
+			return false;
+		}
 		Lote unLote;
 		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
 		return unLote.getTieneElectricidad();
@@ -143,6 +152,9 @@ public class Mapa {
 	}
 
 	public boolean getTieneAguaLote(int x, int y) {
+		if(this.sonCoordendadasValidas(x,y)==false){
+			return false;
+		}
 		Lote unLote;
 		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
 		return 	unLote.getTieneAgua();
@@ -155,9 +167,51 @@ public class Mapa {
 	}
 
 	public boolean getTieneLoteTuberiaDeAgua(int i, int j) {
+		if(this.sonCoordendadasValidas(i,j)==false){
+			return false;
+		}
 		Lote unLote;
 		unLote = lotes.get(((i)*tamanioLadoMapa)+j);
 		return unLote.getTieneTuberiaDeAgua();
+	}
+
+	public boolean getTieneCasaElLote(int i, int j) {
+		if(this.sonCoordendadasValidas(i,j)==false){
+			return false;
+		}
+		Lote unLote;
+		unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+		return unLote.getEsLaConstruccionUnaCasa();
+	}
+
+	public boolean getTieneRutaElLote(int i, int j) {
+		if(this.sonCoordendadasValidas(i,j)==false){
+			return false;
+		}
+		Lote unLote;
+		unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+		return unLote.getEsLaConstruccionUnaRuta();
+
+	}
+
+	private boolean sonCoordendadasValidas(int i, int j) {
+		if(i<0){
+			return false;
+		}
+		if(j<0){
+			return false;
+		}
+		if(i-1>this.tamanioLadoMapa){
+			return false;
+		}
+		if(j-1>this.tamanioLadoMapa){
+			return false;
+		}
+		return true;
+	}
+
+	public int getCantidadPoblacion() {
+		return poblacion.getCantidadPoblacion();
 	}
 
 }
