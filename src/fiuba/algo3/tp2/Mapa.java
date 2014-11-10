@@ -154,4 +154,10 @@ public class Mapa {
 		unLote.definirTerrerno(terrerno);
 	}
 
+	public boolean getTieneLoteTuberiaDeAgua(int i, int j) {
+		Lote unLote;
+		unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+		return unLote.getTieneTuberiaDeAgua();
+	}
+
 }

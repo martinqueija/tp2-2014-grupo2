@@ -84,7 +84,6 @@ public class Lote {
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){
-		System.out.println("caracteres");
 		if(unaConstruccion.puedeConstruirEnSuperficie(superficieDelLote)){
 			construccion=unaConstruccion;
 			hayConstruccion=true;	
@@ -118,5 +117,13 @@ public class Lote {
 		if (construccion!=null){
 			construccion.reparacionBomberos();
 		}
+	}
+
+
+	public boolean getTieneTuberiaDeAgua() {
+		if(tuberia!=null){
+		return true;
+		}
+		return false;
 	}
 }
