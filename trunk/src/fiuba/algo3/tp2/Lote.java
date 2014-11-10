@@ -80,9 +80,11 @@ public class Lote {
 		if (construccion!=null){
 			return (construccion.obtenerVida());
 		} else return 0;		
+		
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){
+		System.out.println("caracteres");
 		if(unaConstruccion.puedeConstruirEnSuperficie(superficieDelLote)){
 			construccion=unaConstruccion;
 			hayConstruccion=true;	
