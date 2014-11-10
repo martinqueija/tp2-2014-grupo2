@@ -97,6 +97,7 @@ public class Mapa {
 	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
 		Lote unLote;
 		unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
+
 		return (unLote.obtenerVidaConstruccion());
 	}
 	
@@ -145,6 +146,12 @@ public class Mapa {
 		Lote unLote;
 		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
 		return 	unLote.getTieneAgua();
+	}
+	
+	public void setSuperficieLote(int x, int y,Superficie terrerno){
+		Lote unLote;
+		unLote = lotes.get(((x)*tamanioLadoMapa)+y);
+		unLote.definirTerrerno(terrerno);
 	}
 
 }

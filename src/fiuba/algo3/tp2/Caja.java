@@ -57,5 +57,17 @@ public class Caja {
 		this.DecrementarSaldo(1000);
 	}
 	
+	public void ComprarPozoDeAguaEnCoord(int x, int y, Mapa elMapa){
+		PozoDeAgua pozo = new PozoDeAgua(x,y);
+		elMapa.agregarALaRedDeAgua(pozo);
+		this.DecrementarSaldo(250);
+	}
+	
+	public void ComprarTuberiaDeAguaEnCoord(int x, int y, Mapa elMapa){
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(x,y);
+		elMapa.agregarALaRedDeAgua(tuberia);
+		this.DecrementarSaldo(250);
+	}
+	
 	
 }
