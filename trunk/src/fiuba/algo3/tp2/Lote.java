@@ -126,4 +126,20 @@ public class Lote {
 		}
 		return false;
 	}
+
+
+	public boolean getEsLaConstruccionUnaCasa() {
+		if (construccion!=null){
+			return construccion.esCasa();
+		}
+		return false;
+	}
+
+
+	public boolean getEsLaConstruccionUnaRuta() {
+		if (construccion!=null){
+			return construccion.esRuta();
+		}
+		return false;
+	}
 }

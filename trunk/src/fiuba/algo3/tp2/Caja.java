@@ -68,6 +68,12 @@ public class Caja {
 		elMapa.agregarALaRedDeAgua(tuberia);
 		this.DecrementarSaldo(5);
 	}
-	
+
+	public void ComprarUnaRutaEnCoord(int i, int j, Mapa elMapa) {
+		Ruta ruta = new Ruta ();
+		elMapa.insertarConstruccionEn(i, j, ruta);
+		this.DecrementarSaldo(10);
+		
+	}
 	
 }

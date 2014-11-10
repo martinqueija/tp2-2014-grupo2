@@ -11,4 +11,10 @@ public class RutaTest {
 		((Construccion)unaRuta).decrementarVida(10);
 		Assert.assertEquals(((Construccion)unaRuta).obtenerVida(), 90.0);
 	}
+	@Test
+	public void RutaDeberiaDevolverVerdaderoAlPreguntarleSiEsRuta(){
+		Construccion ruta = new Ruta();
+
+		Assert.assertEquals(ruta.esRuta(),true);
+	}
 }
