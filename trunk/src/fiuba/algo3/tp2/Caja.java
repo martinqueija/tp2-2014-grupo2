@@ -66,7 +66,7 @@ public class Caja {
 	public void ComprarTuberiaDeAguaEnCoord(int x, int y, Mapa elMapa){
 		TuberiaDeAgua tuberia = new TuberiaDeAgua(x,y);
 		elMapa.agregarALaRedDeAgua(tuberia);
-		this.DecrementarSaldo(250);
+		this.DecrementarSaldo(5);
 	}
 	
 	

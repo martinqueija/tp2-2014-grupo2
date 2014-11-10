@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CajaTests {
 //FALTANTES ruta 10 
 	
-	/*@Test
+	@Test
 	public void CajaDeberiaConstruirUnaTuberiaDeAguaYdecrementarLaCantidadDeDinero(){
 		Caja unaCaja = new Caja();
 		Mapa unMapa = new Mapa();
@@ -16,9 +16,9 @@ public class CajaTests {
 		unaCaja.ComprarTuberiaDeAguaEnCoord(5,5,unMapa);
 		
 		Assert.assertEquals(1000-5, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(true, unMapa.getTieneLoteTuberiaDeAgua(5, 5));
 	}
-	*/
+	
 	@Test
 	public void CajaDeberiaConstruirUnPozoDeAguaYdecrementarLaCantidadDeDinero(){
 		Caja unaCaja = new Caja();
