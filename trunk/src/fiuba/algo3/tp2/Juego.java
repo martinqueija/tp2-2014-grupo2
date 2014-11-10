@@ -4,6 +4,7 @@ public class Juego {
 	Mapa elMapa = new Mapa();
 	Caja laCaja = new Caja();
 	Poblacion laPoblacion = new Poblacion();
+	AdministradorCatastrofes adminCatastrofes = new AdministradorCatastrofes();
 	
 	public void iniciarJuego() {
 		laPoblacion.agregarMapa(elMapa);
@@ -15,6 +16,7 @@ public class Juego {
 				turnos=0;
 			}
 			this.turnoJugador(elMapa, laCaja, laPoblacion);
+			adminCatastrofes.actuar(elMapa);
 			elMapa.actualizarMapa();
 			turnos++;
 		}
