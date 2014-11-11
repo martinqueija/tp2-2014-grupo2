@@ -9,7 +9,7 @@ public class JuegoTests {
 	@Test
 	public void JuegoDeberiaInicializarseConPoblacionCero(){
 		Juego elJuego = new Juego();
-		Assert.assertEquals(0,elJuego.laPoblacion.getCantidadPoblacion());
+		Assert.assertEquals(0,elJuego.elMapa.getCantidadPoblacion());
 	}
 	
 	@Test

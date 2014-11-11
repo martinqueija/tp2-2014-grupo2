@@ -3,26 +3,25 @@ package fiuba.algo3.tp2;
 public class Juego {
 	Mapa elMapa = new Mapa();
 	Caja laCaja = new Caja();
-	Poblacion laPoblacion = new Poblacion();
 	AdministradorCatastrofes adminCatastrofes = new AdministradorCatastrofes();
+	RandomizadorInterface randomizer = new RandomizadorPosta();
 	
 	public void iniciarJuego() {
-		laPoblacion.agregarMapa(elMapa);
 		int turnos = 0;
 		
 		while (laCaja.ObtenerSaldo()>0) {
 			if (turnos>=30) {
-				laCaja.RecoleccionImpuestosPorPoblacion(laPoblacion);
+				laCaja.RecoleccionImpuestosPorPoblacion(elMapa.getCantidadPoblacion());
 				turnos=0;
 			}
-			this.turnoJugador(elMapa, laCaja, laPoblacion);
-			adminCatastrofes.actuar(elMapa);
+			this.turnoJugador(elMapa, laCaja);
+			adminCatastrofes.actuar(elMapa, randomizer);
 			elMapa.actualizarMapa();
 			turnos++;
 		}
 	}
 	
-	public void turnoJugador(Mapa elMapa, Caja laCaja, Poblacion laPoblacion){
+	public void turnoJugador(Mapa elMapa, Caja laCaja){
 		
 	}
 
