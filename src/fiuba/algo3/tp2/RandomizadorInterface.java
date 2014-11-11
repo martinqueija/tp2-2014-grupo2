@@ -2,8 +2,12 @@ package fiuba.algo3.tp2;
 
 interface RandomizadorInterface {
 	
-	int obtenerNumeroRandom(int rango);
+	int obtenerNumeroRandomCat(int rango);
+	int obtenerNumeroRandomX(int rango);
+	int obtenerNumeroRandomY(int rango);
 	
-	void setNumeroMock(int numeroEntrada);
+	void setNumeroMockCat(int numeroEntrada);
+	void setNumeroMockX(int numeroEntrada);
+	void setNumeroMockY(int numeroEntrada);
 
 }
