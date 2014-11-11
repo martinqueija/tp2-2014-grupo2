@@ -15,9 +15,8 @@ public class Caja {
 		return Saldo;
 	}
 	
-	public void RecoleccionImpuestosPorPoblacion(Poblacion laPoblacion){
-		int poblacion = laPoblacion.getCantidadPoblacion();
-		int ganancia = poblacion*10;
+	public void RecoleccionImpuestosPorPoblacion(int Poblacion){
+		int ganancia = Poblacion*10;
 		this.IncrementarSaldo(ganancia);
 	}
 	

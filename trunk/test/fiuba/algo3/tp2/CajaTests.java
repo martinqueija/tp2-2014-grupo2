@@ -17,7 +17,7 @@ public class CajaTests {
 		Caja unaCaja = new Caja();
 		Poblacion laPoblacion = new Poblacion();
 		laPoblacion.agregarPoblacion(100);
-		unaCaja.RecoleccionImpuestosPorPoblacion(laPoblacion);
+		unaCaja.RecoleccionImpuestosPorPoblacion(laPoblacion.getCantidadPoblacion());
 		Assert.assertEquals(1000+(100*10), unaCaja.ObtenerSaldo());
 	}
 	
