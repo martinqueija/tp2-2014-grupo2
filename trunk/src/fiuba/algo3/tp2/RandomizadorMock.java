@@ -4,7 +4,7 @@ public class RandomizadorMock implements RandomizadorInterface {
 	
 	int numeroMock=0;
 
-	public int obtenerNumeroRandom() {
+	public int obtenerNumeroRandom(int rango) {
 		return numeroMock;
 	}
 

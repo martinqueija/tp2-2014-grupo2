@@ -10,7 +10,7 @@ public class RandomizadorTest {
 	public void RandomizadorMockDebeFuncionarCorrectamente(){
 		RandomizadorInterface rand = new RandomizadorMock();
 		rand.setNumeroMock(2);
-		int res = rand.obtenerNumeroRandom();
+		int res = rand.obtenerNumeroRandom(100);
 		Assert.assertEquals(2,res);
 	}
 }
