@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class RandomizadorPosta implements RandomizadorInterface {
 
-	public int obtenerNumeroRandom() {
+	public int obtenerNumeroRandom(int rango) {
 		Random randomGen = new Random();
-		int NumeroRandom = randomGen.nextInt(100);
+		int NumeroRandom = randomGen.nextInt(rango);
 		return NumeroRandom;
 	}
 
