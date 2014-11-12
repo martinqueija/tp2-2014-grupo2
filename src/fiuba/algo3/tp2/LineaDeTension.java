@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2;
 
-public class LineaDeTension extends Construccion { //Casa es una instancia construible
+public class LineaDeTension extends Construccion { 
 	
 	boolean tieneElectricidad=false;
 	CentralElectrica centralElectricaQueLeDaEnergia;

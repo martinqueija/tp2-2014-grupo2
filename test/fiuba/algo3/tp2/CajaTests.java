@@ -81,6 +81,17 @@ public class CajaTests {
 	}
 	
 	@Test
+	public void CajaDeberiaConstruirLineaDeTensionYdecrementarLaCantidadDeDinero(){
+		Caja unaCaja = new Caja();
+		Mapa unMapa = new Mapa();
+		
+		unaCaja.ComprarLineaDeTensionEnCoord(5, 5, unMapa);
+		
+		Assert.assertEquals(1000-200, unaCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+	}
+	
+	@Test
 	public void CajaDeberiaConstruirIndustriaYdecrementarLaCantidadDeDinero(){
 		Caja unaCaja = new Caja();
 		Mapa unMapa = new Mapa();
