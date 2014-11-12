@@ -9,8 +9,6 @@ public class RandomizadorPosta implements RandomizadorInterface {
 		return NumeroRandom;
 	}
 
-	public void setNumeroMockCat(int numeroEntrada) {
-	}
 
 	public int obtenerNumeroRandomX(int rango) {
 		Random randomGen = new Random();
@@ -18,16 +16,10 @@ public class RandomizadorPosta implements RandomizadorInterface {
 		return NumeroRandom;
 	}
 
-	public void setNumeroMockX(int numeroEntrada) {
-	}
-	
 	public int obtenerNumeroRandomY(int rango) {
 		Random randomGen = new Random();
 		int NumeroRandom = randomGen.nextInt(rango);
 		return NumeroRandom;
-	}
-
-	public void setNumeroMockY(int numeroEntrada) {
 	}
 
 }
