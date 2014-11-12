@@ -47,18 +47,28 @@ public class Caja {
 	public void ComprarCentralNuclearEnCoord(int x, int y, Mapa elMapa){
 		CentralNuclear unaCentralNuclear = new CentralNuclear(x,y);
 		elMapa.insertarConstruccionEn(x, y, unaCentralNuclear);
+		elMapa.agregarALaRedElectrica(unaCentralNuclear);
 		this.DecrementarSaldo(10000);
 	}
 	
 	public void ComprarCentralMineralEnCoord(int x, int y, Mapa elMapa){
 		CentralMineral unaCentralMineral = new CentralMineral(x,y);
 		elMapa.insertarConstruccionEn(x, y, unaCentralMineral);
+		elMapa.agregarALaRedElectrica(unaCentralMineral);
 		this.DecrementarSaldo(3000);
+	}
+	
+	public void ComprarLineaDeTensionEnCoord(int x, int  y, Mapa elMapa){
+		LineaDeTension linea = new LineaDeTension(x,y);
+		elMapa.insertarConstruccionEn(x, y, linea);
+		elMapa.agregarALaRedElectrica(linea);
+		this.DecrementarSaldo(200);
 	}
 	
 	public void ComprarCentralEolicaEnCoord(int x, int y, Mapa elMapa){
 		CentralEolica unaCentralEolica = new CentralEolica(x,y);
 		elMapa.insertarConstruccionEn(x, y, unaCentralEolica);
+		elMapa.agregarALaRedElectrica(unaCentralEolica);
 		this.DecrementarSaldo(1000);
 	}
 	
