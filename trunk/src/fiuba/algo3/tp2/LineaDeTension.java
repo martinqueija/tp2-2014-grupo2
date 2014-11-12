@@ -39,14 +39,6 @@ public class LineaDeTension extends Construccion {
 		} else return false;
 	}	
 	
-	void setPosicionX(int x){
-		posicionX=x;
-	}
-	
-	void setPosicionY(int y){
-		posicionY=y;
-	}
-	
 	int getPosicionX(){
 		return posicionX;
 	}
