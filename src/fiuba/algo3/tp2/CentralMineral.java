@@ -61,5 +61,9 @@ public class CentralMineral extends CentralElectrica {
 		double factorReparacion = ((vidaActual/100)*10); //repara el 10% de una Mineral
 		this.incrementarVida(factorReparacion);
 	}
+	
+	public int obtenerCostoConstruccion(){
+		return 3000;
+	}
 
 }

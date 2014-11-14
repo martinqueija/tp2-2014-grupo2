@@ -38,5 +38,9 @@ public class TuberiaDeAgua {
 	public void setCoordenadaY(int coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}
+	
+	public int obtenerCostoConstruccion(){
+		return 5;
+	}
 
 }

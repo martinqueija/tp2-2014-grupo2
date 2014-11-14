@@ -17,5 +17,8 @@ public class EstacionBomberos extends Construccion {
 		double factorReparacion = ((vidaActual/100)*20); //repara el 20% de una estacion de bomberos
 		this.incrementarVida(factorReparacion);
 	}
-
+	
+	public int obtenerCostoConstruccion(){
+		return 1500;
+	}
 }

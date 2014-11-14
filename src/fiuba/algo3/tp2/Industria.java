@@ -13,4 +13,8 @@ public class Industria extends Construccion{
 		double factorReparacion = ((vidaActual/100)*3); //repara el 3% de una industria
 		this.incrementarVida(factorReparacion);
 	}
+	
+	public int obtenerCostoConstruccion(){
+		return 10;
+	}
 }

@@ -35,5 +35,9 @@ public class PozoDeAgua extends Construccion {
 	public void setCoordenadaY(int coordenadaY) {
 		this.coordenadaY = coordenadaY;
 	}	
+	
+	public int obtenerCostoConstruccion(){
+		return 250;
+	}
 
 }

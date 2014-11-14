@@ -63,4 +63,7 @@ public class CentralEolica extends CentralElectrica{
 		this.incrementarVida(factorReparacion);
 	}
 
+	public int obtenerCostoConstruccion(){
+		return 1000;
+	}
 }
