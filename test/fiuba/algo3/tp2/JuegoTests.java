@@ -35,130 +35,121 @@ public class JuegoTests {
 	
 
 	@Test
-	public void CajaDeberiaConstruirUnaRutaYdecrementarLaCantidadDeDinero(){
+	public void DeberiaConstruirUnaRutaYdecrementarLaCantidadDeDinero(){
 		Juego juego = new Juego();
 		
 
 		juego.ComprarUnaRutaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-10, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-10, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirUnaTuberiaDeAguaYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirUnaTuberiaDeAguaYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
 
-		unaCaja.ComprarTuberiaDeAguaEnCoord(5,5,unMapa);
+		juego.ComprarTuberiaDeAguaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(true, unMapa.getTieneLoteTuberiaDeAgua(5, 5));
+		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(true, juego.elMapa.getTieneLoteTuberiaDeAgua(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirUnPozoDeAguaYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirUnPozoDeAguaYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		Agua agua = new Agua();
 		
-		unMapa.setSuperficieLote(5, 5, agua);
-		unaCaja.ComprarPozoDeAguaEnCoord(5,5,unMapa);
+		juego.elMapa.setSuperficieLote(5, 5, agua);
+		juego.ComprarPozoDeAguaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-250, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-250, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 
 	@Test
-	public void CajaDeberiaConstruirCasaYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirCasaYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarCasaEnCoord(5,5,unMapa);
+		juego.ComprarCasaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
 	public void CajaDeberiaConstruirComercioYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarComercioEnCoord(5,5,unMapa);
+		juego.ComprarComercioEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirLineaDeTensionYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirLineaDeTensionYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarLineaDeTensionEnCoord(5, 5, unMapa);
+		juego.ComprarLineaDeTensionEnCoord(5, 5);
 		
-		Assert.assertEquals(1000-200, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirIndustriaYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirIndustriaYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarIndustriaEnCoord(5,5,unMapa);
+		juego.ComprarIndustriaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-10, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000-10, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirEstacionBomberosYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirEstacionBomberosYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarEstacionDeBomberosEnCoord(5,5,unMapa);
-		unaCaja.IncrementarSaldo(1500);
+		juego.laCaja.IncrementarSaldo(1500);
+		juego.ComprarEstacionDeBomberosEnCoord(5,5);
+
 		
-		Assert.assertEquals(1000, unaCaja.ObtenerSaldo()); // 1000+1500-1500=1000
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000, juego.laCaja.ObtenerSaldo()); // 1000+1500-1500=1000
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirCentralNuclearYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirCentralNuclearYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarCentralNuclearEnCoord(5,5,unMapa);
-		unaCaja.IncrementarSaldo(10000);	
-		
-		Assert.assertEquals(1000+10000-10000, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		juego.laCaja.IncrementarSaldo(10000);	
+		juego.ComprarCentralNuclearEnCoord(5,5);
+
+		Assert.assertEquals(1000+10000-10000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirCentralMineralYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirCentralMineralYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
+
+		juego.laCaja.IncrementarSaldo(3000);	
+		juego.ComprarCentralMineralEnCoord(5,5);
 		
-		unaCaja.ComprarCentralMineralEnCoord(5,5,unMapa);
-		unaCaja.IncrementarSaldo(3000);	
-		
-		Assert.assertEquals(1000+3000-3000, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000+3000-3000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
 	@Test
-	public void CajaDeberiaConstruirCentralEolicaYdecrementarLaCantidadDeDinero(){
-		Caja unaCaja = new Caja();
-		Mapa unMapa = new Mapa();
+	public void DeberiaConstruirCentralEolicaYdecrementarLaCantidadDeDinero(){
+		Juego juego = new Juego();
 		
-		unaCaja.ComprarCentralEolicaEnCoord(5,5,unMapa);
-		unaCaja.IncrementarSaldo(1000);	
+		juego.laCaja.IncrementarSaldo(1000);
+		juego.ComprarCentralEolicaEnCoord(5,5);
 		
-		Assert.assertEquals(1000+1000-1000, unaCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(1000+1000-1000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 }
