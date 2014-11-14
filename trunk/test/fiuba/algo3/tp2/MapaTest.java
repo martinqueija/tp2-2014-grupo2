@@ -1,6 +1,9 @@
 package fiuba.algo3.tp2;
 import junit.framework.Assert;
 import org.junit.Test;
+import fiuba.algo3.tp2.Excepciones.*;
+
+
 
 public class MapaTest {
 	
@@ -41,5 +44,18 @@ public class MapaTest {
 		mapa.insertarConstruccionEn(2, 3, unaCasa);
 		Assert.assertEquals(mapa.obtenerVidaDeConstruccionEnLote(2, 3),100.0);
 	}
-
+	
+	@Test
+	public void MapaDeberiaLanzarExcepcionConstryuendoFueraDelMapa(){
+		Mapa mapa = new Mapa();
+		Construccion unaCasa = new Casa();
+		boolean lanzo = false;
+		try {
+				mapa.insertarConstruccionEn(-2, 3, unaCasa);
+		} catch (ExcepcionCoordenadasInvalidas excepcion) {
+			lanzo = true;
+		}
+		Assert.assertEquals(lanzo,true);
+	}
+	
 }
