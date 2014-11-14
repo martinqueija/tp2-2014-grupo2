@@ -46,5 +46,9 @@ public class LineaDeTension extends Construccion {
 	int getPosicionY(){
 		return posicionY;
 	}
+	
+	public int obtenerCostoConstruccion(){
+		return 5;
+	}
 
 }

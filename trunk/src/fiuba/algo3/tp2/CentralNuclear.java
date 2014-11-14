@@ -61,5 +61,8 @@ public class CentralNuclear extends CentralElectrica {
 		double factorReparacion = ((vidaActual/100)*3); //repara el 3% de una Nuclear
 		this.incrementarVida(factorReparacion);
 	}
-
+	
+	public int obtenerCostoConstruccion(){
+		return 10000;
+	}
 }

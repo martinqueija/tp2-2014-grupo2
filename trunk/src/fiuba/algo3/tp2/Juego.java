@@ -25,4 +25,74 @@ public class Juego {
 		
 	}
 
+	public void ComprarCasaEnCoord(int x, int y){
+		Casa unaCasa = new Casa();
+		elMapa.insertarConstruccionEn(x, y, unaCasa);
+		laCaja.DecrementarSaldo(unaCasa.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarComercioEnCoord(int x, int y){
+		Comercio unComercio = new Comercio();
+		elMapa.insertarConstruccionEn(x, y, unComercio);
+		laCaja.DecrementarSaldo(unComercio.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarIndustriaEnCoord(int x, int y){
+		Industria unaIndustria = new Industria();
+		elMapa.insertarConstruccionEn(x, y, unaIndustria);
+		laCaja.DecrementarSaldo(unaIndustria.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarEstacionDeBomberosEnCoord(int x, int y){
+		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
+		elMapa.insertarConstruccionEn(x, y, unaEstacionBomberos);
+		laCaja.DecrementarSaldo(unaEstacionBomberos.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarCentralNuclearEnCoord(int x, int y){
+		CentralNuclear unaCentralNuclear = new CentralNuclear(x,y);
+		elMapa.insertarConstruccionEn(x, y, unaCentralNuclear);
+		elMapa.agregarALaRedElectrica(unaCentralNuclear);
+		laCaja.DecrementarSaldo(unaCentralNuclear.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarCentralMineralEnCoord(int x, int y){
+		CentralMineral unaCentralMineral = new CentralMineral(x,y);
+		elMapa.insertarConstruccionEn(x, y, unaCentralMineral);
+		elMapa.agregarALaRedElectrica(unaCentralMineral);
+		laCaja.DecrementarSaldo(unaCentralMineral.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarLineaDeTensionEnCoord(int x, int  y){
+		LineaDeTension linea = new LineaDeTension(x,y);
+		elMapa.insertarConstruccionEn(x, y, linea);
+		elMapa.agregarALaRedElectrica(linea);
+		laCaja.DecrementarSaldo(linea.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarCentralEolicaEnCoord(int x, int y){
+		CentralEolica unaCentralEolica = new CentralEolica(x,y);
+		elMapa.insertarConstruccionEn(x, y, unaCentralEolica);
+		elMapa.agregarALaRedElectrica(unaCentralEolica);
+		laCaja.DecrementarSaldo(unaCentralEolica.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarPozoDeAguaEnCoord(int x, int y){
+		PozoDeAgua pozo = new PozoDeAgua(x,y);
+		elMapa.agregarALaRedDeAgua(pozo);
+		laCaja.DecrementarSaldo(pozo.obtenerCostoConstruccion());
+	}
+	
+	public void ComprarTuberiaDeAguaEnCoord(int x, int y){
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(x,y);
+		elMapa.agregarALaRedDeAgua(tuberia);
+		laCaja.DecrementarSaldo(tuberia.obtenerCostoConstruccion());
+	}
+
+	public void ComprarUnaRutaEnCoord(int i, int j) {
+		Ruta ruta = new Ruta ();
+		elMapa.insertarConstruccionEn(i, j, ruta);
+		laCaja.DecrementarSaldo(ruta.obtenerCostoConstruccion());
+		
+	}
 }
