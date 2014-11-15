@@ -9,6 +9,8 @@ public class RedDeAguaTest {
 	public void TuberiaDeberiaTenerAguaCuandoSeLoConectaAUnPozo(){
 		Mapa mapa = new Mapa();
 		PozoDeAgua pozo = new PozoDeAgua(5,5);
+		Agua agua = new Agua();
+		mapa.setSuperficieLote(5, 5, agua);
 		mapa.agregarALaRedDeAgua(pozo);
 		
 		Assert.assertEquals(mapa.getTieneAguaLote(5, 8), false);

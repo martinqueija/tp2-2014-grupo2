@@ -1,4 +1,5 @@
 package fiuba.algo3.tp2;
+import fiuba.algo3.tp2.Excepciones.*;
 
 public class Lote {
 
@@ -89,7 +90,7 @@ public class Lote {
 			hayConstruccion=true;	
 		}
 		else {
-			//excepcion
+			throw new ExcepcionSuperficieInvalida();
 		}
 	}
 	
