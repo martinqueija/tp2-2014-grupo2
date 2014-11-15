@@ -44,16 +44,21 @@ public class Mapa {
 	}
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
-		redElectrica.agregarCentralElectrica(nuevaCentral);
-		
-		this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
+		if (!(this.sonCoordendadasValidas(nuevaCentral.getPosicionX(), nuevaCentral.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				redElectrica.agregarCentralElectrica(nuevaCentral);
+				this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
+			}
 	}
 	
 	public void agregarALaRedElectrica(LineaDeTension lineaDeTension){
-		redElectrica.agregarLineaDeTension(lineaDeTension);
-		Lote unLote;
-		unLote = lotes.get(((lineaDeTension.getPosicionX())*tamanioLadoMapa)+lineaDeTension.getPosicionY());
-		unLote.agregarLineaDeTension(lineaDeTension);
+		if (!(this.sonCoordendadasValidas(lineaDeTension.getPosicionX(), lineaDeTension.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				redElectrica.agregarLineaDeTension(lineaDeTension);
+				Lote unLote;
+				unLote = lotes.get(((lineaDeTension.getPosicionX())*tamanioLadoMapa)+lineaDeTension.getPosicionY());
+				unLote.agregarLineaDeTension(lineaDeTension);
+			}
 	}
 	
 	public int obtenerTamanioLado(){
@@ -63,7 +68,8 @@ public class Mapa {
 	public Lote obtenerLote(int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
-		return lotes.get(((x)*tamanioLadoMapa)+y);}
+				return lotes.get(((x)*tamanioLadoMapa)+y);
+		}
 	}
 	
 	public int calcularDistanciaEntreLotes(int x1, int y1, int x2, int y2){
@@ -87,7 +93,8 @@ public class Mapa {
 		else {
 				Lote temp;
 				temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY); //esa formula busca el lote determinado en el arreglo continuo de lotes. es facil de entender
-				return (temp.hayConstruccion());}
+				return (temp.hayConstruccion());
+			}
 	}
 	
 	public void insertarConstruccionEn(int coordX, int coordY, Construccion unaConstruccion){
@@ -95,7 +102,8 @@ public class Mapa {
 		if (!(this.sonCoordendadasValidas(coordX, coordY))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
 				temp = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
-				temp.insertarConstruccion(unaConstruccion);}
+				temp.insertarConstruccion(unaConstruccion);
+			}
 	}
 	
 	public void daniarConstruccionDelLote(int coordX, int coordY, double factor){
@@ -103,7 +111,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
-				unLote.daniarConstruccion(factor);}
+				unLote.daniarConstruccion(factor);
+			}
 	}
 	
 	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
@@ -111,7 +120,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
-				return (unLote.obtenerVidaConstruccion());}
+				return (unLote.obtenerVidaConstruccion());
+			}
 	}
 	
 	
@@ -120,7 +130,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				return unLote.getConsumoElectrico();}
+				return unLote.getConsumoElectrico();
+			}
 				
 	}
 	public boolean getTieneElecticidadLote(int x, int y){
@@ -128,7 +139,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				return unLote.getTieneElectricidad();}
+				return unLote.getTieneElectricidad();
+			}
 		
 	}
 	public void setElectricidadLote(int x,int y, boolean valor){
@@ -136,7 +148,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				unLote.setElectricidadLote(valor);}
+				unLote.setElectricidadLote(valor);
+			}
 		
 	}
 
@@ -145,20 +158,27 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				unLote.setCentralElectricaQueAlmentaLote(centraltemporal);}
+				unLote.setCentralElectricaQueAlmentaLote(centraltemporal);
+		}
 		
 	}
 
 	public void agregarALaRedDeAgua(PozoDeAgua pozo) {
-		redDeAgua.agregarPozo(pozo);	
-		this.insertarConstruccionEn(pozo.getCoordenadaX(),pozo.getCoordenadaY(),pozo);
+		if (!(this.sonCoordendadasValidas(pozo.getCoordenadaX(), pozo.getCoordenadaY()))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				redDeAgua.agregarPozo(pozo);	
+				this.insertarConstruccionEn(pozo.getCoordenadaX(),pozo.getCoordenadaY(),pozo);
+		}
 	}
 
 	public void agregarALaRedDeAgua(TuberiaDeAgua tuberia) {
-		redDeAgua.agregarTuberia(tuberia);
-		Lote unLote;
-		unLote = lotes.get(((tuberia.getCoordenadaX())*tamanioLadoMapa)+tuberia.getCoordenadaY());
-		unLote.agregarTuberiaDeAgua(tuberia);		
+		if (!(this.sonCoordendadasValidas(tuberia.getCoordenadaX(), tuberia.getCoordenadaY()))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				redDeAgua.agregarTuberia(tuberia);
+				Lote unLote;
+				unLote = lotes.get(((tuberia.getCoordenadaX())*tamanioLadoMapa)+tuberia.getCoordenadaY());
+				unLote.agregarTuberiaDeAgua(tuberia);	
+		}
 	}
 
 	public boolean getTieneAguaLote(int x, int y) {
@@ -166,7 +186,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				return 	unLote.getTieneAgua();}
+				return 	unLote.getTieneAgua();
+			}
 	}
 	
 	public void setSuperficieLote(int x, int y,Superficie terrerno){
@@ -174,7 +195,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				unLote.definirTerrerno(terrerno);}
+				unLote.definirTerrerno(terrerno);
+			}
 	}
 
 	public boolean getTieneLoteTuberiaDeAgua(int x, int y) {
@@ -182,7 +204,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((x)*tamanioLadoMapa)+y);
-				return unLote.getTieneTuberiaDeAgua();}
+				return unLote.getTieneTuberiaDeAgua();
+			}
 	}
 
 	public boolean getTieneCasaElLote(int i, int j) {
@@ -190,7 +213,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
-				return unLote.getEsLaConstruccionUnaCasa();}
+				return unLote.getEsLaConstruccionUnaCasa();
+			}
 	}
 
 	public boolean getTieneRutaElLote(int i, int j) {
@@ -198,7 +222,8 @@ public class Mapa {
 		else {
 				Lote unLote;
 				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
-				return unLote.getEsLaConstruccionUnaRuta();}
+				return unLote.getEsLaConstruccionUnaRuta();
+			}
 
 	}
 

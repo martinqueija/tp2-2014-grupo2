@@ -57,6 +57,4 @@ public class CentralElectrica extends Construccion {
 		
 	}
 	
-	
-	
 }
