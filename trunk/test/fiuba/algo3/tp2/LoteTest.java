@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2;
 import org.junit.Test;
-
+import fiuba.algo3.tp2.Excepciones.*;
 import junit.framework.Assert;
 
 public class LoteTest {
@@ -66,10 +66,17 @@ public class LoteTest {
 		Casa unaCasa = new Casa();
 		Lote lote = new Lote(1,1);
 		Agua agua = new Agua();
+		boolean lanzo = false;
 		lote.definirTerrerno(agua);
+
 		
-		lote.insertarConstruccion((Construccion)unaCasa);
+		try {
+			lote.insertarConstruccion((Construccion)unaCasa);
+		} catch (ExcepcionSuperficieInvalida excepcion) {
+			lanzo = true;
+		}
 		
+		Assert.assertEquals(lanzo,true);
 		Assert.assertEquals(lote.hayConstruccion(), false);
 		
 	}

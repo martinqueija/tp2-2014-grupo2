@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2;
 
 import junit.framework.Assert;
-
+import fiuba.algo3.tp2.Excepciones.*;
 import org.junit.Test;
 
 public class JuegoTests {
@@ -151,5 +151,36 @@ public class JuegoTests {
 		
 		Assert.assertEquals(1000+1000-1000, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+	}
+	
+	@Test
+	public void DeberiaLanzarExcpecionConstruyendoFueraDelMapa(){
+		Juego juego = new Juego();
+		boolean lanzo = false;
+		juego.laCaja.IncrementarSaldo(1000);
+		try {
+				juego.ComprarCentralEolicaEnCoord(-5,5);
+		} catch (ExcepcionCoordenadasInvalidas excepcion) {
+			lanzo = true;
+		}
+		
+		Assert.assertEquals(true, lanzo);
+	}
+	
+	@Test
+	public void DeberiaLanzarExcepcionAlConstruirCasaSobreAgua(){
+		Juego juego = new Juego();
+		Agua agua = new Agua();
+		boolean lanzo = false;
+		
+		juego.elMapa.setSuperficieLote(5, 5, agua);
+		
+		try{
+			juego.ComprarCasaEnCoord(5,5);
+		
+			} catch (ExcepcionSuperficieInvalida excepcion) {
+				lanzo = true;
+			}
+		Assert.assertEquals(lanzo,true);
 	}
 }
