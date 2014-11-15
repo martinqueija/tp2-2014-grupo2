@@ -85,12 +85,15 @@ public class Lote {
 	}
 	
 	public void insertarConstruccion(Construccion unaConstruccion){
-		if(unaConstruccion.puedeConstruirEnSuperficie(superficieDelLote)){
-			construccion=unaConstruccion;
-			hayConstruccion=true;	
-		}
+		if (construccion != null) { throw new ExcepcionLoteYaContieneConstruccion(); }
 		else {
-			throw new ExcepcionSuperficieInvalida();
+			if(unaConstruccion.puedeConstruirEnSuperficie(superficieDelLote)){
+				construccion=unaConstruccion;
+				hayConstruccion=true;	
+			}
+			else {
+				throw new ExcepcionSuperficieInvalida();
+			}
 		}
 	}
 	
