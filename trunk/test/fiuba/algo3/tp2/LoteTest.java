@@ -130,4 +130,24 @@ public class LoteTest {
 		Assert.assertEquals(sup.esAgua(), false);
 		Assert.assertEquals(sup.esTerrenoLLano(), true);
 	}
+	
+	@Test
+	public void LoteDeberiaLanzarExcepcionSiSeIntentaConstruirDondeYaHayConstruccion(){
+		Casa casa = new Casa();
+		Casa otraCasa = new Casa();
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terreno = new TerrenoLLano();
+		lote.definirTerrerno(terreno);
+		boolean lanzo = false;
+		
+		lote.insertarConstruccion(casa);
+		try {
+			lote.insertarConstruccion(otraCasa);
+		} catch (ExcepcionLoteYaContieneConstruccion excepcion) {
+			lanzo = true;
+		}
+		
+		Assert.assertEquals(true,lanzo);
+		
+	}
 }
