@@ -58,4 +58,21 @@ public class MapaTest {
 		Assert.assertEquals(lanzo,true);
 	}
 	
+	@Test
+	public void MapaACtualizarDeberiaEliminarLasCOnstruccionesSinVida(){
+		Mapa mapa = new Mapa();
+		Construccion unaCasa = new Casa();
+		mapa.insertarConstruccionEn(1, 1, unaCasa);
+		
+		Lote loteTemp = mapa.obtenerLote(1, 1);
+		
+		Assert.assertEquals(true, loteTemp.hayConstruccion());
+		
+		mapa.daniarConstruccionDelLote(1, 1, 100);
+		mapa.actualizarMapa();
+		
+		
+		Assert.assertEquals(false, loteTemp.hayConstruccion());
+	}
+	
 }

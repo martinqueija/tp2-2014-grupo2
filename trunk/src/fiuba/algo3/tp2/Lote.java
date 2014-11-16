@@ -147,4 +147,9 @@ public class Lote {
 		}
 		return false;
 	}
+	
+	public void eliminarConstruccion(){
+		construccion = null;
+		hayConstruccion = false;
+	}
 }

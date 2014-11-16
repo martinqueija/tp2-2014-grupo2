@@ -38,10 +38,26 @@ public class Mapa {
 	}
 	
 	public void actualizarMapa(){
+		this.removerConstruccionesSinVida();
 		redElectrica.actualizarRed();
 		redDeAgua.actualizarRed();
 		poblacion.actualizar();
 	}
+	
+	public void removerConstruccionesSinVida(){
+		Lote loteTemp;
+		for (int i=0;i<tamanioLadoMapa;i++){
+			for (int j=0;j<tamanioLadoMapa;j++){
+				loteTemp = this.obtenerLote(i, j);
+				if (loteTemp.hayConstruccion()){
+					if ((loteTemp.obtenerVidaConstruccion())<=0) {
+						loteTemp.eliminarConstruccion();
+					}
+				}
+			}
+		}
+	}
+		
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
 		if (!(this.sonCoordendadasValidas(nuevaCentral.getPosicionX(), nuevaCentral.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
