@@ -51,14 +51,12 @@ public class Juego {
 	
 	public void ComprarCentralNuclearEnCoord(int x, int y){
 		CentralNuclear unaCentralNuclear = new CentralNuclear(x,y);
-		elMapa.insertarConstruccionEn(x, y, unaCentralNuclear);
 		elMapa.agregarALaRedElectrica(unaCentralNuclear);
 		laCaja.DecrementarSaldo(unaCentralNuclear.obtenerCostoConstruccion());
 	}
 	
 	public void ComprarCentralMineralEnCoord(int x, int y){
 		CentralMineral unaCentralMineral = new CentralMineral(x,y);
-		elMapa.insertarConstruccionEn(x, y, unaCentralMineral);
 		elMapa.agregarALaRedElectrica(unaCentralMineral);
 		laCaja.DecrementarSaldo(unaCentralMineral.obtenerCostoConstruccion());
 	}
@@ -72,7 +70,6 @@ public class Juego {
 	
 	public void ComprarCentralEolicaEnCoord(int x, int y){
 		CentralEolica unaCentralEolica = new CentralEolica(x,y);
-		elMapa.insertarConstruccionEn(x, y, unaCentralEolica);
 		elMapa.agregarALaRedElectrica(unaCentralEolica);
 		laCaja.DecrementarSaldo(unaCentralEolica.obtenerCostoConstruccion());
 	}

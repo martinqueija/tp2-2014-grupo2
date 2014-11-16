@@ -8,7 +8,6 @@ public class IntegracionTests {
 	public void TestIntegracion1(){
 		Mapa unMapa = new Mapa();
 		CentralNuclear central = new CentralNuclear(4,4);
-		unMapa.insertarConstruccionEn(4, 4, central);
 		Casa casa = new Casa();
 		unMapa.insertarConstruccionEn(4, 6, casa);
 		LineaDeTension linea = new LineaDeTension(4,5);
@@ -24,7 +23,6 @@ public class IntegracionTests {
 	public void TestIntegracion2(){
 		Mapa unMapa = new Mapa();
 		CentralNuclear central = new CentralNuclear(4,4);
-		unMapa.insertarConstruccionEn(4, 4, central);
 		Casa casa = new Casa();
 		unMapa.insertarConstruccionEn(4, 8, casa);
 		LineaDeTension linea1 = new LineaDeTension(4,5);
@@ -51,7 +49,6 @@ public class IntegracionTests {
 	public void TestIntegracion3(){
 		Mapa unMapa = new Mapa();
 		CentralEolica central = new CentralEolica(4,4);
-		unMapa.insertarConstruccionEn(4, 4, central);
 		Casa casa = new Casa();
 		unMapa.insertarConstruccionEn(4, 8, casa);
 		LineaDeTension linea1 = new LineaDeTension(4,5);
@@ -78,7 +75,6 @@ public class IntegracionTests {
 	public void TestIntegracion4(){
 		Mapa unMapa = new Mapa();
 		CentralMineral central = new CentralMineral(4,4);
-		unMapa.insertarConstruccionEn(4, 4, central);
 		Casa casa = new Casa();
 		unMapa.insertarConstruccionEn(4, 8, casa);
 		LineaDeTension linea1 = new LineaDeTension(4,5);

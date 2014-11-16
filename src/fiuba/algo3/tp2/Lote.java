@@ -52,6 +52,7 @@ public class Lote {
 	}
 	
 	public Lote(int coordenadaX,int coordenadaY){
+		construccion = null;
 		coordX = coordenadaX;
 		coordY = coordenadaY;
 	}
