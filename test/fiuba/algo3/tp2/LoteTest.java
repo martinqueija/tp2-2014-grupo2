@@ -150,4 +150,16 @@ public class LoteTest {
 		Assert.assertEquals(true,lanzo);
 		
 	}
+	
+	@Test
+	public void EliminarConstruccionDeberiaSacarLaCOnstruccionDelLOte(){
+		Casa casa = new Casa();
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terr = new TerrenoLLano();
+		lote.definirTerrerno(terr);
+		lote.insertarConstruccion(casa);
+		lote.eliminarConstruccion();
+		
+		Assert.assertEquals(false, lote.hayConstruccion());
+	}
 }
