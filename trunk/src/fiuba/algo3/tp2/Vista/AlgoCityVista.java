@@ -1,17 +1,18 @@
 package fiuba.algo3.tp2.Vista;
-
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
-
 import javax.swing.JButton;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 @SuppressWarnings("serial")
 public class AlgoCityVista extends JFrame {
 		
         JButton[][] grid; //nombra la grilla de botones
+        static boolean a = false;
  
         public AlgoCityVista(int width, int length){ 
                 setLayout(new GridLayout(width,length));
@@ -53,10 +54,21 @@ public class AlgoCityVista extends JFrame {
                     }
                 }
                 
-  //              btnNewButton.addActionListener(new ActionListener() {
-  //      			public void actionPerformed(ActionEvent arg0) {
-   //     			}
-   //     		});
+                JButton boton = grid[3][3];
+                ActionListener action = new ActionListener(){
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						if (a) {
+						setBotonTexto("yeah",4,4);
+						a = false;
+						} else {
+							setBotonTexto("god",4,4);
+							a = true;
+						}
+					}
+                };
+                
+                boton.addActionListener(action);
                 
                 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

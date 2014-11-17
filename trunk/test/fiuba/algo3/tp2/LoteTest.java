@@ -184,4 +184,24 @@ public class LoteTest {
 		
 		Assert.assertEquals("<html>I <br/>100.0</html>", lote.obtenerIdentificadorLote());
 	}
+	
+	@Test
+	public void IdentificadorDeberiaDevolverseCorrecamente3(){
+		CentralEolica eo = new CentralEolica(1,1);
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terr = new TerrenoLLano();
+		lote.definirTerrerno(terr);
+		lote.insertarConstruccion(eo);
+		
+		Assert.assertEquals("<html>EO <br/>100.0</html>", lote.obtenerIdentificadorLote());
+	}
+	
+	@Test
+	public void IdentificadorDeberiaDevolverseCorrecamente4(){
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terr = new TerrenoLLano();
+		lote.definirTerrerno(terr);
+		
+		Assert.assertEquals("<html><br/>-</html>", lote.obtenerIdentificadorLote());
+	}
 }

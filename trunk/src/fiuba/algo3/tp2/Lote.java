@@ -40,6 +40,8 @@ public class Lote {
 		
 		if (hayConstruccion) {
 			identpost = String.valueOf(construccion.obtenerVida());
+		} else {
+			identpost = "-";
 		}
 		
 		String ident = "<html>" + identpre + "<br/>" + identpost + "</html>";
