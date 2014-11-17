@@ -58,7 +58,14 @@ public class Lote {
 	}
 	
 	public void setElectricidadLote(boolean valor){
-		tieneElectridadLote=valor;	
+		if(valor==true){
+			tieneElectridadLote=valor;	
+		}
+		else{
+			tieneElectridadLote=valor;	
+			centralElectrica=null;
+			
+		}
 		
 	}
 	
@@ -177,4 +184,24 @@ public class Lote {
 		construccion = null;
 		hayConstruccion = false;
 	}
+
+	public double obtenerVidaLineaDeTension() {
+		if (lineaDeTension!=null){
+			return (lineaDeTension.obtenerVida());
+		} else return 0;
+	}
+
+	public boolean getTieneLineaDeTension() {
+		if(lineaDeTension==null){
+			return false;
+		}
+		return true;
+	}
+
+	public void eliminarLineaDeTension() {
+		lineaDeTension=null;
+		
+	}
+
+
 }

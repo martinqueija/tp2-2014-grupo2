@@ -54,6 +54,11 @@ public class Mapa {
 						loteTemp.eliminarConstruccion();
 					}
 				}
+				if(loteTemp.getTieneLineaDeTension()){
+					if(loteTemp.obtenerVidaLineaDeTension()<=0){
+						loteTemp.eliminarLineaDeTension();
+					}
+				}
 			}
 		}
 	}
@@ -131,6 +136,7 @@ public class Mapa {
 			}
 		this.removerConstruccionesSinVida();
 	}
+	
 	
 	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
 		if (!(this.sonCoordendadasValidas(coordX, coordY))) {throw new ExcepcionCoordenadasInvalidas();}
