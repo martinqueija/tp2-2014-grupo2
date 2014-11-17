@@ -20,8 +20,8 @@ public class AlgoCityPrincipal {
 			}
 		};
 		EventQueue.invokeLater(runner);
-		//juego = new Juego();
-		//controlador = new AlgoCityControlador(view, juego);
+		juego = new Juego();
+		controlador = new AlgoCityControlador(view, juego);
 	}
 	
 
