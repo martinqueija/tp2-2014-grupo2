@@ -32,19 +32,61 @@ public class RedElectrica {
 	}
 	
 	public  void actualizarRed(){
+		
+		reiniciarMapaElectrico();
+		actualizarTodo();
+		actualizarElectricidadEnLotes();
+	}
+	
+	private void reiniciarMapaElectrico() {
+		this.actualizarCentrales();
+		this.actualizarLineasDeTension();
+		
+		CentralElectrica centralTem;
+		LineaDeTension lineaTem;
+		for(int i=0;i<mapa.obtenerTamanioLado();i++){//pone todos los lotes sin electricidad
+			for(int j=0;j<mapa.obtenerTamanioLado();j++){
+				mapa.setElectricidadLote(i, j, false);
+			}
+		}
+		for(int i=0;i<centralesElctricas.size();i++){//reinicie el uso de electricidad en las centrales
+			centralTem=centralesElctricas.get(i);
+			centralTem.setUsoActualACero();
+
+		}
+		for(int i=0;i<lineasDeTension.size();i++){//pone todas las lineas de tension sin electricidad
+			lineaTem=lineasDeTension.get(i);
+			lineaTem.setNoTieneElectricidad();
+		}
+
+		
+	}
+
+	private void actualizarLineasDeTension() {
+		LineaDeTension lineaTem;
+		for(int i=0;i<lineasDeTension.size();i++){
+			lineaTem=lineasDeTension.get(i);
+			if(lineaTem.obtenerVida()<=0){
+				lineasDeTension.remove(lineaTem);
+			}
+		}
+		
+	}
+
+	private void actualizarTodo(){
+		
 		LineaDeTension lineatemporal;
 		for(int i=0;i<lineasDeTension.size();i++){
 			lineatemporal=lineasDeTension.get(i);
 			if(lineatemporal.tieneElectricidad==false){
 				if(hayElectricidadAdyacente(lineatemporal)){
-					this.actualizarRed();
+					this.actualizarTodo();
 				}
 				if(existeCentralCercana(lineatemporal)){
-					this.actualizarRed();	
+					this.actualizarTodo();	
 				}
 			}
-		}
-		actualizarElectricidadEnLotes();
+		}	
 	}
 	
 	private void actualizarElectricidadEnLotes() {
@@ -95,6 +137,17 @@ public class RedElectrica {
 		return false;
 	}
 	
+	private void actualizarCentrales() {
+		CentralElectrica centraltem;
+		for(int i=0;i<centralesElctricas.size();i++){
+			centraltem=centralesElctricas.get(i);
+			if(centraltem.obtenerVida()<=0){
+				centralesElctricas.remove(centraltem);
+			}
+		}
+		
+	}
+
 	public void agregarCentralElectrica(CentralElectrica nuevaCentral){
 		centralesElctricas.add(nuevaCentral);
 		this.actualizarRed();
