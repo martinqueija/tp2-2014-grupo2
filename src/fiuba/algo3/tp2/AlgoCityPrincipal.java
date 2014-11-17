@@ -6,17 +6,22 @@ import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityPrincipal {
 	
-	public static void main(String[] args){
-		Juego juego = new Juego();
-		AlgoCityControlador controlador = new AlgoCityControlador();
+	AlgoCityVista view;
+	Juego juego;
+	AlgoCityControlador controlador;
+	
+	public void main(String[] args){
+
 		Runnable runner = new Runnable(){
 			@Override
 			public void run(){
-				AlgoCityVista view = new AlgoCityVista(17, 17);
+				view = new AlgoCityVista(17, 17);
 				view.setVisible(true);
 			}
 		};
 		EventQueue.invokeLater(runner);
+		juego = new Juego();
+		controlador = new AlgoCityControlador(view, juego);
 	}
 }
 
