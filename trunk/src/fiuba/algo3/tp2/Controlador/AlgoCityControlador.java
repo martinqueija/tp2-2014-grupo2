@@ -1,9 +1,16 @@
 package fiuba.algo3.tp2.Controlador;
 import fiuba.algo3.tp2.*;
+import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityControlador {
 	
-	Juego juego = new Juego();
+	Juego juego;
+	AlgoCityVista vista;
+	
+	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
+		juego = ElJuego;
+		vista = LaVista;
+	}
 	
 	boolean ConstruyeCasa = false;
 	boolean ConstruyeComercio = false;
