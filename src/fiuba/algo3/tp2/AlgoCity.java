@@ -10,13 +10,10 @@ public class AlgoCity {
 		Runnable runner = new Runnable(){
 			@Override
 			public void run(){
-				AlgoCityVista view = new AlgoCityVista();
+				AlgoCityVista view = new AlgoCityVista(17,17);
 				view.setVisible(true);
 			}
 		};
-		
-		
-		
 		EventQueue.invokeLater(runner);
 	}
 

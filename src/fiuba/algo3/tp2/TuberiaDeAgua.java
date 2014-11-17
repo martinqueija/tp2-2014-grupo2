@@ -42,5 +42,8 @@ public class TuberiaDeAgua {
 	public int obtenerCostoConstruccion(){
 		return 5;
 	}
-
+	
+	public String getIdentificador(){
+		return "() ";
+	}
 }

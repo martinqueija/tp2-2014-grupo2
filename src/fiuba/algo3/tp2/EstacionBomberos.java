@@ -21,4 +21,8 @@ public class EstacionBomberos extends Construccion {
 	public int obtenerCostoConstruccion(){
 		return 1500;
 	}
+	
+	public String getIdentificador(){
+		return "B ";
+	}
 }

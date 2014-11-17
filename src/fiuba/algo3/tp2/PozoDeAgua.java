@@ -39,5 +39,9 @@ public class PozoDeAgua extends Construccion {
 	public int obtenerCostoConstruccion(){
 		return 250;
 	}
+	
+	public String getIdentificador(){
+		return "PA ";
+	}
 
 }

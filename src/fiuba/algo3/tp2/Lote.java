@@ -22,6 +22,31 @@ public class Lote {
 		return tuberia.tieneAgua;
 	}
 	
+	public String obtenerIdentificadorLote(){
+		String identpre = "";
+		if (hayConstruccion) {
+			identpre = identpre + construccion.getIdentificador();
+		}
+		
+		if (tuberia != null) {
+			identpre = identpre + "() ";
+		}
+		
+		if (lineaDeTension != null) {
+			identpre = identpre + "! ";
+		}
+		
+		String identpost = "";
+		
+		if (hayConstruccion) {
+			identpost = String.valueOf(construccion.obtenerVida());
+		}
+		
+		String ident = "<html>" + identpre + "<br/>" + identpost + "</html>";
+		
+		return ident;
+	}
+	
 	
 	public void agregarTuberiaDeAgua(TuberiaDeAgua nuevaTuberia){
 		tuberia=nuevaTuberia;

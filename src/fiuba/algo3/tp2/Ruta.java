@@ -9,6 +9,10 @@ public class Ruta extends Construccion { //Casa es una instancia construible
 	public int obtenerCostoConstruccion(){
 		return 10;
 	}
+	
+	public String getIdentificador(){
+		return "R ";
+	}
 }
 
 

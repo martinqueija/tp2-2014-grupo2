@@ -65,5 +65,9 @@ public class CentralMineral extends CentralElectrica {
 	public int obtenerCostoConstruccion(){
 		return 3000;
 	}
+	
+	public String getIdentificador(){
+		return "EM ";
+	}
 
 }
