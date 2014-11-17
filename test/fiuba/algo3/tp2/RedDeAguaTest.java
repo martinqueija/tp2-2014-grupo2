@@ -40,14 +40,16 @@ public class RedDeAguaTest {
 		mapa.agregarALaRedDeAgua(tuberia);
 		tuberia = new TuberiaDeAgua(5,6);
 		mapa.agregarALaRedDeAgua(tuberia);		
+		Assert.assertEquals(true, mapa.getTieneAguaLote(5, 6));	
 		
-		Assert.assertEquals(mapa.getTieneAguaLote(5, 6), true);	
 		
 		mapa.daniarConstruccionDelLote(5, 5, 100);
+		mapa.removerConstruccionesSinVida();
+		mapa.actualizarMapa();
 		
-		Assert.assertEquals(mapa.getTieneAguaLote(5, 6), false);	
+		Assert.assertEquals(false, mapa.getTieneAguaLote(5, 6));	
 				
-		
+
 	}
 
 

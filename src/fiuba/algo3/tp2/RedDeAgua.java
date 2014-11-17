@@ -19,7 +19,7 @@ public class RedDeAgua {
 		PozoDeAgua pozo;
 		for(int i=0;i<pozosDeAgua.size();i++){
 			pozo=pozosDeAgua.get(i);
-			if(pozo.vida<=0){
+			if(pozo.obtenerVida()<=0){
 				pozosDeAgua.remove(pozo);
 
 			}
