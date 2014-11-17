@@ -15,22 +15,41 @@ public class RedDeAgua {
 		
 	}
 
+	private void actualizarPozos(){
+		PozoDeAgua pozo;
+		for(int i=0;i<pozosDeAgua.size();i++){
+			pozo=pozosDeAgua.get(i);
+			if(pozo.vida<=0){
+				pozosDeAgua.remove(pozo);
+
+			}
+		}
+		
+	}
 	public void actualizarRed() {
 	
 		PozoDeAgua pozoTem;
 		TuberiaDeAgua tuberiaTem;
-		for(int i=0; i<pozosDeAgua.size(); i++){
-			pozoTem=pozosDeAgua.get(i);
-			for(int j=0; j < tuberiasDeAgua.size(); j++){
-				tuberiaTem=tuberiasDeAgua.get(j);
-				if(pozoTem.getCoordenadaX()==tuberiaTem.getCoordenadaX()){
-					if(pozoTem.getCoordenadaY()==tuberiaTem.getCoordenadaY()){
-						tuberiaTem.setAgua(true);
+		this.actualizarPozos();
+		if(pozosDeAgua.isEmpty()==false){
+			for(int i=0; i<pozosDeAgua.size(); i++){
+				pozoTem=pozosDeAgua.get(i);
+				for(int j=0; j < tuberiasDeAgua.size(); j++){
+					tuberiaTem=tuberiasDeAgua.get(j);
+					if(pozoTem.getCoordenadaX()==tuberiaTem.getCoordenadaX()){
+						if(pozoTem.getCoordenadaY()==tuberiaTem.getCoordenadaY()){
+							tuberiaTem.setAgua(true);
+						}
 					}
 				}
 			}
 		this.actualizarTuberiasDeAgua();
-
+		}
+		else{
+			for(int j=0; j < tuberiasDeAgua.size(); j++){
+				tuberiaTem=tuberiasDeAgua.get(j);
+				tuberiaTem.setAgua(false);
+			}
 		}
 		
 	}

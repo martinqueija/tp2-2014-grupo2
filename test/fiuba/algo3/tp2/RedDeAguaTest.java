@@ -27,6 +27,28 @@ public class RedDeAguaTest {
 		Assert.assertEquals(mapa.getTieneAguaLote(5, 8), true);				
 		
 	}
+	
+	@Test
+	public void RedDeAguaDeberiaElimarPozoDeAguaSiSeBorraPozoDeAguaDeLote(){
+		Mapa mapa = new Mapa();
+		PozoDeAgua pozo = new PozoDeAgua(5,5);
+		Agua agua = new Agua();
+		mapa.setSuperficieLote(5, 5, agua);
+		mapa.agregarALaRedDeAgua(pozo);
+		
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(5,5);
+		mapa.agregarALaRedDeAgua(tuberia);
+		tuberia = new TuberiaDeAgua(5,6);
+		mapa.agregarALaRedDeAgua(tuberia);		
+		
+		Assert.assertEquals(mapa.getTieneAguaLote(5, 6), true);	
+		
+		mapa.daniarConstruccionDelLote(5, 5, 100);
+		
+		Assert.assertEquals(mapa.getTieneAguaLote(5, 6), false);	
+				
+		
+	}
 
 
 }

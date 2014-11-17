@@ -129,6 +129,7 @@ public class Mapa {
 				unLote = lotes.get(((coordX)*tamanioLadoMapa)+coordY);
 				unLote.daniarConstruccion(factor);
 			}
+		this.removerConstruccionesSinVida();
 	}
 	
 	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
