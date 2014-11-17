@@ -9,7 +9,7 @@ public class AlgoCityPrincipal {
 	AlgoCityVista view;
 	Juego juego;
 	AlgoCityControlador controlador;
-	
+
 	public void main(String[] args){
 
 		Runnable runner = new Runnable(){
@@ -20,9 +20,11 @@ public class AlgoCityPrincipal {
 			}
 		};
 		EventQueue.invokeLater(runner);
-		juego = new Juego();
-		controlador = new AlgoCityControlador(view, juego);
+		//juego = new Juego();
+		//controlador = new AlgoCityControlador(view, juego);
 	}
+	
+
 }
 
 
