@@ -17,4 +17,8 @@ public class Comercio extends Construccion{
 	public int obtenerCostoConstruccion(){
 		return 5;
 	}
+	
+	public String getIdentificador(){
+		return "C ";
+	}
 }

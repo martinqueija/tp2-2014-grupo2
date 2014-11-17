@@ -161,5 +161,27 @@ public class LoteTest {
 		lote.eliminarConstruccion();
 		
 		Assert.assertEquals(false, lote.hayConstruccion());
+	}	
+	
+	@Test
+	public void IdentificadorDeberiaDevolverseCorrecamente(){
+		Casa casa = new Casa();
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terr = new TerrenoLLano();
+		lote.definirTerrerno(terr);
+		lote.insertarConstruccion(casa);
+		
+		Assert.assertEquals("<html>V <br/>100.0</html>", lote.obtenerIdentificadorLote());
+	}
+	
+	@Test
+	public void IdentificadorDeberiaDevolverseCorrecamente2(){
+		Industria ind = new Industria();
+		Lote lote = new Lote(1,1);
+		TerrenoLLano terr = new TerrenoLLano();
+		lote.definirTerrerno(terr);
+		lote.insertarConstruccion(ind);
+		
+		Assert.assertEquals("<html>I <br/>100.0</html>", lote.obtenerIdentificadorLote());
 	}
 }

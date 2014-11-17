@@ -17,4 +17,8 @@ public class Industria extends Construccion{
 	public int obtenerCostoConstruccion(){
 		return 10;
 	}
+	
+	public String getIdentificador(){
+		return "I ";
+	}
 }

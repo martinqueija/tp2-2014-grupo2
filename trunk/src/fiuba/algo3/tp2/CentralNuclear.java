@@ -65,4 +65,8 @@ public class CentralNuclear extends CentralElectrica {
 	public int obtenerCostoConstruccion(){
 		return 10000;
 	}
+	
+	public String getIdentificador(){
+		return "EN ";
+	}
 }

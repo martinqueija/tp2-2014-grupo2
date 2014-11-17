@@ -66,4 +66,8 @@ public class CentralEolica extends CentralElectrica{
 	public int obtenerCostoConstruccion(){
 		return 1000;
 	}
+	
+	public String getIdentificador(){
+		return "EO ";
+	}
 }

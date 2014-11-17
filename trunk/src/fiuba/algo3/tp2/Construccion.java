@@ -29,6 +29,10 @@ public class Construccion {
 		//subclassResponsibility
 	}
 	
+	public String getIdentificador(){
+		return "";
+	}
+	
 	public boolean esCasa(){
 		return false;
 	}
@@ -37,4 +41,7 @@ public class Construccion {
 		return false;
 	}
 	
+	public int obtenerCostoConstruccion(){
+		return 0;
+	}
 }
