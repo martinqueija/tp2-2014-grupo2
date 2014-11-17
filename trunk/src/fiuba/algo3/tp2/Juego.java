@@ -25,11 +25,6 @@ public class Juego {
 		
 	}
 
-	public void ComprarConstruccionEnCoord(Construccion unaConstruccion, int x, int y){
-		elMapa.insertarConstruccionEn(x, y, unaConstruccion);
-		laCaja.DecrementarSaldo(unaConstruccion.obtenerCostoConstruccion());
-	}
-	
 	public void ComprarCasaEnCoord(int x, int y){
 		Casa unaCasa = new Casa();
 		elMapa.insertarConstruccionEn(x, y, unaCasa);
