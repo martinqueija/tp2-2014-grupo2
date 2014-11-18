@@ -2,10 +2,14 @@ package fiuba.algo3.tp2.Vista;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import fiuba.algo3.tp2.Controlador.AlgoCityControlador;
+
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,27 +50,9 @@ public class AlgoCityVista extends JFrame {
                         }
                 }
                 
-                JButton botonTemporal;
-                for(int y=0; y<tamanioGrilla; y++){
-                    for(int x=0; x<tamanioGrilla; x++){
-                       	if ((x==0)||(x==1)) {
-                    		botonTemporal = grid[x][y];
-                    		botonTemporal.setVisible(false);
-                    	}
-                    	
-                    	if ((y==tamanioGrilla-1)||(y==tamanioGrilla-2)) {
-                    		botonTemporal = grid[x][y];
-                    		botonTemporal.setVisible(false);
-                    	}
-                    	
-                    	if ((x==0)&&(y<=12)) {
-                    		botonTemporal = grid[x][y];
-                    		botonTemporal.setVisible(true);
-                    	}
-                    }
-                }
                 
-                setBotonesMenu();
+                
+                setBotonesMenu(tamanioGrilla);
                 setBotonesLote(tamanioJuego);
                 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,7 +61,27 @@ public class AlgoCityVista extends JFrame {
         }
         
         
-        private void setBotonesMenu(){
+        private void setBotonesMenu(int tamanioGrilla){
+        	JButton botonTemporal;
+            for(int y=0; y<tamanioGrilla; y++){
+                for(int x=0; x<tamanioGrilla; x++){
+                   	if ((x==0)||(x==1)) {
+                		botonTemporal = grid[x][y];
+                		botonTemporal.setVisible(false);
+                	}
+                	
+                	if ((y==tamanioGrilla-1)||(y==tamanioGrilla-2)) {
+                		botonTemporal = grid[x][y];
+                		botonTemporal.setVisible(false);
+                	}
+                	
+                	if ((x==0)&&(y<=12)) {
+                		botonTemporal = grid[x][y];
+                		botonTemporal.setVisible(true);
+                	}
+                }
+            }
+        	
         	 JLabel label;
              JButton boton = grid[0][0];
              boton.setText("<html>Proximo<br/>turno</html>");
@@ -285,6 +291,10 @@ public class AlgoCityVista extends JFrame {
         	JButton temp = grid[x][y];
         	temp.setText(string);
         }
+        
+        public void msgbox(String s){
+        	   JOptionPane.showMessageDialog(null, s);
+        	}
         
         public void setSaldo(int x){
         	JLabel label = gridLabel[0];
