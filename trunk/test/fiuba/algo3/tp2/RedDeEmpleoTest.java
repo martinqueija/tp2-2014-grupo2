@@ -46,9 +46,33 @@ public class RedDeEmpleoTest {
 		mapa.agregarALaRedElectrica(centralNueva);
 		
 		mapa.actualizarMapa();
-		Assert.assertEquals(25, mapa.getCantidadEmpleosDisponibles());
+		Assert.assertEquals(25, mapa.getCantidadEmpleosDisponibles());		
+	}
+	
+	@Test
+	public void MapaDeneriaTener12EmpleosDisponiblesAlAgregarUnComercioConAguaElectricidadYAccesoAlTransito(){
+		Mapa mapa = new Mapa(200);
+		Comercio comercio = new Comercio ();
+		CentralEolica centralNueva = new CentralEolica(1,1);
+		Ruta ruta = new Ruta();
 		
+		mapa.insertarConstruccionEn(1, 2, ruta);
+		mapa.insertarConstruccionEn(2, 2, comercio);
+		mapa.agregarALaRedElectrica(centralNueva);
 		
+		//Seteo que tenga agua el lote (2,2)
+		Lote lote = mapa.obtenerLote(2, 1);
+		PozoDeAgua pozo = new PozoDeAgua(2,1);
+		TuberiaDeAgua tuberia = new TuberiaDeAgua(2,1);
+		TuberiaDeAgua otraTuberia = new TuberiaDeAgua(2,2);
+		Agua agua = new Agua();
+		lote.definirTerrerno(agua);
+		mapa.agregarALaRedDeAgua(pozo);
+		mapa.agregarALaRedDeAgua(tuberia);
+		mapa.agregarALaRedDeAgua(otraTuberia);
+		
+		mapa.actualizarMapa();
+		Assert.assertEquals(12, mapa.getCantidadEmpleosDisponibles());		
 	}
 
 }
