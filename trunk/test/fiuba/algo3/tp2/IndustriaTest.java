@@ -12,4 +12,12 @@ public class IndustriaTest {
 		
 		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(3, 3));
 	}
+	@Test
+	public void IndustriaDeveriaDevolverVerdaderoSiSeLePreguntaSiEsIndustria(){
+
+		Industria unaIndustria = new Industria();
+
+		
+		Assert.assertEquals(true, unaIndustria.esIndustria());
+	}
 }

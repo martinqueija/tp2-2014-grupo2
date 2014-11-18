@@ -205,5 +205,19 @@ public class Lote {
 		
 	}
 
+	public boolean getEsLaConstruccionUnComercio() {
+		if (construccion!=null){
+			return construccion.esComercio();
+		}
+		return false;
+	}
+
+	public boolean getEsLaConstruccionUnaIndustria() {
+		if (construccion!=null){
+			return construccion.esIndustria();
+		}
+		return false;
+	}
+
 
 }

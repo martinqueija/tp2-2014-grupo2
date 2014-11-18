@@ -21,4 +21,7 @@ public class Industria extends Construccion{
 	public String getIdentificador(){
 		return "I ";
 	}
+	public boolean esIndustria() {
+		return true;
+	}
 }
