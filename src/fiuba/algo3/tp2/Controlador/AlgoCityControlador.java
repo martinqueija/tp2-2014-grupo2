@@ -35,18 +35,23 @@ public class AlgoCityControlador {
 		Color colorMarron = new Color(130,50,0);
 		Color colorAzul = new Color(0,153,255);
 		Color colorBlanco = new Color(255,255,255);
+		Color colorGris = new Color(100,100,100);
 		
 		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
 			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
 				loteTemp = juego.elMapa.obtenerLote(i, j);
 				if (loteTemp.esLoteDeAgua()) {
-					vista.setBotonColorBackground(colorAzul, i+2, j+2);
+					vista.setBotonColorBackground(colorAzul, i+2, j);
 				} else if (loteTemp.esLoteDeTierra()){
-					vista.setBotonColorBackground(colorMarron, i+2, j+2);
+					vista.setBotonColorBackground(colorMarron, i+2, j);
 				};
+				
+				if (loteTemp.esLoteDeRuta()){
+					vista.setBotonColorBackground(colorGris, i+2, j);
+				}
 				stringTemp = loteTemp.obtenerIdentificadorLote();
-				vista.setBotonTexto("<html>EO ! ()<br/>100.0</html>", i+2, j+2);
-				vista.setBotonColorTexto(colorBlanco, i+2, j+2);
+				vista.setBotonTexto(stringTemp, i+2, j);
+				vista.setBotonColorTexto(colorBlanco, i+2, j);
 			}
 		}
 	}

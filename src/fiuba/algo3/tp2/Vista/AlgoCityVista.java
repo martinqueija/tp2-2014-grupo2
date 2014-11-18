@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -17,11 +18,10 @@ public class AlgoCityVista extends JFrame {
         
         public AlgoCityVista(int width, int length){ 
         		Font unfont;
+        		setTitle("AlgoCity");
+        		setResizable(false);
         		float flot;
-        		Dimension dimen = new Dimension(70,50);
-        		
-        		Dimension dimen2 = new Dimension(2,2);
-        		
+        		Dimension dimen = new Dimension(80,50);
         		int tamXreal = width + 2;
         		int tamYreal = length + 2;
                 setLayout(new GridLayout(tamXreal,tamYreal));
@@ -32,10 +32,9 @@ public class AlgoCityVista extends JFrame {
                         		grid[x][y].setPreferredSize(dimen);
                         		unfont = grid[x][y].getFont();
                         		flot = unfont.getSize2D();
-                        		flot = (float) (flot/1.5);
+                        		flot = (float) (flot/1.1);
                         		unfont = unfont.deriveFont(flot);
                         		grid[x][y].setFont(unfont);
-                        		
                                 this.add(grid[x][y]);
                         }
                 }
@@ -43,7 +42,45 @@ public class AlgoCityVista extends JFrame {
                 JButton botonTemporal;
                 for(int y=0; y<tamYreal; y++){
                     for(int x=0; x<tamXreal; x++){
-                    	if ((x==0)||(y==0)) {
+                       	if ((x==0)||(x==1)) {
+                    		botonTemporal = grid[x][y];
+                    		botonTemporal.setVisible(false);
+                    	}
+                    	
+                    	if ((y==tamYreal-1)||(y==tamYreal-2)) {
+                    		botonTemporal = grid[x][y];
+                    		botonTemporal.setVisible(false);
+                    	}
+                    	
+                    	if ((x==0)&&(y<=12)) {
+                    		botonTemporal = grid[x][y];
+                    		botonTemporal.setVisible(true);
+                    	}
+                    }
+                }
+                
+                JButton boton22 = grid[0][0];
+                boton22.setText("<html>Proximo<br/>turno</html>");
+                Font elfont = boton22.getFont();
+                float tama = elfont.getSize2D();
+                tama = (float) (tama*1.2);
+                elfont = elfont.deriveFont(tama);
+                boton22.setFont(elfont);
+                
+                boton22 = grid[0][1];
+                boton22.setText("<html>CASA</html>");
+                boton22.setFont(elfont);
+                
+                boton22 = grid[0][2];
+                boton22.setText("<html>COMER.</html>");
+                boton22.setFont(elfont);
+                
+                boton22 = grid[0][3];
+                boton22.setText("<html>INDUS.</html>");
+                boton22.setFont(elfont);
+                
+                /*
+                        if ((x==0)||(y==0)) {
                     		botonTemporal = grid[x][y];
                     		botonTemporal.setVisible(false);
                     	}
@@ -57,8 +94,7 @@ public class AlgoCityVista extends JFrame {
                     		botonTemporal = grid[x][y];
                     		botonTemporal.setVisible(true);
                     	}
-                    }
-                }
+                 */
                     
                 /*
                 JButton boton = grid[3][3];
