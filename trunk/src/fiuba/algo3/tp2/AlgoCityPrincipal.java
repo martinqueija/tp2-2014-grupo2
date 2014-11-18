@@ -23,6 +23,11 @@ public class AlgoCityPrincipal {
 			view.setVisible(true);
 			juego = new Juego(15);
 			controlador = new AlgoCityControlador(view, juego);
+			juego.ComprarCasaEnCoord(1, 1);
+			juego.ComprarEstacionDeBomberosEnCoord(3, 6);
+			juego.ComprarPozoDeAguaEnCoord(13, 13);
+			juego.ComprarTuberiaDeAguaEnCoord(13, 12);
+			juego.ComprarUnaRutaEnCoord(4, 4);
 			controlador.actualizarSuperficie();
 	}
 		

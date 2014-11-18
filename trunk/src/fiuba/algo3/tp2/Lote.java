@@ -147,7 +147,14 @@ public class Lote {
 			return true;
 		} else {return false;}
 	}
-
+	
+	public boolean esLoteDeRuta(){
+		if (construccion!=null){
+			if (construccion.esRuta()){
+				return true;
+			} else return false;
+		} else return false;
+	}
 	public void definirTerrerno(Superficie superficieRecibida) {
 		superficieDelLote = superficieRecibida;		
 	}
