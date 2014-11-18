@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 
+
 public class Juego {
 	public Mapa elMapa;
 	public Caja laCaja = new Caja();
@@ -35,6 +36,11 @@ public class Juego {
 		Casa unaCasa = new Casa();
 		laCaja.DecrementarSaldo(unaCasa.obtenerCostoConstruccion());
 		elMapa.insertarConstruccionEn(x, y, unaCasa);
+	}
+	
+	public void DevolverSaldoCompraCasa(){
+		Casa unaCasa = new Casa();
+		laCaja.IncrementarSaldo(unaCasa.obtenerCostoConstruccion());
 	}
 	
 	public void ComprarComercioEnCoord(int x, int y){

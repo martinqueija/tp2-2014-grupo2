@@ -141,6 +141,9 @@ public class AlgoCityControlador {
 				juego.ComprarCasaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e) {
 				vista.msgbox("NO TIENE SALDO SUFICIENTE");
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox("SUPERFICIE INVALIDA");
+				juego.DevolverSaldoCompraCasa();
 			}
 		}
 		if (ConstruyeComercio){
