@@ -11,7 +11,7 @@ public class Juego {
 		elMapa = new Mapa(tamLadoMapa);
 	}
 	
-	
+	/*
 	public void iniciarJuego() {
 		int turnos = 0;
 		
@@ -25,7 +25,7 @@ public class Juego {
 			elMapa.actualizarMapa();
 			turnos++;
 		}
-	}
+	}*/
 	
 	public void turnoJugador(Mapa elMapa, Caja laCaja){
 		

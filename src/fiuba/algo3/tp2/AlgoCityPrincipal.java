@@ -9,11 +9,8 @@ public class AlgoCityPrincipal {
 	static Juego juego;
 	static AlgoCityControlador controlador;
 
-
 	public static void main(String[] args) {
 
-		
-		
 		Runnable runner = new Runnable(){
 			@Override
 			public void run(){
@@ -24,6 +21,7 @@ public class AlgoCityPrincipal {
 			EventQueue.invokeLater(runner);
 			juego = new Juego(15);
 			controlador = new AlgoCityControlador(view, juego);
+			//controlador.actualizarSuperficie();
 	}
 		
 		

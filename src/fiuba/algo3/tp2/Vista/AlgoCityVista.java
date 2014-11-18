@@ -13,18 +13,20 @@ public class AlgoCityVista extends JFrame {
 		
         JButton[][] grid; 
         public AlgoCityVista(int width, int length){ 
-                setLayout(new GridLayout(width,length));
-                grid=new JButton[width][length]; 
-                for(int y=0; y<(length+2); y++){
-                        for(int x=0; x<(width+2); x++){                          
+        		int tamXreal = width + 2;
+        		int tamYreal = length + 2;
+                setLayout(new GridLayout(tamXreal,tamYreal));
+                grid=new JButton[tamXreal][tamYreal]; 
+                for(int y=0; y<(tamYreal); y++){
+                        for(int x=0; x<(tamXreal); x++){                          
                         		grid[x][y]=new JButton("nodeberiaestaresto"); 
                                 this.add(grid[x][y]);
                         }
                 }
                 
                 JButton botonTemporal;
-                for(int y=0; y<length; y++){
-                    for(int x=0; x<width; x++){
+                for(int y=0; y<tamYreal; y++){
+                    for(int x=0; x<tamXreal; x++){
                     	if ((x==0)||(y==0)) {
                     		botonTemporal = grid[x][y];
                     		botonTemporal.setVisible(false);
@@ -41,8 +43,10 @@ public class AlgoCityVista extends JFrame {
                     	}
                     }
                 }
-                
-                
+                Color coloraz = new Color(0,255,0);
+                JButton boton = grid[0][0];
+                boton.setText("asd");
+                boton.setForeground(coloraz);
                 /*
                 JButton boton = grid[3][3];
                 ActionListener action = new ActionListener(){

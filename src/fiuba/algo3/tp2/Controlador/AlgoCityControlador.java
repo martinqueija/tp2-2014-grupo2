@@ -6,8 +6,8 @@ import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityControlador {
 	
-	Juego juego;
-	AlgoCityVista vista;
+	public Juego juego;
+	public AlgoCityVista vista;
 	
 	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
 		juego = ElJuego;
@@ -33,8 +33,11 @@ public class AlgoCityControlador {
 		String stringTemp;
 		Color colorMarron = new Color(130,50,0);
 		Color colorAzul = new Color(0,153,255);
-		for (int i = 0; i<juego.elMapa.obtenerTamanioLado();){
-			for (int j = 0; j<juego.elMapa.obtenerTamanioLado();){
+		
+		vista.setBotonColorBackground(colorAzul, 0, 0);
+		/*
+		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
+			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); i++){
 				loteTemp = juego.elMapa.obtenerLote(i, j);
 				if (loteTemp.getTieneAgua()) {
 					vista.setBotonColorBackground(colorAzul, i+2, j+2);
@@ -42,9 +45,9 @@ public class AlgoCityControlador {
 					vista.setBotonColorBackground(colorMarron, i+2, j+2);
 				};
 				stringTemp = loteTemp.obtenerIdentificadorLote();
-				vista.setBotonTexto(stringTemp, i+2, j+2);
+				vista.setBotonTexto(stringTemp, i+2, y);
 			}
-		}
+		}*/
 	}
 	
 	
