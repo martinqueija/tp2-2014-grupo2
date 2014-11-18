@@ -75,4 +75,15 @@ public class MapaTest {
 		Assert.assertEquals(false, loteTemp.hayConstruccion());
 	}
 	
+	@Test
+	public void MapaDeberiaTenerAgua(){
+		Mapa mapa = new Mapa(15);
+		
+		Lote loteTemp = mapa.obtenerLote(14, 14);
+		Lote lote2 = mapa.obtenerLote(1, 1);
+		
+		Assert.assertEquals(true, loteTemp.esLoteDeAgua());
+		Assert.assertEquals(true, lote2.esLoteDeTierra());
+	}
+	
 }

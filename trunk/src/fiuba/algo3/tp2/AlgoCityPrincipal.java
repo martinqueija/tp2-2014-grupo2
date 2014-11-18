@@ -10,7 +10,7 @@ public class AlgoCityPrincipal {
 	static AlgoCityControlador controlador;
 
 	public static void main(String[] args) {
-
+		/*
 		Runnable runner = new Runnable(){
 			@Override
 			public void run(){
@@ -18,10 +18,12 @@ public class AlgoCityPrincipal {
 				view.setVisible(true);
 			}
 			};
-			EventQueue.invokeLater(runner);
+			EventQueue.invokeLater(runner);*/
+			view = new AlgoCityVista(15, 15);
+			view.setVisible(true);
 			juego = new Juego(15);
 			controlador = new AlgoCityControlador(view, juego);
-			//controlador.actualizarSuperficie();
+			controlador.actualizarSuperficie();
 	}
 		
 		

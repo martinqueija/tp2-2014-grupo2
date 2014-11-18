@@ -204,4 +204,20 @@ public class LoteTest {
 		
 		Assert.assertEquals("<html><br/>-</html>", lote.obtenerIdentificadorLote());
 	}
+	
+	@Test
+	public void DeberiaDevolverCorrectamenteSiEsAguaOtierra(){
+		TerrenoLLano terr = new TerrenoLLano();
+		Agua agua = new Agua();
+		Mapa mapa = new Mapa(15);
+		Lote lote1;
+		Lote lote2;
+		lote1 = mapa.obtenerLote(1, 1);
+		lote1.definirTerrerno(terr);
+		lote2 = mapa.obtenerLote(1, 2);
+		lote2.definirTerrerno(agua);
+		
+		Assert.assertEquals(true, lote1.esLoteDeTierra());
+		Assert.assertEquals(true, lote2.esLoteDeAgua());
+	}
 }
