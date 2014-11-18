@@ -1,4 +1,6 @@
 package fiuba.algo3.tp2.Vista;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
@@ -12,7 +14,14 @@ import java.awt.event.ActionListener;
 public class AlgoCityVista extends JFrame {
 		
         JButton[][] grid; 
+        
         public AlgoCityVista(int width, int length){ 
+        		Font unfont;
+        		float flot;
+        		Dimension dimen = new Dimension(70,50);
+        		
+        		Dimension dimen2 = new Dimension(2,2);
+        		
         		int tamXreal = width + 2;
         		int tamYreal = length + 2;
                 setLayout(new GridLayout(tamXreal,tamYreal));
@@ -20,6 +29,13 @@ public class AlgoCityVista extends JFrame {
                 for(int y=0; y<(tamYreal); y++){
                         for(int x=0; x<(tamXreal); x++){                          
                         		grid[x][y]=new JButton("nodeberiaestaresto"); 
+                        		grid[x][y].setPreferredSize(dimen);
+                        		unfont = grid[x][y].getFont();
+                        		flot = unfont.getSize2D();
+                        		flot = (float) (flot/1.5);
+                        		unfont = unfont.deriveFont(flot);
+                        		grid[x][y].setFont(unfont);
+                        		
                                 this.add(grid[x][y]);
                         }
                 }
@@ -42,7 +58,8 @@ public class AlgoCityVista extends JFrame {
                     		botonTemporal.setVisible(true);
                     	}
                     }
-                };
+                }
+                    
                 /*
                 JButton boton = grid[3][3];
                 ActionListener action = new ActionListener(){
