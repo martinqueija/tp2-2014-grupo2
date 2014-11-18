@@ -44,4 +44,12 @@ public class Construccion {
 	public int obtenerCostoConstruccion(){
 		return 0;
 	}
+
+	public boolean esComercio() {
+		return false;
+	}
+
+	public boolean esIndustria() {
+		return false;
+	}
 }

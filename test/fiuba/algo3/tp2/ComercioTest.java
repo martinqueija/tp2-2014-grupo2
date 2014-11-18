@@ -12,4 +12,12 @@ public class ComercioTest {
 		
 		Assert.assertEquals(100.0, unMapa.obtenerVidaDeConstruccionEnLote(3, 3));
 	}
+	@Test
+	public void ComercioDeberiaDevolverTrueCuandoSeLePreguntaSiEsComercio(){
+
+		Comercio unComercio = new Comercio();
+
+		Assert.assertEquals(true, unComercio.esComercio());
+	}
+	
 }

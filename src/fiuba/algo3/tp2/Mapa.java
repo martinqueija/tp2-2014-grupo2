@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 import java.util.ArrayList;
+
 import fiuba.algo3.tp2.Excepciones.*;
 
 
@@ -9,11 +10,13 @@ public class Mapa {
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
 	Poblacion poblacion = new Poblacion();
+	RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
 	
 	public Mapa(){
 		redElectrica.agregarMapa(this);
 		redDeAgua.agregarMapa(this);
 		poblacion.agregarMapa(this);
+		redDeEmpleo.agregarMapa(this);
 		TerrenoLLano terrenoLlano = new TerrenoLLano();
 		Agua agua = new Agua();
 		Lote loteTemp;
@@ -42,6 +45,7 @@ public class Mapa {
 		redElectrica.actualizarRed();
 		redDeAgua.actualizarRed();
 		poblacion.actualizar();
+		redDeEmpleo.actualizar();
 	}
 	
 	public void removerConstruccionesSinVida(){
@@ -267,6 +271,29 @@ public class Mapa {
 
 	public int getCantidadPoblacion() {
 		return poblacion.getCantidadPoblacion();
+	}
+
+	public int getCantidadEmpleosDisponibles() {
+
+		return redDeEmpleo.getCantidadDeEmpleos();
+	}
+
+	public boolean getTieneComercioLote(int i, int j) {
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+				return unLote.getEsLaConstruccionUnComercio();
+			}
+	}
+
+	public boolean getTieneIndustriaLote(int i, int j) {
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+				return unLote.getEsLaConstruccionUnaIndustria();
+			}
 	}
 
 }

@@ -21,4 +21,7 @@ public class Comercio extends Construccion{
 	public String getIdentificador(){
 		return "C ";
 	}
+	public boolean esComercio() {
+		return true;
+	}
 }
