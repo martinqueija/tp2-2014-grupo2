@@ -96,8 +96,8 @@ public class RedElectrica {
 		CentralElectrica centraltemporal;
 		for(int i=0; i< centralesElctricas.size();i++){
 			centraltemporal=centralesElctricas.get(i);
-			for(int x=0; x<200; x++){
-				for(int y=0; y<200; y++){
+			for(int x=0; x<mapa.tamanioLadoMapa; x++){
+				for(int y=0; y<mapa.tamanioLadoMapa; y++){
 					distanciaACentral=mapa.calcularDistanciaEntreLotes(x,y ,centraltemporal.getPosicionX() , centraltemporal.getPosicionY());
 					if(distanciaACentral<centraltemporal.getRadioDeAlcance()){
 						consumoDeLote=mapa.getConsumoElecticoDeLote(x,y);

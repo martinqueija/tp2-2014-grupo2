@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
-import java.awt.Font;
-
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
@@ -29,7 +27,7 @@ public class AlgoCityControlador {
 	
 	
 	
-	public void actualizarSuperficie(){
+	public void actualizarVista(){
 		Lote loteTemp;
 		String stringTemp;
 		Color colorMarron = new Color(130,50,0);
@@ -54,12 +52,16 @@ public class AlgoCityControlador {
 				vista.setBotonColorTexto(colorBlanco, i+2, j);
 			}
 		}
+		
+		vista.setSaldo(juego.laCaja.ObtenerSaldo());
+		
 	}
 	
 	
 	
-	
-	
+	public void proximoTurno(){
+		
+	}
 	
 	
 	public void setTodosFalso(){
@@ -77,55 +79,93 @@ public class AlgoCityControlador {
 	}
 	
 	public void SetProximoAConstruirCasa(){
+		setTodosFalso();
 		ConstruyeCasa = true;
 	}
 	
 	public void SetProximoAConstruirComercio(){
+		setTodosFalso();
 		ConstruyeComercio = true;
 	}
 	
 	public void SetProximoAConstruirIndustria(){
+		setTodosFalso();
 		ConstruyeIndustria = true;
 	}
 	
 	public void SetProximoAConstruirCentralNuclear(){
+		setTodosFalso();
 		ConstruyeCentralNuclear = true;
 	}
 	
 	public void SetProximoAConstruirCentralEolica(){
+		setTodosFalso();
 		ConstruyeCentralEolica = true;
 	}
 	
 	public void SetProximoAConstruirCentralMineral(){
+		setTodosFalso();
 		ConstruyeCentralMineral = true;
 	}
 	
 	public void SetProximoAConstruirTuberia(){
+		setTodosFalso();
 		ConstruyeTuberia = true;
 	}
 	
 	public void SetProximoAConstruirLineaDeTension(){
+		setTodosFalso();
 		ConstruyeLineaDeTension = true;
 	}
 	
 	public void SetProximoAConstruirPozoDeAgua(){
+		setTodosFalso();
 		ConstruyePozoDeAgua = true;
 	}
 	
 	public void SetProximoAConstruirBomberos(){
+		setTodosFalso();
 		ConstruyeBomberos = true;
 	}
 	
 	public void SetProximoAConstruirRuta(){
+		setTodosFalso();
 		ConstruyeRuta = true;
 	}
 	
 	public void construirEnCoordenadas(int x, int y){
-		if (ConstruyeRuta) {
-			juego.ComprarUnaRutaEnCoord(x, y);
+		if (ConstruyeCasa) {
+			juego.ComprarCasaEnCoord(x, y);
+		}
+		if (ConstruyeComercio){
+			juego.ComprarComercioEnCoord(x, y);
+		}
+		if (ConstruyeIndustria){
+			juego.ComprarIndustriaEnCoord(x, y);
+		}
+		if (ConstruyeCentralEolica){
+			juego.ComprarCentralEolicaEnCoord(x, y);
+		}
+		if (ConstruyeCentralMineral){
+			juego.ComprarCentralMineralEnCoord(x, y);
+		}
+		if (ConstruyeCentralNuclear){
+			juego.ComprarCentralNuclearEnCoord(x, y);
+		}
+		if (ConstruyePozoDeAgua){
+			juego.ComprarPozoDeAguaEnCoord(x, y);
+		}
+		if (ConstruyeLineaDeTension){
+			juego.ComprarLineaDeTensionEnCoord(x, y);
+		}
+		if (ConstruyeTuberia){
+			juego.ComprarTuberiaDeAguaEnCoord(x, y);
 		}
 		if (ConstruyeRuta) {
 			juego.ComprarUnaRutaEnCoord(x, y);
+		}
+		if (ConstruyeBomberos){
+			juego.ComprarEstacionDeBomberosEnCoord(x, y);
 		}
 	}
 }
