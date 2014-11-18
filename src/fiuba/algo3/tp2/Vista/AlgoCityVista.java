@@ -42,11 +42,7 @@ public class AlgoCityVista extends JFrame {
                     		botonTemporal.setVisible(true);
                     	}
                     }
-                }
-                Color coloraz = new Color(0,255,0);
-                JButton boton = grid[0][0];
-                boton.setText("asd");
-                boton.setForeground(coloraz);
+                };
                 /*
                 JButton boton = grid[3][3];
                 ActionListener action = new ActionListener(){

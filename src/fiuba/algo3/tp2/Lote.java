@@ -135,6 +135,18 @@ public class Lote {
 	public Superficie obtenerSuperficieDelLote(){
 		return (superficieDelLote);
 	}
+	
+	public boolean esLoteDeTierra(){
+		if (superficieDelLote.esTerrenoLLano()){
+			return true;
+		} else {return false;}
+	}
+	
+	public boolean esLoteDeAgua(){
+		if (superficieDelLote.esAgua()){
+			return true;
+		} else {return false;}
+	}
 
 	public void definirTerrerno(Superficie superficieRecibida) {
 		superficieDelLote = superficieRecibida;		

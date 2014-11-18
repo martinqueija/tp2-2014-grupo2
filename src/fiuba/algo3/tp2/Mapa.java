@@ -21,7 +21,7 @@ public class Mapa {
 		TerrenoLLano terrenoLlano = new TerrenoLLano();
 		Agua agua = new Agua();
 		Lote loteTemp;
-		int var = (int)tamanioLadoMapa*3/4;
+		int var = (int)tamanioLadoMapa*3/5;
 		
 		for (int i=0;i<tamanioLadoMapa;i++){
 			for (int j=0;j<tamanioLadoMapa;j++){
@@ -30,6 +30,8 @@ public class Mapa {
 				if (j<var) {
 					loteTemp.definirTerrerno(terrenoLlano);  //provisorio implementar algoritmo mapa
 				} else {
+					//loteTemp.definirTerrerno(agua);
+					
 					if ((i+j)>2*var){
 						loteTemp.definirTerrerno(agua);
 					} else {
