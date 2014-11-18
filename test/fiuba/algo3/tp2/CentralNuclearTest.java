@@ -7,7 +7,7 @@ import org.junit.Test;
 public class CentralNuclearTest {
 	@Test
 	public void CentralNuclearaDeberiaDarTensionAUnLoteDentroDelRadioDeAlcance(){
-		Mapa mapa =new Mapa();
+		Mapa mapa =new Mapa(200);
 		CentralNuclear nuevaCentral = new CentralNuclear(1,5);
 		
 		mapa.agregarALaRedElectrica(nuevaCentral);
@@ -18,7 +18,7 @@ public class CentralNuclearTest {
 	
 	@Test
 	public void CentralNuclearNoDeberiaDarTensionAUnLoteFueraDelRadioDeAlcance(){
-		Mapa mapa =new Mapa();
+		Mapa mapa =new Mapa(200);
 		CentralNuclear nuevaCentral = new CentralNuclear(1,5);
 		
 		mapa.agregarALaRedElectrica(nuevaCentral);

@@ -17,12 +17,12 @@ public class AlgoCityPrincipal {
 		Runnable runner = new Runnable(){
 			@Override
 			public void run(){
-				view = new AlgoCityVista(17, 17);
+				view = new AlgoCityVista(15, 15);
 				view.setVisible(true);
 			}
 			};
 			EventQueue.invokeLater(runner);
-			juego = new Juego();
+			juego = new Juego(15);
 			controlador = new AlgoCityControlador(view, juego);
 	}
 		

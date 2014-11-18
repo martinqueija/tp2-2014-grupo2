@@ -8,19 +8,19 @@ public class JuegoTests {
 	
 	@Test
 	public void JuegoDeberiaInicializarseConPoblacionCero(){
-		Juego elJuego = new Juego();
+		Juego elJuego = new Juego(200);
 		Assert.assertEquals(0,elJuego.elMapa.getCantidadPoblacion());
 	}
 	
 	@Test
 	public void JuegoDeberiaInicializarseConSaldo1000(){
-		Juego elJuego = new Juego();
+		Juego elJuego = new Juego(200);
 		Assert.assertEquals(1000, elJuego.laCaja.ObtenerSaldo());
 	}
 	
 	@Test
 	public void JuegoDeberiaInicializarseConMapaVacio(){
-		Juego elJuego = new Juego();
+		Juego elJuego = new Juego(200);
 		boolean vale = true;
 		Lote loteTemp;
 		for (int i=0;i<elJuego.elMapa.obtenerTamanioLado();i++){
@@ -36,7 +36,7 @@ public class JuegoTests {
 
 	@Test
 	public void DeberiaConstruirUnaRutaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 
 		juego.ComprarUnaRutaEnCoord(5,5);
@@ -47,7 +47,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirUnaTuberiaDeAguaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 
 		juego.ComprarTuberiaDeAguaEnCoord(5,5);
@@ -58,7 +58,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirUnPozoDeAguaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		Agua agua = new Agua();
 		
 		juego.elMapa.setSuperficieLote(5, 5, agua);
@@ -70,7 +70,7 @@ public class JuegoTests {
 
 	@Test
 	public void DeberiaConstruirCasaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.ComprarCasaEnCoord(5,5);
 		
@@ -80,7 +80,7 @@ public class JuegoTests {
 	
 	@Test
 	public void CajaDeberiaConstruirComercioYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.ComprarComercioEnCoord(5,5);
 		
@@ -90,7 +90,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirLineaDeTensionYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.ComprarLineaDeTensionEnCoord(5, 5);
 		
@@ -100,7 +100,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirIndustriaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.ComprarIndustriaEnCoord(5,5);
 		
@@ -110,7 +110,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirEstacionBomberosYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.laCaja.IncrementarSaldo(1500);
 		juego.ComprarEstacionDeBomberosEnCoord(5,5);
@@ -122,7 +122,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirCentralNuclearYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.laCaja.IncrementarSaldo(10000);	
 		juego.ComprarCentralNuclearEnCoord(5,5);
@@ -133,7 +133,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirCentralMineralYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 
 		juego.laCaja.IncrementarSaldo(3000);	
 		juego.ComprarCentralMineralEnCoord(5,5);
@@ -144,7 +144,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaConstruirCentralEolicaYdecrementarLaCantidadDeDinero(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		
 		juego.laCaja.IncrementarSaldo(1000);
 		juego.ComprarCentralEolicaEnCoord(5,5);
@@ -155,7 +155,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaLanzarExcpecionConstruyendoFueraDelMapa(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		boolean lanzo = false;
 		juego.laCaja.IncrementarSaldo(1000);
 		try {
@@ -169,7 +169,7 @@ public class JuegoTests {
 	
 	@Test
 	public void DeberiaLanzarExcepcionAlConstruirCasaSobreAgua(){
-		Juego juego = new Juego();
+		Juego juego = new Juego(200);
 		Agua agua = new Agua();
 		boolean lanzo = false;
 		

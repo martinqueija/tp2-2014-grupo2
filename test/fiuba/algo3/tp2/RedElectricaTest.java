@@ -8,7 +8,7 @@ public class RedElectricaTest {
 	
 	@Test
 	public void RedDeElectricidadDeberiaActualizarseCuandoSeElinaUnaLineaDeTension(){
-		Mapa mapa =new Mapa();
+		Mapa mapa =new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,4);
 		LineaDeTension lineaNueva= new LineaDeTension(1,10);
 				
@@ -42,7 +42,7 @@ public class RedElectricaTest {
 	
 	@Test
 	public void RedDeElectricidadDeberiaActualizarseCuandoSeElinaUnaCentral(){
-		Mapa mapa =new Mapa();
+		Mapa mapa = new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		mapa.agregarALaRedElectrica(nuevaCentral);
 		
@@ -66,7 +66,7 @@ public class RedElectricaTest {
 	public void UnaLineaDeTensionDeberiaTenerTensionSiEstaLoSuficientementeCercaDeUnaCentralTest(){
 		//el radio de alcance incluye la posicion, es decir si estoy en X=0, y tiene un 
 		//radop de alcance de 4, llega hasta X=3
-		Mapa mapa =new Mapa();
+		Mapa mapa = new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		LineaDeTension lineaNueva= new LineaDeTension(2,5);
 		
@@ -79,7 +79,7 @@ public class RedElectricaTest {
 	
 	
 	public void UnLoteSuficientemteLejosDeUnaCentralMpDeberiaTenerTensionSinTenerUnaLinea(){
-		Mapa mapa =new Mapa();
+		Mapa mapa = new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		
 		mapa.agregarALaRedElectrica(nuevaCentral);
@@ -90,7 +90,7 @@ public class RedElectricaTest {
 	
 	@Test
 	public void UnaLineaDeTensionNoDeberiaTenerTensionSiEstaLoSuficientementeLejosDeUnaCentralTest(){
-		Mapa mapa =new Mapa();
+		Mapa mapa = new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		LineaDeTension lineaNueva= new LineaDeTension(1,50);
 				
@@ -104,7 +104,7 @@ public class RedElectricaTest {
 	
 	@Test
 	public void UnaLineaDeTensionAlejadaDeUnaCentralSoloPuedeTenerElectricidadSiEstaUnidaAOtroasLineasQueSiTienenElectricidadTest(){
-		Mapa mapa =new Mapa();
+		Mapa mapa = new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,4);
 		LineaDeTension lineaNueva= new LineaDeTension(1,10);
 				

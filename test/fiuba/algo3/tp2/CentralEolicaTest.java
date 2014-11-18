@@ -8,7 +8,7 @@ public class CentralEolicaTest {
 	
 	@Test
 	public void CentralEolicaDeberiaDarTensionAUnLoteDentroDelRadioDeAlcance(){
-		Mapa mapa =new Mapa();
+		Mapa mapa =new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		
 		mapa.agregarALaRedElectrica(nuevaCentral);
@@ -19,7 +19,7 @@ public class CentralEolicaTest {
 	
 	@Test
 	public void CentralEolicaNoDeberiaDarTensionAUnLoteFueraDelRadioDeAlcance(){
-		Mapa mapa =new Mapa();
+		Mapa mapa =new Mapa(200);
 		CentralEolica nuevaCentral = new CentralEolica(1,5);
 		
 		mapa.agregarALaRedElectrica(nuevaCentral);

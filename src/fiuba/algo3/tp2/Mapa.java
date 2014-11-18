@@ -5,14 +5,15 @@ import fiuba.algo3.tp2.Excepciones.*;
 
 
 public class Mapa {
-	private int tamanioLadoMapa = 200; //define la cantidad de lotes en un lado de la cuadrilla
+	int tamanioLadoMapa;; //define la cantidad de lotes en un lado de la cuadrilla
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
 	Poblacion poblacion = new Poblacion();
 	RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
 	
-	public Mapa(){
+	public Mapa(int tamLadoMapa){
+		tamanioLadoMapa = tamLadoMapa;
 		redElectrica.agregarMapa(this);
 		redDeAgua.agregarMapa(this);
 		poblacion.agregarMapa(this);

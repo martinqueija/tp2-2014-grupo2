@@ -1,10 +1,16 @@
 package fiuba.algo3.tp2;
 
 public class Juego {
-	Mapa elMapa = new Mapa();
-	Caja laCaja = new Caja();
+	public Mapa elMapa;
+	public Caja laCaja = new Caja();
 	AdministradorCatastrofes adminCatastrofes = new AdministradorCatastrofes();
 	RandomizadorInterface randomizer = new RandomizadorPosta();
+	
+	
+	public Juego(int tamLadoMapa){
+		elMapa = new Mapa(tamLadoMapa);
+	}
+	
 	
 	public void iniciarJuego() {
 		int turnos = 0;

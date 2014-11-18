@@ -6,7 +6,7 @@ public class IndustriaTest {
 	
 	@Test
 	public void IndustriaSeCreaCorrectamente(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Industria unaIndustria = new Industria();
 		unMapa.insertarConstruccionEn(3, 3, unaIndustria);
 		

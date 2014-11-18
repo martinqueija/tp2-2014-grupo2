@@ -1,4 +1,6 @@
 package fiuba.algo3.tp2.Controlador;
+import java.awt.Color;
+
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
@@ -23,6 +25,33 @@ public class AlgoCityControlador {
 	boolean ConstruyeLineaDeTension = false;
 	boolean ConstruyeBomberos = false;
 	boolean ConstruyeRuta = false;
+	
+	
+	
+	public void actualizarSuperficie(){
+		Lote loteTemp;
+		String stringTemp;
+		Color colorMarron = new Color(130,50,0);
+		Color colorAzul = new Color(0,153,255);
+		for (int i = 0; i<juego.elMapa.obtenerTamanioLado();){
+			for (int j = 0; j<juego.elMapa.obtenerTamanioLado();){
+				loteTemp = juego.elMapa.obtenerLote(i, j);
+				if (loteTemp.getTieneAgua()) {
+					vista.setBotonColorBackground(colorAzul, i+2, j+2);
+				} else {
+					vista.setBotonColorBackground(colorMarron, i+2, j+2);
+				};
+				stringTemp = loteTemp.obtenerIdentificadorLote();
+				vista.setBotonTexto(stringTemp, i+2, j+2);
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
 	
 	public void setTodosFalso(){
 		ConstruyeCasa = false;

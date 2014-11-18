@@ -6,7 +6,7 @@ public class ComercioTest {
 	
 	@Test
 	public void ComercioSeCreaCorrectamente(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Comercio unComercio = new Comercio();
 		unMapa.insertarConstruccionEn(3, 3, unComercio);
 		
