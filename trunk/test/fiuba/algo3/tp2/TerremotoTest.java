@@ -7,7 +7,7 @@ public class TerremotoTest {
 	
 	@Test
 	public void TerrerotoDeberiaDestruirPorCompletoLaLineaDeTensionEnElEpicentro(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Terremoto unTerremoto = new Terremoto();
 		LineaDeTension lineaDeTension = new LineaDeTension(5,5);
 		
@@ -19,7 +19,7 @@ public class TerremotoTest {
 	
 	@Test
 	public void TerremotoDeberiaDestruirPorCompletoLaConstruccionEnElEpicentro(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Terremoto unTerremoto = new Terremoto();
 		Construccion casa = new Casa();
 		
@@ -31,7 +31,7 @@ public class TerremotoTest {
 	
 	@Test
 	public void TerremotoDeberiaDestruirParcialmenteConstruccionesVecinasPorUnFactorDeDistancia(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Terremoto unTerremoto = new Terremoto();
 		Construccion unaCasa = new Casa();
 		Construccion ultimaCasa = new Casa();
@@ -46,7 +46,7 @@ public class TerremotoTest {
 	
 	@Test
 	public void TerremotoNoDeberiaAfectarConstruccionesQueEstenAmasDe67unidadesDeDistancia(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Terremoto unTerremoto = new Terremoto();
 		Construccion unaCasa = new Casa();
 		Construccion otraCasa = new Casa();

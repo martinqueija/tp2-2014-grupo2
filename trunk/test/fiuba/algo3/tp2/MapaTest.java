@@ -9,7 +9,7 @@ public class MapaTest {
 	
 	@Test
 	public void mapaDeberiaCrearseVacio() {
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		for (int i=0;i<12;i++){
 			for (int j=0;j<12;j++){
 				Assert.assertEquals(mapa.obtenerEstadoDelLoteEn(i,j), false);
@@ -19,7 +19,7 @@ public class MapaTest {
 	
 	@Test
 	public void mapaResuelveCorrectamenteUnaEspecficaUbicacionYConstruyeUnaCasa() {
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Construccion unaCasa = new Casa();
 		mapa.insertarConstruccionEn(2, 3, unaCasa);
 		Assert.assertEquals(mapa.obtenerEstadoDelLoteEn(2, 3),true);
@@ -28,7 +28,7 @@ public class MapaTest {
 	
 	@Test
 	public void MapaPuedeDaniarCorrectamenteCualquierLoteEnElMapa(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		double vidaRestante;
 		Construccion unaCasa = new Casa();
 		mapa.insertarConstruccionEn(5, 5, unaCasa);
@@ -39,7 +39,7 @@ public class MapaTest {
 
 	@Test
 	public void MapaDebeDevolverLaVidaCorrectaDeCualquierCostruccionEnElMapa(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Construccion unaCasa = new Casa();
 		mapa.insertarConstruccionEn(2, 3, unaCasa);
 		Assert.assertEquals(mapa.obtenerVidaDeConstruccionEnLote(2, 3),100.0);
@@ -47,7 +47,7 @@ public class MapaTest {
 	
 	@Test
 	public void MapaDeberiaLanzarExcepcionConstryuendoFueraDelMapa(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Construccion unaCasa = new Casa();
 		boolean lanzo = false;
 		try {
@@ -60,7 +60,7 @@ public class MapaTest {
 	
 	@Test
 	public void MapaACtualizarDeberiaEliminarLasCOnstruccionesSinVida(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Construccion unaCasa = new Casa();
 		mapa.insertarConstruccionEn(1, 1, unaCasa);
 		

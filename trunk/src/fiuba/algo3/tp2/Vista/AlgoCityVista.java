@@ -11,21 +11,18 @@ import java.awt.event.ActionListener;
 @SuppressWarnings("serial")
 public class AlgoCityVista extends JFrame {
 		
-        JButton[][] grid; //nombra la grilla de botones
-        static boolean a = false;
- 
+        JButton[][] grid; 
         public AlgoCityVista(int width, int length){ 
                 setLayout(new GridLayout(width,length));
                 grid=new JButton[width][length]; 
-                for(int y=0; y<length; y++){
-                        for(int x=0; x<width; x++){
-                              //  grid[x][y]=new JButton("("+x+","+y+")"); 
-                        		grid[x][y]=new JButton("<html>   I ! ()<br/>100.0</html>"); 
+                for(int y=0; y<(length+2); y++){
+                        for(int x=0; x<(width+2); x++){                          
+                        		grid[x][y]=new JButton("nodeberiaestaresto"); 
                                 this.add(grid[x][y]);
                         }
                 }
-                JButton botonTemporal;
                 
+                JButton botonTemporal;
                 for(int y=0; y<length; y++){
                     for(int x=0; x<width; x++){
                     	if ((x==0)||(y==0)) {
@@ -46,14 +43,7 @@ public class AlgoCityVista extends JFrame {
                 }
                 
                 
-                for(int y=0; y<length; y++){
-                    for(int x=0; x<width; x++){
-                    	if (!((x<=1)&&(y<=0))) {
-                        	botonTemporal = grid[x][y];
-                    	}
-                    }
-                }
-                
+                /*
                 JButton boton = grid[3][3];
                 ActionListener action = new ActionListener(){
 					@Override
@@ -69,7 +59,7 @@ public class AlgoCityVista extends JFrame {
                 };
                 
                 boton.addActionListener(action);
-                
+                */
                 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 pack(); 

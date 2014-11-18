@@ -7,7 +7,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionBomberosDeberiaRepararCasasConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Construccion unaCasa = new Casa();
 		Construccion otraCasa = new Casa();
 
@@ -32,7 +32,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionBomberosDeberiaRepararIndustriasConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Construccion unaIndustria = new Industria();
 		Construccion otraIndustria = new Industria();
 
@@ -57,7 +57,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionBomberosDeberiaRepararComerciosConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		Construccion unComercio = new Comercio();
 		Construccion otroComercio = new Comercio();
 
@@ -82,7 +82,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionDeBomberosDeberiaRepararEstacionDeBomberosConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
 
 		unMapa.insertarConstruccionEn(5, 5, unaEstacionBomberos);
@@ -99,7 +99,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionDeBomberosDeberiaRepararCentralEolicaConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
 		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
 		CentralEolica nuevaCentral = new CentralEolica(5,5);
@@ -118,7 +118,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionDeBomberosDeberiaRepararCentralMineralConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
 		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
 		CentralMineral nuevaCentral = new CentralMineral(5,5);
@@ -137,7 +137,7 @@ public class EstacionBomberosTest {
 	
 	@Test
 	public void EstacionDeBomberosDeberiaRepararCentralNuclearConDanios(){
-		Mapa unMapa = new Mapa();
+		Mapa unMapa = new Mapa(200);
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
 		unMapa.insertarConstruccionEn(4, 4, unaEstacionBomberos);
 		CentralNuclear nuevaCentral = new CentralNuclear(5,5);

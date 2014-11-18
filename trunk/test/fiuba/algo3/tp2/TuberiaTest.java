@@ -13,7 +13,7 @@ public class TuberiaTest {
 	}
 	@Test
 	public void TuberiaDeberiaTenerAguaCuandoSeLoConectaAUnPozo(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Lote lote = mapa.obtenerLote(5, 5);
 		PozoDeAgua pozo = new PozoDeAgua(5,5);
 		TuberiaDeAgua tuberia = new TuberiaDeAgua(5,5);

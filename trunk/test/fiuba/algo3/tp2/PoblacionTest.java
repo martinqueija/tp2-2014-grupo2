@@ -8,14 +8,14 @@ public class PoblacionTest {
 	
 	@Test
 	public void MapaDeberiaInicializarseConPoblacionCero(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 
 		Assert.assertEquals(mapa.getCantidadPoblacion(), 0);
 	}
 	
 	@Test
 	public void PoblacionNoDeberiaAgregarPoblacionSolamentePorAgregarUnaCasa(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		
 		Assert.assertEquals(mapa.getCantidadPoblacion(), 0);
 		
@@ -27,7 +27,7 @@ public class PoblacionTest {
 	
 	@Test
 	public void PoblacionDeberiaAumentarSiSeCumplenTodasLasCondciones(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		
 		Assert.assertEquals(mapa.getCantidadPoblacion(), 0);
 		

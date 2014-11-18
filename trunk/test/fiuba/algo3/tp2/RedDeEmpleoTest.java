@@ -8,7 +8,7 @@ public class RedDeEmpleoTest {
 	
 	@Test
 	public void MapaDeberiaInicializarseConEmpleosDisponiblesEnCero(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		
 		Assert.assertEquals(0, mapa.getCantidadEmpleosDisponibles());
 
@@ -16,7 +16,7 @@ public class RedDeEmpleoTest {
 	
 	@Test
 	public void AlAgregarUnaIndustriaAlMapaNoDeberianCrearseEmpleosSiNoTieneElectricidad(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Industria industrica = new Industria ();
 		
 		mapa.insertarConstruccionEn(1, 1, industrica);
@@ -27,7 +27,7 @@ public class RedDeEmpleoTest {
 	
 	@Test
 	public void AlAgregarUnComerciolMapaNoDeberianCrearseEmpleosSiNoTieneElectricidad(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Comercio comercio = new Comercio ();
 		
 		mapa.insertarConstruccionEn(1, 1, comercio);
@@ -37,7 +37,7 @@ public class RedDeEmpleoTest {
 	
 	@Test
 	public void MapaDeberiaTener25EmpleosDisponiblesAlAgregarUnaIndustriaConElectridadYAccesoAlTransito(){
-		Mapa mapa = new Mapa();
+		Mapa mapa = new Mapa(200);
 		Industria industrica = new Industria ();
 		CentralEolica centralNueva = new CentralEolica(1,2);
 		Ruta ruta = new Ruta();

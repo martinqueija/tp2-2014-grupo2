@@ -10,7 +10,7 @@ public class AdministradorCatastrofesTests {
 	public void AdministradorCatastrofesDeberiaIniciarUnTerremotoSiElRandomizerDevuelveNumeroCorrecto(){
 		AdministradorCatastrofes adminCat = new AdministradorCatastrofes();
 		RandomizadorMock randomizer = new RandomizadorMock();
-		Mapa elMapa = new Mapa();
+		Mapa elMapa = new Mapa(200);
 		Casa unaCasita = new Casa();
 		elMapa.insertarConstruccionEn(8, 9, unaCasita);
 		
