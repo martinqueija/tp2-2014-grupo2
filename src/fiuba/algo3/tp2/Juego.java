@@ -102,7 +102,7 @@ public class Juego {
 	public void ComprarLineaDeTensionEnCoord(int x, int  y){
 		LineaDeTension linea = new LineaDeTension(x,y);
 		laCaja.DecrementarSaldo(linea.obtenerCostoConstruccion());
-		elMapa.insertarConstruccionEn(x, y, linea);
+		//elMapa.insertarConstruccionEn(x, y, linea);
 		elMapa.agregarALaRedElectrica(linea);
 	}
 	

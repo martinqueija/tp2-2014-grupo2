@@ -12,6 +12,7 @@ public class Mapa {
 	Poblacion poblacion = new Poblacion();
 	RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
 	
+	
 	public Mapa(int tamLadoMapa){
 		tamanioLadoMapa = tamLadoMapa;
 		redElectrica.agregarMapa(this);
@@ -297,6 +298,15 @@ public class Mapa {
 				Lote unLote;
 				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
 				return unLote.getEsLaConstruccionUnaIndustria();
+			}
+	}
+
+	public double obtenerVidaLineaDeTensionDelLote(int i, int j) {
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+				return unLote.getVidaLineaDeTension();
 			}
 	}
 

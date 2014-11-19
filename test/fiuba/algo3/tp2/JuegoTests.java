@@ -95,7 +95,7 @@ public class JuegoTests {
 		juego.ComprarLineaDeTensionEnCoord(5, 5);
 		
 		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-5, juego.laCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaLineaDeTensionDelLote(5, 5));
 	}
 	
 	@Test
@@ -105,7 +105,7 @@ public class JuegoTests {
 		juego.ComprarIndustriaEnCoord(5,5);
 		
 		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-10, juego.laCaja.ObtenerSaldo());
-		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
+		Assert.assertEquals(100.0,juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5) );
 	}
 	
 	@Test
