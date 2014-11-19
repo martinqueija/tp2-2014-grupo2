@@ -74,7 +74,7 @@ public class AlgoCityControlador {
 	
 	
 	public void proximoTurno(){
-		actualizarVista();
+		//actualizarVista();
 		juego.dispararCatastrofes();
 		contadorAImpuestos = contadorAImpuestos + 1;
 		totalTurnos = totalTurnos + 1;

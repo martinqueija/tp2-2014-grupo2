@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.Excepciones.ExcepcionSinSaldo;
 
 
 public class Caja {
-	private static final int SALDO_INICIAL = 100000;
+	private static final int SALDO_INICIAL = 1000000;
 	private int Saldo = SALDO_INICIAL;
 	
 	

@@ -238,5 +238,14 @@ public class Lote {
 		return false;
 	}
 
+	public double getVidaLineaDeTension() {
+		if(lineaDeTension!=null){
+			return lineaDeTension.obtenerVida();
+		} else {
+			//throw new ExcepcionLote
+		}
+		return 0;
+	}
+
 
 }
