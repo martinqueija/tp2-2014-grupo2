@@ -7,13 +7,20 @@ import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityControlador {
 	
+	int CANT_TURNOS_IMPUESTO = 2;
+	String FIN_JUEGO = "Usted ha entrado en bancarrota. Game over...";
+	
 	public Juego juego;
 	public AlgoCityVista vista;
+	public int contadorDeTurnos=0;
 	
 	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
 		juego = ElJuego;
 		vista = LaVista;
 	}
+	
+	String SALDO_INS = "Saldo insuficiente.";
+	String SUP_INV = "Superficie invalida para la construccion";
 	
 	boolean ConstruyeCasa = false;
 	boolean ConstruyeComercio = false;
@@ -62,6 +69,15 @@ public class AlgoCityControlador {
 	
 	
 	public void proximoTurno(){
+		actualizarVista();
+		contadorDeTurnos = contadorDeTurnos + 1;
+		if (contadorDeTurnos == CANT_TURNOS_IMPUESTO){
+			contadorDeTurnos = 0;
+			juego.laCaja.RecoleccionImpuestosPorPoblacion(juego.elMapa.getCantidadPoblacion());
+		}
+		if (juego.laCaja.ObtenerSaldo() < 0) {
+			vista.msgbox(FIN_JUEGO);
+		}
 		
 	}
 	
@@ -140,9 +156,9 @@ public class AlgoCityControlador {
 			try{
 				juego.ComprarCasaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e) {
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
+				vista.msgbox(SALDO_INS);
 			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox("SUPERFICIE INVALIDA");
+				vista.msgbox(SUP_INV);
 				juego.DevolverSaldoCompraCasa();
 			}
 		}
@@ -150,62 +166,106 @@ public class AlgoCityControlador {
 			try{
 				juego.ComprarComercioEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraComercio();
+			}
+		}
 		if (ConstruyeIndustria){
 			try{
 				juego.ComprarIndustriaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraIndustria();
+			}
+		}
 		if (ConstruyeCentralEolica){
 			try{
 				juego.ComprarCentralEolicaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolerSaldoCompraCentralEolica();
+			}
+		}
+		
 		if (ConstruyeCentralMineral){
 			try{
 				juego.ComprarCentralMineralEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraCentralMineral();
+		}
+			}
+		
 		if (ConstruyeCentralNuclear){
 			try{
 				juego.ComprarCentralNuclearEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraCentralNuclear();
+			}
+		}
+		
 		if (ConstruyePozoDeAgua){
 			try{
 				juego.ComprarPozoDeAguaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraPozoDeAgua();
+			}
+		}
+		
 		if (ConstruyeLineaDeTension){
 			try{
 				juego.ComprarLineaDeTensionEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}		}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraLineaDeTension();
+			}
+		}
+		
 		if (ConstruyeTuberia){
 			try{
 				juego.ComprarTuberiaDeAguaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
-			}}
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraTuberia();
+			}
+		}
+		
 		if (ConstruyeRuta) {
 			try{
 				juego.ComprarUnaRutaEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraRuta();
 			}
 		}
 		if (ConstruyeBomberos){
 			try {
 				juego.ComprarEstacionDeBomberosEnCoord(x, y);
 			} catch (ExcepcionSinSaldo e){
-				vista.msgbox("NO TIENE SALDO SUFICIENTE");
+				vista.msgbox(SALDO_INS);
+			} catch (ExcepcionSuperficieInvalida ee){
+				vista.msgbox(SUP_INV);
+				juego.DevolverSaldoCompraBomberos();
 			}
 		}
 	}

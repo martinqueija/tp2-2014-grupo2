@@ -93,6 +93,7 @@ public class Mapa {
 		return tamanioLadoMapa;
 	}
 	
+	
 	public Lote obtenerLote(int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
