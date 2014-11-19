@@ -3,7 +3,7 @@ package fiuba.algo3.tp2;
 import fiuba.algo3.tp2.Excepciones.ExcepcionSinSaldo;
 
 public class Caja {
-	private int Saldo = 1000;
+	private int Saldo = 100000;
 	
 	public void DecrementarSaldo(int Factor){
 		Saldo = Saldo - Factor;

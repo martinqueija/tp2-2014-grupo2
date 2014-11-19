@@ -12,7 +12,8 @@ public class AlgoCityControlador {
 	
 	public Juego juego;
 	public AlgoCityVista vista;
-	public int contadorDeTurnos=0;
+	public int contadorAImpuestos=0;
+	public int totalTurnos=0;
 	
 	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
 		juego = ElJuego;
@@ -44,6 +45,8 @@ public class AlgoCityControlador {
 		Color colorBlanco = new Color(255,255,255);
 		Color colorGris = new Color(100,100,100);
 		
+		juego.elMapa.actualizarMapa();
+		
 		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
 			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
 				loteTemp = juego.elMapa.obtenerLote(i, j);
@@ -63,6 +66,8 @@ public class AlgoCityControlador {
 		}
 		
 		vista.setSaldo(juego.laCaja.ObtenerSaldo());
+		vista.setNumeroTurnos(totalTurnos);
+		vista.setCantidadPoblacion(juego.elMapa.getCantidadPoblacion());
 		
 	}
 	
@@ -70,15 +75,17 @@ public class AlgoCityControlador {
 	
 	public void proximoTurno(){
 		actualizarVista();
-		contadorDeTurnos = contadorDeTurnos + 1;
-		if (contadorDeTurnos == CANT_TURNOS_IMPUESTO){
-			contadorDeTurnos = 0;
+		contadorAImpuestos = contadorAImpuestos + 1;
+		totalTurnos = totalTurnos + 1;
+		if (contadorAImpuestos == CANT_TURNOS_IMPUESTO){
+			contadorAImpuestos = 0;
 			juego.laCaja.RecoleccionImpuestosPorPoblacion(juego.elMapa.getCantidadPoblacion());
 		}
 		if (juego.laCaja.ObtenerSaldo() < 0) {
 			vista.msgbox(FIN_JUEGO);
+			System.exit(0);
 		}
-		
+		actualizarVista();
 	}
 	
 	

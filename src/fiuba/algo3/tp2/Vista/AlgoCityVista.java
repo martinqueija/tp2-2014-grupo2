@@ -30,7 +30,7 @@ public class AlgoCityVista extends JFrame {
         		int tamanioGrilla = tamanioJuego + 2;
                 setLayout(new GridLayout(tamanioGrilla,tamanioGrilla));
                 grid=new miJbutton[tamanioGrilla][tamanioGrilla]; 
-                gridLabel = new JLabel[13];
+                gridLabel = new JLabel[tamanioGrilla];
                 for(int y=0; y<(tamanioGrilla); y++){
                         for(int x=0; x<(tamanioGrilla); x++){                          
                         		grid[x][y]=new miJbutton("nodeberiaestaresto"); 
@@ -41,8 +41,8 @@ public class AlgoCityVista extends JFrame {
                         		flot = (float) (flot/1.1);
                         		unfont = unfont.deriveFont(flot);
                         		grid[x][y].setFont(unfont);
-                        		if (x==1 && (y>=0) && (y<13)){
-                        			gridLabel[y] = new JLabel ("TOBESET");
+                        		if (x==1 && (y>=0) && (y<tamanioGrilla)){
+                        			gridLabel[y] = new JLabel ("");
                         			this.add(gridLabel[y]);
                         			} else {
                         				this.add(grid[x][y]);
@@ -292,14 +292,24 @@ public class AlgoCityVista extends JFrame {
         	temp.setText(string);
         }
         
+        public void setNumeroTurnos(int x){
+        	JLabel label = gridLabel[13];
+        	label.setText("Turno: "+Integer.toString(x));
+        }
+        
+        public void setCantidadPoblacion(int x){
+        	JLabel label = gridLabel[14];
+        	label.setText("<html>Poblacion:<br/>" +Integer.toString(x)+"</html>");
+        }
+        
         public void msgbox(String s){
         	   JOptionPane.showMessageDialog(null, s);
         	}
         
         public void setSaldo(int x){
-        	JLabel label = gridLabel[0];
+        	JLabel label = gridLabel[15];
         	String string = Integer.toString(x);
-            label.setText("$"+string);
+            label.setText("<html>Saldo:<br/>$" + string + "</html>" );
         }
         
         public void setControlador(AlgoCityControlador unControlador){
