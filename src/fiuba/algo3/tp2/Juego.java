@@ -28,8 +28,8 @@ public class Juego {
 		}
 	}*/
 	
-	public void turnoJugador(Mapa elMapa, Caja laCaja){
-		
+	public void dispararCatastrofes(){
+		adminCatastrofes.actuar(elMapa, randomizer);
 	}
 
 	public void ComprarCasaEnCoord(int x, int y){

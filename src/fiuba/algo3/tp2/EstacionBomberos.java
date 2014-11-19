@@ -11,6 +11,12 @@ public class EstacionBomberos extends Construccion {
 			}
 		}
 	}
+
+	public boolean puedeConstruirEnSuperficie(Superficie superficieDelLote) {
+		if (superficieDelLote.esTerrenoLLano()) {
+			return true;	
+		} else return false;
+	}	
 	
 	public void reparacionBomberos(){
 		double vidaActual = this.obtenerVida();

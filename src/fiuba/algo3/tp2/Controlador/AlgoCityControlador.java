@@ -75,6 +75,7 @@ public class AlgoCityControlador {
 	
 	public void proximoTurno(){
 		actualizarVista();
+		juego.dispararCatastrofes();
 		contadorAImpuestos = contadorAImpuestos + 1;
 		totalTurnos = totalTurnos + 1;
 		if (contadorAImpuestos == CANT_TURNOS_IMPUESTO){

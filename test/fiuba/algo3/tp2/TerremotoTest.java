@@ -36,12 +36,12 @@ public class TerremotoTest {
 		Construccion unaCasa = new Casa();
 		Construccion ultimaCasa = new Casa();
 		
-		unMapa.insertarConstruccionEn(3, 5, unaCasa); //Distancia de 2 lotes entonces vida decrementa por 100-(1.5x2)=97
-		unMapa.insertarConstruccionEn(4, 2, ultimaCasa); //sqrt(1+9)=3.16 entonces la vida decrementa por 100-(1.5x3)=95.5
+		unMapa.insertarConstruccionEn(3, 5, unaCasa); //Distancia de 2 lotes entonces vida decrementa por 100-(20x2)=60
+		unMapa.insertarConstruccionEn(4, 2, ultimaCasa); //sqrt(1+9)=3.16 entonces la vida decrementa por 100-(20x3)=40
 		unTerremoto.iniciarTerremotoEn(5, 5, unMapa);
 		
-		Assert.assertEquals(100.0-97.0, unMapa.obtenerVidaDeConstruccionEnLote(3,5));
-		Assert.assertEquals(100.0-95.5, unMapa.obtenerVidaDeConstruccionEnLote(4, 2));
+		Assert.assertEquals(100.0-60.0, unMapa.obtenerVidaDeConstruccionEnLote(3,5));
+		Assert.assertEquals(100.0-40.0, unMapa.obtenerVidaDeConstruccionEnLote(4, 2));
 	}
 	
 	@Test
