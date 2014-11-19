@@ -13,9 +13,9 @@ public class JuegoTests {
 	}
 	
 	@Test
-	public void JuegoDeberiaInicializarseConSaldo1000(){
+	public void JuegoDeberiaInicializarseConSaldoInicial(){
 		Juego elJuego = new Juego(200);
-		Assert.assertEquals(1000, elJuego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(elJuego.laCaja.ObtenerSaldo(), elJuego.laCaja.obtenerSaldoInicial());
 	}
 	
 	@Test
@@ -41,7 +41,7 @@ public class JuegoTests {
 
 		juego.ComprarUnaRutaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-10, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-10, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -52,7 +52,7 @@ public class JuegoTests {
 
 		juego.ComprarTuberiaDeAguaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-5, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(true, juego.elMapa.getTieneLoteTuberiaDeAgua(5, 5));
 	}
 	
@@ -64,7 +64,7 @@ public class JuegoTests {
 		juego.elMapa.setSuperficieLote(5, 5, agua);
 		juego.ComprarPozoDeAguaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-250, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-250, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 
@@ -74,7 +74,7 @@ public class JuegoTests {
 		
 		juego.ComprarCasaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-5, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -84,7 +84,7 @@ public class JuegoTests {
 		
 		juego.ComprarComercioEnCoord(5,5);
 		
-		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-5, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -94,7 +94,7 @@ public class JuegoTests {
 		
 		juego.ComprarLineaDeTensionEnCoord(5, 5);
 		
-		Assert.assertEquals(1000-5, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-5, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -104,7 +104,7 @@ public class JuegoTests {
 		
 		juego.ComprarIndustriaEnCoord(5,5);
 		
-		Assert.assertEquals(1000-10, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-10, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -112,11 +112,10 @@ public class JuegoTests {
 	public void DeberiaConstruirEstacionBomberosYdecrementarLaCantidadDeDinero(){
 		Juego juego = new Juego(200);
 		
-		juego.laCaja.IncrementarSaldo(1500);
 		juego.ComprarEstacionDeBomberosEnCoord(5,5);
 
 		
-		Assert.assertEquals(1000, juego.laCaja.ObtenerSaldo()); // 1000+1500-1500=1000
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-1500, juego.laCaja.ObtenerSaldo()); // 1000+1500-1500=1000
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -124,10 +123,9 @@ public class JuegoTests {
 	public void DeberiaConstruirCentralNuclearYdecrementarLaCantidadDeDinero(){
 		Juego juego = new Juego(200);
 		
-		juego.laCaja.IncrementarSaldo(10000);	
 		juego.ComprarCentralNuclearEnCoord(5,5);
 
-		Assert.assertEquals(1000+10000-10000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-10000, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -135,10 +133,9 @@ public class JuegoTests {
 	public void DeberiaConstruirCentralMineralYdecrementarLaCantidadDeDinero(){
 		Juego juego = new Juego(200);
 
-		juego.laCaja.IncrementarSaldo(3000);	
 		juego.ComprarCentralMineralEnCoord(5,5);
 		
-		Assert.assertEquals(1000+3000-3000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-3000, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	
@@ -146,10 +143,9 @@ public class JuegoTests {
 	public void DeberiaConstruirCentralEolicaYdecrementarLaCantidadDeDinero(){
 		Juego juego = new Juego(200);
 		
-		juego.laCaja.IncrementarSaldo(1000);
 		juego.ComprarCentralEolicaEnCoord(5,5);
 		
-		Assert.assertEquals(1000+1000-1000, juego.laCaja.ObtenerSaldo());
+		Assert.assertEquals(juego.laCaja.obtenerSaldoInicial()-1000, juego.laCaja.ObtenerSaldo());
 		Assert.assertEquals(100.0, juego.elMapa.obtenerVidaDeConstruccionEnLote(5, 5));
 	}
 	

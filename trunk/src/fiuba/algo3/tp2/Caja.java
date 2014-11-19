@@ -2,8 +2,11 @@ package fiuba.algo3.tp2;
 
 import fiuba.algo3.tp2.Excepciones.ExcepcionSinSaldo;
 
+
 public class Caja {
-	private int Saldo = 100000;
+	private static final int SALDO_INICIAL = 100000;
+	private int Saldo = SALDO_INICIAL;
+	
 	
 	public void DecrementarSaldo(int Factor){
 		Saldo = Saldo - Factor;
@@ -15,6 +18,10 @@ public class Caja {
 	
 	public void IncrementarSaldo(int Factor){
 		Saldo = Saldo + Factor;
+	}
+	
+	public int obtenerSaldoInicial(){
+		return SALDO_INICIAL;
 	}
 	
 	public int ObtenerSaldo(){

@@ -10,7 +10,7 @@ public class Comercio extends Construccion{
 	
 	public void reparacionBomberos(){
 		double vidaActual = this.obtenerVida();
-		double factorReparacion = ((vidaActual/100)*7); //repara el 7% de un comercio
+		double factorReparacion = ((vidaActual)*0.07); //repara el 7% de un comercio
 		this.incrementarVida(factorReparacion);
 	}
 	

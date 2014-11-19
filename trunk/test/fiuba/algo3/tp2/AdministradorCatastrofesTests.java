@@ -21,7 +21,7 @@ public class AdministradorCatastrofesTests {
 		randomizer.setNumeroMockY(5);
 		adminCat.actuar(elMapa, randomizer); //Deberia iniciar un terremoto en la coord 5.
 		
-		Assert.assertEquals(100.0-(100-(5*1.5)), elMapa.obtenerVidaDeConstruccionEnLote(8, 9)); // la raiz de la suma de los cuadrados de las diferencias en X y en Y da 5
+		Assert.assertEquals(100.0-(100-(5*adminCat.obtenerFactorTerremotos())), elMapa.obtenerVidaDeConstruccionEnLote(8, 9)); // la raiz de la suma de los cuadrados de las diferencias en X y en Y da 5
 		
 	}
 	

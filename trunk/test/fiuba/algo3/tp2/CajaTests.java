@@ -9,9 +9,9 @@ import fiuba.algo3.tp2.Excepciones.ExcepcionSinSaldo;
 public class CajaTests {
 	
 	@Test
-	public void CajaDeberiaInicializarseConSaldo1000(){
+	public void CajaDeberiaInicializarseConSaldoInicial(){
 		Caja unaCaja = new Caja();
-		Assert.assertEquals(1000,unaCaja.ObtenerSaldo());
+		Assert.assertEquals(unaCaja.obtenerSaldoInicial(),unaCaja.ObtenerSaldo());
 	}
 	
 	@Test
@@ -20,14 +20,14 @@ public class CajaTests {
 		Poblacion laPoblacion = new Poblacion();
 		laPoblacion.agregarPoblacion(100);
 		unaCaja.RecoleccionImpuestosPorPoblacion(laPoblacion.getCantidadPoblacion());
-		Assert.assertEquals(1000+(100*10), unaCaja.ObtenerSaldo());
+		Assert.assertEquals(unaCaja.obtenerSaldoInicial()+(100*10), unaCaja.ObtenerSaldo());
 	}
 	@Test
 	public void CajaDeberiaLanzarExcepcionSiSeQuedaSinSaldo(){
 		Caja unaCaja = new Caja();
 		boolean lanzo = false;
 		try {
-			unaCaja.DecrementarSaldo(5000000);
+			unaCaja.DecrementarSaldo(unaCaja.obtenerSaldoInicial()*2);
 		} catch (ExcepcionSinSaldo e){
 			lanzo = true;
 		}
