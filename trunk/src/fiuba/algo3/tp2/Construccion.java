@@ -52,4 +52,5 @@ public class Construccion {
 	public boolean esIndustria() {
 		return false;
 	}
+	
 }

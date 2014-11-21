@@ -11,6 +11,7 @@ public class Mapa {
 	RedDeAgua redDeAgua = new RedDeAgua();
 	Poblacion poblacion = new Poblacion();
 	RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
+	RedDeBomberos redDeBomberos = new RedDeBomberos();
 	
 	
 	public Mapa(int tamLadoMapa){
@@ -19,6 +20,7 @@ public class Mapa {
 		redDeAgua.agregarMapa(this);
 		poblacion.agregarMapa(this);
 		redDeEmpleo.agregarMapa(this);
+		redDeBomberos.agregarMapa(this);
 		TerrenoLLano terrenoLlano = new TerrenoLLano();
 		Agua agua = new Agua();
 		Lote loteTemp;
@@ -50,6 +52,7 @@ public class Mapa {
 		redDeAgua.actualizarRed();
 		poblacion.actualizar();
 		redDeEmpleo.actualizar();
+		redDeBomberos.repararMapa();
 	}
 	
 	public void removerConstruccionesSinVida(){
@@ -71,6 +74,13 @@ public class Mapa {
 		}
 	}
 		
+	public void agregarALaRedDeBomberos(EstacionBomberos bomberos, int x, int y){
+		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				redDeBomberos.agregarEstacionBomberos(bomberos);
+				this.insertarConstruccionEn(x,y,bomberos);
+			}
+	}
 	
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
 		if (!(this.sonCoordendadasValidas(nuevaCentral.getPosicionX(), nuevaCentral.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
