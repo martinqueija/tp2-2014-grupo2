@@ -30,7 +30,7 @@ public class GodzillaTest {
 	}
 
 	@Test
-	public void GodzillaDeberiaDañarEnUn75PorcientoALosComercios(){
+	public void GodzillaDeberiaDaniarEnUn75PorcientoALosComercios(){
 		Mapa unMapa = new Mapa(200);
 		Godzilla godzilla = new Godzilla();
 		Construccion comercio = new Comercio();
@@ -42,7 +42,7 @@ public class GodzillaTest {
 	}
 	
 	@Test
-	public void GodzillaDeberiaDañarEnUn40PorcientoALasIndustrias(){
+	public void GodzillaDeberiaDaniarEnUn40PorcientoALasIndustrias(){
 		Mapa unMapa = new Mapa(200);
 		Godzilla godzilla = new Godzilla();
 		Construccion industria = new Industria();
@@ -54,7 +54,7 @@ public class GodzillaTest {
 	}
 	
 	@Test
-	public void GodzillaDeberiaDañarEnUn80PorcientoALasRuta(){
+	public void GodzillaDeberiaDaniarEnUn80PorcientoALasRuta(){
 		Mapa unMapa = new Mapa(200);
 		Godzilla godzilla = new Godzilla();
 		Construccion ruta = new Ruta();
@@ -66,7 +66,7 @@ public class GodzillaTest {
 	}
 	
 	@Test
-	public void GodzillaDeberiaDañarEnUn35PorcientoALasCentralesElectricas(){
+	public void GodzillaDeberiaDaniarEnUn35PorcientoALasCentralesElectricas(){
 		Mapa unMapa = new Mapa(200);
 		Godzilla godzilla = new Godzilla();
 		Construccion central = new CentralElectrica(0,0);
