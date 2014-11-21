@@ -39,7 +39,7 @@ public class Lote {
 		String identpost = "";
 		
 		if (hayConstruccion) {
-			identpost = String.valueOf(construccion.obtenerVida());
+			identpost = String.valueOf((int)construccion.obtenerVida());
 		} else {
 			identpost = "-";
 		}
