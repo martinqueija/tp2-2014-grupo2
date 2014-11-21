@@ -171,7 +171,7 @@ public class LoteTest {
 		lote.definirTerrerno(terr);
 		lote.insertarConstruccion(casa);
 		
-		Assert.assertEquals("<html>V <br/>100.0</html>", lote.obtenerIdentificadorLote());
+		Assert.assertEquals("<html>V <br/>100</html>", lote.obtenerIdentificadorLote());
 	}
 	
 	@Test
@@ -182,7 +182,7 @@ public class LoteTest {
 		lote.definirTerrerno(terr);
 		lote.insertarConstruccion(ind);
 		
-		Assert.assertEquals("<html>I <br/>100.0</html>", lote.obtenerIdentificadorLote());
+		Assert.assertEquals("<html>I <br/>100</html>", lote.obtenerIdentificadorLote());
 	}
 	
 	@Test
@@ -193,7 +193,7 @@ public class LoteTest {
 		lote.definirTerrerno(terr);
 		lote.insertarConstruccion(eo);
 		
-		Assert.assertEquals("<html>EO <br/>100.0</html>", lote.obtenerIdentificadorLote());
+		Assert.assertEquals("<html>EO <br/>100</html>", lote.obtenerIdentificadorLote());
 	}
 	
 	@Test
