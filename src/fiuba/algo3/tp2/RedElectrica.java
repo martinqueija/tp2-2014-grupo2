@@ -164,5 +164,6 @@ public class RedElectrica {
 		mapa=nuevoMapa;
 		
 	}
+
 	
 }
