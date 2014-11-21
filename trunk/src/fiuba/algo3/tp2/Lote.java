@@ -249,10 +249,10 @@ public class Lote {
 
 	public void daniarConstruccionPorGodzilla() {
 		if (construccion!=null){
-			construccion.decrementarVida(construccion.dañoPorGozilla());
+			construccion.decrementarVida(construccion.danioPorGozilla());
 		}
 		if (lineaDeTension!=null){
-			lineaDeTension.decrementarVida(lineaDeTension.dañoPorGozilla());
+			lineaDeTension.decrementarVida(lineaDeTension.danioPorGozilla());
 		}
 		
 	}

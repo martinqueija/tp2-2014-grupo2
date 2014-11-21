@@ -19,7 +19,7 @@ public class Ruta extends Construccion { //Casa es una instancia construible
 	public String getIdentificador(){
 		return "R ";
 	}
-	public int dañoPorGozilla(){
+	public int danioPorGozilla(){
 		return (int) (vidaTotal*0.80);
 	}
 }

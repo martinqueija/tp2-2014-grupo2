@@ -18,14 +18,14 @@ public class Godzilla {
 		mapa=elMapa;
 		this.setCoordenadasInicio(ladoDeInicio,alturaDeInicio);
 		this.setCoordenadasFinal(ladoDeFinalizacion,alturaDeFinalizacion);
-		this.dañarMapa();
+		this.daniarMapa();
 		
 	}
 
-	private void dañarMapa() {
+	private void daniarMapa() {
 		xPosicionActual=xInicio;
 		yPosicionActual=yInicio;
-		this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+		this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
 		while(xPosicionActual!=xFinal || yPosicionActual!=yFinal){
 			if(xPosicionActual!=xFinal){
 				if((xPosicionActual+1)<=xFinal){
@@ -34,7 +34,7 @@ public class Godzilla {
 					xPosicionActual=xPosicionActual-1;
 				}
 			}
-			this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
 			if(yPosicionActual!=yFinal){
 				if((yPosicionActual+1)<=yFinal){
 					yPosicionActual=yPosicionActual+1;}
@@ -42,11 +42,11 @@ public class Godzilla {
 					yPosicionActual=yPosicionActual-1;
 				}
 			}
-			this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
 		}while(xPosicionActual!=xFinal || yPosicionActual!=yFinal);
 	}
 
-	private void dañarMapaEnCoordenadas(int xPosicionActual,int yPosicionActual) {
+	private void daniarMapaEnCoordenadas(int xPosicionActual,int yPosicionActual) {
 		mapa.daniarConstruccioPorGodzilla(xPosicionActual, yPosicionActual);
 	}
 

@@ -24,7 +24,7 @@ public class Comercio extends Construccion{
 	public boolean esComercio() {
 		return true;
 	}
-	public int dañoPorGozilla(){
+	public int danioPorGozilla(){
 		return (int) (vidaTotal*0.75);
 	}
 }

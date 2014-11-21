@@ -56,7 +56,7 @@ public class CentralElectrica extends Construccion {
 		return capacidadAbastecimiento;
 		
 	}
-	public int dañoPorGozilla(){
+	public int danioPorGozilla(){
 		return (int) (vidaTotal*0.35);
 	}
 }
