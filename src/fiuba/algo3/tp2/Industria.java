@@ -24,4 +24,7 @@ public class Industria extends Construccion{
 	public boolean esIndustria() {
 		return true;
 	}
+	public int dañoPorGozilla(){
+		return (int) (vidaTotal*0.40);
+	}
 }

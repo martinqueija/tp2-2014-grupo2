@@ -1,0 +1,93 @@
+package fiuba.algo3.tp2;
+
+public class Godzilla {
+	Mapa mapa;
+	
+	private int xInicio;
+	private int yInicio;
+	private int xFinal;
+	private int yFinal;
+	private int xPosicionActual;
+	private int yPosicionActual;
+	
+
+	public void iniciarGodzilla(int ladoDeInicio, int ladoDeFinalizacion,
+			int alturaDeInicio, int alturaDeFinalizacion, Mapa elMapa) {
+		//Si el lado es 0 es la izquierda, si es 1 es la derecha
+		//si es 2 es arriba, y si es 3 es abajo
+		mapa=elMapa;
+		this.setCoordenadasInicio(ladoDeInicio,alturaDeInicio);
+		this.setCoordenadasFinal(ladoDeFinalizacion,alturaDeFinalizacion);
+		this.dañarMapa();
+		
+	}
+
+	private void dañarMapa() {
+		xPosicionActual=xInicio;
+		yPosicionActual=yInicio;
+		this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+		while(xPosicionActual!=xFinal || yPosicionActual!=yFinal){
+			if(xPosicionActual!=xFinal){
+				if((xPosicionActual+1)<=xFinal){
+					xPosicionActual=xPosicionActual+1;}
+				else{
+					xPosicionActual=xPosicionActual-1;
+				}
+			}
+			this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+			if(yPosicionActual!=yFinal){
+				if((yPosicionActual+1)<=yFinal){
+					yPosicionActual=yPosicionActual+1;}
+				else{
+					yPosicionActual=yPosicionActual-1;
+				}
+			}
+			this.dañarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+		}while(xPosicionActual!=xFinal || yPosicionActual!=yFinal);
+	}
+
+	private void dañarMapaEnCoordenadas(int xPosicionActual,int yPosicionActual) {
+		mapa.daniarConstruccioPorGodzilla(xPosicionActual, yPosicionActual);
+	}
+
+	private void setCoordenadasFinal(int ladoDeFinalizacion,int alturaDeFinalizacion) {
+		if(ladoDeFinalizacion==0){
+			xFinal=0;
+			yFinal=alturaDeFinalizacion;
+		}
+		if(ladoDeFinalizacion==1){
+			xFinal=mapa.obtenerTamanioLado();
+			yFinal=alturaDeFinalizacion;
+		}
+		if(ladoDeFinalizacion==2){
+			xFinal=alturaDeFinalizacion;
+			yFinal=0;
+		}
+		if(ladoDeFinalizacion==3){
+			xFinal=alturaDeFinalizacion;
+			yFinal=mapa.obtenerTamanioLado();
+		}
+		
+	}
+
+	private void setCoordenadasInicio(int ladoDeInicio, int alturaDeInicio) {
+		if(ladoDeInicio==0){
+			xInicio=0;
+			yInicio=alturaDeInicio;
+		}
+		if(ladoDeInicio==1){
+			xInicio=mapa.obtenerTamanioLado();
+			yInicio=alturaDeInicio;
+		}
+		if(ladoDeInicio==2){
+			xInicio=alturaDeInicio;
+			yInicio=0;
+		}
+		if(ladoDeInicio==3){
+			xInicio=alturaDeInicio;
+			yInicio=mapa.obtenerTamanioLado();
+		}
+	}
+
+
+}
