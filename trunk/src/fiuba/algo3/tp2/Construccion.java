@@ -2,6 +2,7 @@ package fiuba.algo3.tp2;
 
 public class Construccion {
 	double vida = 100;
+	double vidaTotal = 100;
 	
 	public void decrementarVida(double factor){
 		vida = vida - factor;
@@ -53,4 +54,7 @@ public class Construccion {
 		return false;
 	}
 	
+	public int dañoPorGozilla(){
+		return (int) vidaTotal;
+	}
 }

@@ -247,5 +247,15 @@ public class Lote {
 		return 0;
 	}
 
+	public void daniarConstruccionPorGodzilla() {
+		if (construccion!=null){
+			construccion.decrementarVida(construccion.dañoPorGozilla());
+		}
+		if (lineaDeTension!=null){
+			lineaDeTension.decrementarVida(lineaDeTension.dañoPorGozilla());
+		}
+		
+	}
+
 
 }

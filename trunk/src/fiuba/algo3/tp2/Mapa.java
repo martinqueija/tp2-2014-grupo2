@@ -320,4 +320,14 @@ public class Mapa {
 			}
 	}
 
+	public void daniarConstruccioPorGodzilla(int i,int j) {
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = lotes.get(((i)*tamanioLadoMapa)+j);
+				unLote.daniarConstruccionPorGodzilla();
+			}
+		
+	}
+
 }
