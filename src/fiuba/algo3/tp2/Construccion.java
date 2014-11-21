@@ -54,7 +54,7 @@ public class Construccion {
 		return false;
 	}
 	
-	public int dañoPorGozilla(){
+	public int danioPorGozilla(){
 		return (int) vidaTotal;
 	}
 }
