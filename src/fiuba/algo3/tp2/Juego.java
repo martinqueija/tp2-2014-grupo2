@@ -69,7 +69,7 @@ public class Juego {
 	public void ComprarEstacionDeBomberosEnCoord(int x, int y){
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
 		laCaja.DecrementarSaldo(unaEstacionBomberos.obtenerCostoConstruccion());
-		elMapa.insertarConstruccionEn(x, y, unaEstacionBomberos);
+		elMapa.agregarALaRedDeBomberos(unaEstacionBomberos, x, y);
 	}
 	
 	public void DevolverSaldoCompraBomberos(){
