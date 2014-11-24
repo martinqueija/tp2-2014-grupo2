@@ -83,8 +83,15 @@ public class Mapa {
 	public void agregarALaRedElectrica(CentralElectrica nuevaCentral){
 		if (!(this.sonCoordendadasValidas(nuevaCentral.getPosicionX(), nuevaCentral.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
-				redElectrica.agregarCentralElectrica(nuevaCentral);
-				this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
+				boolean lanzo = false;
+				try {
+					this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
+				} catch (ExcepcionLoteYaContieneConstruccion e){
+					lanzo = true;
+				}
+				if (!lanzo) {
+					redElectrica.agregarCentralElectrica(nuevaCentral);
+				}
 			}
 	}
 	
