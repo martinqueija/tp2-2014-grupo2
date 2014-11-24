@@ -22,39 +22,18 @@ public class Lote {
 		return tuberia.tieneAgua;
 	}
 	
-	public String obtenerIdentificadorLote(){
-		String identpre = "";
-		if (hayConstruccion) {
-			identpre = identpre + construccion.getIdentificador();
-		}
-		
-		if (tuberia != null) {
-			identpre = identpre + "() ";
-		}
-		
-		if (lineaDeTension != null) {
-			identpre = identpre + "! ";
-		}
-		
-		String identpost = "";
-		
-		if (hayConstruccion) {
-			identpost = String.valueOf((int)construccion.obtenerVida());
-		} else {
-			identpost = "-";
-		}
-		
-		String ident = "<html>" + identpre + "<br/>" + identpost + "</html>";
-		
-		return ident;
-	}
-	
 	
 	public void agregarTuberiaDeAgua(TuberiaDeAgua nuevaTuberia){
+		if (tuberia != null) {
+			throw new ExcepcionLoteYaContieneTuberia();
+		}
 		tuberia=nuevaTuberia;
 	}
 	
 	public void agregarLineaDeTension(LineaDeTension nuevaLineaDeTension){
+		if (lineaDeTension != null) {
+			throw new ExcepcionLoteYaContieneLineaDeTension();
+		}
 		lineaDeTension=nuevaLineaDeTension;
 		setElectricidadLote(nuevaLineaDeTension.getTieneElectricidad());
 	}

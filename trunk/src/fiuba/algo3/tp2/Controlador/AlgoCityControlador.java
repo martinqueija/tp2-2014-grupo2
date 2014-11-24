@@ -1,8 +1,6 @@
 package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
-
 import fiuba.algo3.tp2.*;
-import fiuba.algo3.tp2.Excepciones.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityControlador {
@@ -12,7 +10,6 @@ public class AlgoCityControlador {
 	public Juego juego;
 	public AlgoCityVista vista;
 
-	
 	String SALDO_INS = "Saldo insuficiente.";
 	String SUP_INV = "Superficie invalida para la construccion";
 	
@@ -30,8 +27,7 @@ public class AlgoCityControlador {
 	
 	LoteParaVista[][] lotesDeVista;
 	
-	
-	
+	///
 	
 	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
 		juego = ElJuego;
@@ -226,120 +222,48 @@ public class AlgoCityControlador {
 	
 	public void construirEnCoordenadas(int x, int y){
 		if (ConstruyeCasa) {
-			try{
-				juego.ComprarCasaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e) {
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraCasa();
-			}
+			juego.ComprarCasaEnCoord(x, y);
 		}
+		
 		if (ConstruyeComercio){
-			try{
-				juego.ComprarComercioEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraComercio();
-			}
+			juego.ComprarComercioEnCoord(x, y);
 		}
+		
 		if (ConstruyeIndustria){
-			try{
-				juego.ComprarIndustriaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraIndustria();
-			}
+			juego.ComprarIndustriaEnCoord(x, y);
 		}
+		
 		if (ConstruyeCentralEolica){
-			try{
-				juego.ComprarCentralEolicaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolerSaldoCompraCentralEolica();
-			}
+			juego.ComprarCentralEolicaEnCoord(x, y);
 		}
 		
 		if (ConstruyeCentralMineral){
-			try{
-				juego.ComprarCentralMineralEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraCentralMineral();
+			juego.ComprarCentralMineralEnCoord(x, y);
 		}
-			}
 		
 		if (ConstruyeCentralNuclear){
-			try{
-				juego.ComprarCentralNuclearEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraCentralNuclear();
-			}
+			juego.ComprarCentralNuclearEnCoord(x, y);
 		}
 		
 		if (ConstruyePozoDeAgua){
-			try{
-				juego.ComprarPozoDeAguaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraPozoDeAgua();
-			}
+			juego.ComprarPozoDeAguaEnCoord(x, y);
 		}
 		
 		if (ConstruyeLineaDeTension){
-			try{
-				juego.ComprarLineaDeTensionEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraLineaDeTension();
-			}
+			juego.ComprarLineaDeTensionEnCoord(x, y);
 		}
 		
 		if (ConstruyeTuberia){
-			try{
-				juego.ComprarTuberiaDeAguaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraTuberia();
-			}
+			juego.ComprarTuberiaDeAguaEnCoord(x, y);
 		}
 		
 		if (ConstruyeRuta) {
-			try{
-				juego.ComprarUnaRutaEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraRuta();
-			}
+			juego.ComprarUnaRutaEnCoord(x, y);
 		}
+		
 		if (ConstruyeBomberos){
-			try {
-				juego.ComprarEstacionDeBomberosEnCoord(x, y);
-			} catch (ExcepcionSinSaldo e){
-				vista.msgbox(SALDO_INS);
-			} catch (ExcepcionSuperficieInvalida ee){
-				vista.msgbox(SUP_INV);
-				juego.DevolverSaldoCompraBomberos();
-			}
+			juego.ComprarEstacionDeBomberosEnCoord(x, y);
 		}
 	}
+
 }
