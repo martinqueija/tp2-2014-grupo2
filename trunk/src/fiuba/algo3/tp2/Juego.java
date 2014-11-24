@@ -6,6 +6,11 @@ public class Juego {
 	public Caja laCaja = new Caja();
 	AdministradorCatastrofes adminCatastrofes = new AdministradorCatastrofes();
 	RandomizadorInterface randomizer = new RandomizadorPosta();
+
+	public int contadorAImpuestos=0;
+	public int totalTurnos=0;
+
+	int CANT_TURNOS_IMPUESTO = 2;
 	
 	
 	public Juego(int tamLadoMapa){
@@ -28,8 +33,26 @@ public class Juego {
 		}
 	}*/
 	
-	public void dispararCatastrofes(){
-		adminCatastrofes.actuar(elMapa, randomizer);
+	public boolean proximoTurno(){
+		boolean huboCatastrofe = dispararCatastrofes();
+		elMapa.reparacionBomberos();
+		contadorAImpuestos = contadorAImpuestos + 1;
+		totalTurnos = totalTurnos + 1;
+		if (contadorAImpuestos == CANT_TURNOS_IMPUESTO){
+			contadorAImpuestos = 0;
+			laCaja.RecoleccionImpuestosPorPoblacion(elMapa.getCantidadPoblacion());
+		}
+		
+		return huboCatastrofe;
+	}
+	
+	public boolean dispararCatastrofes(){
+		boolean huboCatastrofe = adminCatastrofes.actuar(elMapa, randomizer);
+		return huboCatastrofe;
+	}
+	
+	public int obtenerCantidadTurnos(){
+		return totalTurnos;
 	}
 
 	public void ComprarCasaEnCoord(int x, int y){

@@ -7,13 +7,10 @@ import fiuba.algo3.tp2.Vista.AlgoCityVista;
 
 public class AlgoCityControlador {
 	
-	int CANT_TURNOS_IMPUESTO = 2;
 	String FIN_JUEGO = "Usted ha entrado en bancarrota. Game over...";
 	
 	public Juego juego;
 	public AlgoCityVista vista;
-	public int contadorAImpuestos=0;
-	public int totalTurnos=0;
 	
 	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
 		juego = ElJuego;
@@ -66,7 +63,7 @@ public class AlgoCityControlador {
 		}
 		
 		vista.setSaldo(juego.laCaja.ObtenerSaldo());
-		vista.setNumeroTurnos(totalTurnos);
+		vista.setNumeroTurnos(juego.obtenerCantidadTurnos());
 		vista.setCantidadPoblacion(juego.elMapa.getCantidadPoblacion());
 		
 	}
@@ -74,18 +71,7 @@ public class AlgoCityControlador {
 	
 	
 	public void proximoTurno(){
-		//actualizarVista();
-		juego.dispararCatastrofes();
-		contadorAImpuestos = contadorAImpuestos + 1;
-		totalTurnos = totalTurnos + 1;
-		if (contadorAImpuestos == CANT_TURNOS_IMPUESTO){
-			contadorAImpuestos = 0;
-			juego.laCaja.RecoleccionImpuestosPorPoblacion(juego.elMapa.getCantidadPoblacion());
-		}
-		if (juego.laCaja.ObtenerSaldo() < 0) {
-			vista.msgbox(FIN_JUEGO);
-			System.exit(0);
-		}
+		juego.proximoTurno();
 		actualizarVista();
 	}
 	

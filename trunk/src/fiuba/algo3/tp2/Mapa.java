@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2;
 import java.util.ArrayList;
-
 import fiuba.algo3.tp2.Excepciones.*;
 
 
@@ -104,6 +103,9 @@ public class Mapa {
 		return tamanioLadoMapa;
 	}
 	
+	public void reparacionBomberos(){
+		redDeBomberos.repararMapa();
+	}
 	
 	public Lote obtenerLote(int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}

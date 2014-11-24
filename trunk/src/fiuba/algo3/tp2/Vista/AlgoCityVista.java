@@ -219,25 +219,10 @@ public class AlgoCityVista extends JFrame {
 				};
 				boton.addActionListener(action);
              
-
              boton = grid[0][10];
-             boton.setText("<html>Ruta</html>");
-             boton.setFont(elfont);
-             label = gridLabel[10];
-             label.setText("$10");
-             action = new ActionListener(){
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						controlador.SetProximoAConstruirRuta();
-					}
-				};
-				boton.addActionListener(action);
-             
-
-             boton = grid[0][11];
              boton.setText("<html>Tuberia</html>");
              boton.setFont(elfont);
-             label = gridLabel[11];
+             label = gridLabel[10];
              label.setText("$5");
              action = new ActionListener(){
 					@Override
@@ -248,10 +233,10 @@ public class AlgoCityVista extends JFrame {
 				boton.addActionListener(action);
              
 
-             boton = grid[0][12];
+             boton = grid[0][11];
              boton.setText("<html>Pozo<br/>Agua</html>");
              boton.setFont(elfont);
-             label = gridLabel[12];
+             label = gridLabel[11];
              label.setText("$250");
              action = new ActionListener(){
 					@Override
@@ -261,7 +246,22 @@ public class AlgoCityVista extends JFrame {
 				};
 				boton.addActionListener(action);
         
+
+	         boton = grid[0][12];
+	         boton.setText("<html>Sacar Xs</html>");
+	         boton.setFont(elfont);
+	         action = new ActionListener(){
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						////////////////
+					}
+				};
+				boton.addActionListener(action);   
+
+				
         }
+        
+        
         
         
         private void setBotonesLote(int tamanioJuego){
