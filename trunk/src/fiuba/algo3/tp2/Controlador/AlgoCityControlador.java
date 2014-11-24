@@ -11,11 +11,7 @@ public class AlgoCityControlador {
 	
 	public Juego juego;
 	public AlgoCityVista vista;
-	
-	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
-		juego = ElJuego;
-		vista = LaVista;
-	}
+
 	
 	String SALDO_INS = "Saldo insuficiente.";
 	String SUP_INV = "Superficie invalida para la construccion";
@@ -32,18 +28,29 @@ public class AlgoCityControlador {
 	boolean ConstruyeBomberos = false;
 	boolean ConstruyeRuta = false;
 	
+	LoteParaVista[][] lotesDeVista;
 	
+	
+	
+	
+	public AlgoCityControlador(AlgoCityVista LaVista, Juego ElJuego){
+		juego = ElJuego;
+		vista = LaVista;
+		lotesDeVista = new LoteParaVista[juego.elMapa.obtenerTamanioLado()][juego.elMapa.obtenerTamanioLado()];
+		CrearLotesParaVista();
+	}
 	
 	public void actualizarVista(){
-		Lote loteTemp;
+		LoteParaVista loteParaVistaTemp;
 		String stringTemp;
 		Color colorMarron = new Color(130,50,0);
 		Color colorAzul = new Color(0,153,255);
 		Color colorBlanco = new Color(255,255,255);
 		Color colorGris = new Color(100,100,100);
 		
+		actualizarLotesParaVista();
 		juego.elMapa.actualizarMapa();
-		
+		/*
 		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
 			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
 				loteTemp = juego.elMapa.obtenerLote(i, j);
@@ -60,6 +67,24 @@ public class AlgoCityControlador {
 				vista.setBotonTexto(stringTemp, i+2, j);
 				vista.setBotonColorTexto(colorBlanco, i+2, j);
 			}
+		}*/
+		
+		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
+			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
+				loteParaVistaTemp = lotesDeVista[i][j];
+				if (loteParaVistaTemp.esDeAgua) {
+					vista.setBotonColorBackground(colorAzul, i+2, j);
+				} else if (loteParaVistaTemp.esDeTierra){
+					vista.setBotonColorBackground(colorMarron, i+2, j);
+				};
+				
+				if (loteParaVistaTemp.esRuta()){
+					vista.setBotonColorBackground(colorGris, i+2, j);
+				}
+				stringTemp = loteParaVistaTemp.representarseComoString();
+				vista.setBotonTexto(stringTemp, i+2, j);
+				vista.setBotonColorTexto(colorBlanco, i+2, j);
+			}
 		}
 		
 		vista.setSaldo(juego.laCaja.ObtenerSaldo());
@@ -68,13 +93,67 @@ public class AlgoCityControlador {
 		
 	}
 	
+	public void CrearLotesParaVista(){
+		for (int i = 0; i < juego.elMapa.obtenerTamanioLado(); i++){
+			for (int j = 0; j < juego.elMapa.obtenerTamanioLado(); j++){
+				LoteParaVista loteParaVistaTemp = new LoteParaVista();
+				lotesDeVista[i][j] = loteParaVistaTemp;
+			}
+		}
+	}
 	
+	public void actualizarLotesParaVista(){
+		LoteParaVista loteParaVistaTemp;
+		for (int i = 0; i < juego.elMapa.obtenerTamanioLado(); i++){
+			for (int j = 0; j < juego.elMapa.obtenerTamanioLado(); j++){
+				
+				loteParaVistaTemp = lotesDeVista[i][j];
+				
+				loteParaVistaTemp.setEnumeradoLote(juego.elMapa.DameEnumeradoDelLote(i, j));
+				
+				if (juego.elMapa.LoteEsDeAgua(i, j)){
+					loteParaVistaTemp.setEsDeAgua();
+				}
+				
+				if (juego.elMapa.LoteEsDeTierra(i, j)){
+					loteParaVistaTemp.setEsDeTierra();
+				}
+				
+				if (juego.elMapa.LoteTieneConstruccion(i,j)) {
+					loteParaVistaTemp.setTieneConstruccion();
+				} else {
+					loteParaVistaTemp.setNoTieneConstruccion();
+				}
+				
+				if (juego.elMapa.getTieneElecticidadLote(i, j)){
+					loteParaVistaTemp.setTieneElectricidad();
+				} else {
+					loteParaVistaTemp.setNoTieneElectricidad();
+				}
+				
+				if (juego.elMapa.getTieneLineaDeTensionLote(i,j)) {
+					loteParaVistaTemp.setTieneLineaDeTension();
+				} else {
+					loteParaVistaTemp.setNoTieneLineaDeTension();
+				}
+				
+				if (juego.elMapa.getTieneTuberiaLote(i,j)){
+					loteParaVistaTemp.setTieneTuberia();
+				} else {
+					loteParaVistaTemp.setNoTieneTuberia();
+				}
+				
+				loteParaVistaTemp.setVidaConstruccion(juego.elMapa.obtenerVidaDeConstruccionEnLote(i, j));
+				
+				lotesDeVista[i][j] = loteParaVistaTemp;
+			}
+		}
+	}
 	
 	public void proximoTurno(){
 		juego.proximoTurno();
 		actualizarVista();
 	}
-	
 	
 	public void setTodosFalso(){
 		ConstruyeCasa = false;

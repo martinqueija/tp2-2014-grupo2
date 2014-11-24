@@ -34,16 +34,30 @@ public class Construccion {
 		return "";
 	}
 	
+	public int obtenerCostoConstruccion(){
+		return 0;
+	}
+
+	public int danioPorGozilla(){
+		return (int) vidaTotal;
+	}
+	
+	
+	
 	public boolean esCasa(){
 		return false;
 	}
 	
-	public boolean esRuta(){
+	public boolean esBomberos(){
 		return false;
 	}
 	
-	public int obtenerCostoConstruccion(){
-		return 0;
+	public boolean esPozo(){
+		return false;
+	}
+	
+	public boolean esEolica(){
+		return false;
 	}
 
 	public boolean esComercio() {
@@ -54,7 +68,15 @@ public class Construccion {
 		return false;
 	}
 	
-	public int danioPorGozilla(){
-		return (int) vidaTotal;
+	public boolean esMineral(){
+		return false;
+	}
+	
+	public boolean esNuclear(){
+		return false;
+	}
+	
+	public boolean esRuta(){
+		return false;
 	}
 }
