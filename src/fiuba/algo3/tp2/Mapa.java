@@ -74,9 +74,17 @@ public class Mapa {
 		
 	public void agregarALaRedDeBomberos(EstacionBomberos bomberos, int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
-		else {
-				redDeBomberos.agregarEstacionBomberos(bomberos);
-				this.insertarConstruccionEn(x,y,bomberos);
+		else {	
+				boolean lanzo = false;
+				try {
+					this.insertarConstruccionEn(x, y, bomberos);
+				} catch (ExcepcionLoteYaContieneConstruccion e){
+					lanzo = true;
+					throw new ExcepcionLoteYaContieneConstruccion();
+				}
+				if (!lanzo){
+					redDeBomberos.agregarEstacionBomberos(bomberos);
+				}
 			}
 	}
 	
@@ -88,6 +96,7 @@ public class Mapa {
 					this.insertarConstruccionEn(nuevaCentral.getPosicionX(),nuevaCentral.getPosicionY(),nuevaCentral);
 				} catch (ExcepcionLoteYaContieneConstruccion e){
 					lanzo = true;
+					throw new ExcepcionLoteYaContieneConstruccion();
 				}
 				if (!lanzo) {
 					redElectrica.agregarCentralElectrica(nuevaCentral);
@@ -98,10 +107,18 @@ public class Mapa {
 	public void agregarALaRedElectrica(LineaDeTension lineaDeTension){
 		if (!(this.sonCoordendadasValidas(lineaDeTension.getPosicionX(), lineaDeTension.getPosicionY()))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
-				redElectrica.agregarLineaDeTension(lineaDeTension);
+				boolean lanzo = false;
 				Lote unLote;
 				unLote = lotes.get(((lineaDeTension.getPosicionX())*tamanioLadoMapa)+lineaDeTension.getPosicionY());
-				unLote.agregarLineaDeTension(lineaDeTension);
+				try {
+					unLote.agregarLineaDeTension(lineaDeTension);
+				} catch (ExcepcionLoteYaContieneLineaDeTension e){
+					lanzo = true;
+					throw new ExcepcionLoteYaContieneConstruccion();
+				}
+				if (!lanzo){
+					redElectrica.agregarLineaDeTension(lineaDeTension);
+				}
 			}
 	}
 	
@@ -222,10 +239,18 @@ public class Mapa {
 	public void agregarALaRedDeAgua(TuberiaDeAgua tuberia) {
 		if (!(this.sonCoordendadasValidas(tuberia.getCoordenadaX(), tuberia.getCoordenadaY()))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
-				redDeAgua.agregarTuberia(tuberia);
 				Lote unLote;
+				boolean lanzo = false;
 				unLote = lotes.get(((tuberia.getCoordenadaX())*tamanioLadoMapa)+tuberia.getCoordenadaY());
-				unLote.agregarTuberiaDeAgua(tuberia);	
+				try {
+					unLote.agregarTuberiaDeAgua(tuberia);
+				} catch (ExcepcionLoteYaContieneTuberia e){
+					lanzo = true;
+					throw new ExcepcionLoteYaContieneTuberia();
+				}
+				if (!lanzo) {
+					redDeAgua.agregarTuberia(tuberia);
+				}
 		}
 	}
 

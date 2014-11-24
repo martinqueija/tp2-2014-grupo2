@@ -260,9 +260,7 @@ public class AlgoCityVista extends JFrame {
 
 				
         }
-        
-        
-        
+  
         
         private void setBotonesLote(int tamanioJuego){
         	JButton boton;

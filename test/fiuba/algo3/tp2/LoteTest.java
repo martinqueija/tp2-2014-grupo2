@@ -164,48 +164,6 @@ public class LoteTest {
 	}	
 	
 	@Test
-	public void IdentificadorDeberiaDevolverseCorrecamente(){
-		Casa casa = new Casa();
-		Lote lote = new Lote(1,1);
-		TerrenoLLano terr = new TerrenoLLano();
-		lote.definirTerrerno(terr);
-		lote.insertarConstruccion(casa);
-		
-		Assert.assertEquals("<html>V <br/>100</html>", lote.obtenerIdentificadorLote());
-	}
-	
-	@Test
-	public void IdentificadorDeberiaDevolverseCorrecamente2(){
-		Industria ind = new Industria();
-		Lote lote = new Lote(1,1);
-		TerrenoLLano terr = new TerrenoLLano();
-		lote.definirTerrerno(terr);
-		lote.insertarConstruccion(ind);
-		
-		Assert.assertEquals("<html>I <br/>100</html>", lote.obtenerIdentificadorLote());
-	}
-	
-	@Test
-	public void IdentificadorDeberiaDevolverseCorrecamente3(){
-		CentralEolica eo = new CentralEolica(1,1);
-		Lote lote = new Lote(1,1);
-		TerrenoLLano terr = new TerrenoLLano();
-		lote.definirTerrerno(terr);
-		lote.insertarConstruccion(eo);
-		
-		Assert.assertEquals("<html>EO <br/>100</html>", lote.obtenerIdentificadorLote());
-	}
-	
-	@Test
-	public void IdentificadorDeberiaDevolverseCorrecamente4(){
-		Lote lote = new Lote(1,1);
-		TerrenoLLano terr = new TerrenoLLano();
-		lote.definirTerrerno(terr);
-		
-		Assert.assertEquals("<html><br/>-</html>", lote.obtenerIdentificadorLote());
-	}
-	
-	@Test
 	public void DeberiaDevolverCorrectamenteSiEsAguaOtierra(){
 		TerrenoLLano terr = new TerrenoLLano();
 		Agua agua = new Agua();

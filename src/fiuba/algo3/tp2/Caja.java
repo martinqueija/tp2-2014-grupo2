@@ -32,5 +32,12 @@ public class Caja {
 		int ganancia = Poblacion*10;
 		this.IncrementarSaldo(ganancia);
 	}
+
+	public boolean verificarSaldoParaCompra(int CostoConstruccion) {
+		if (Saldo >= CostoConstruccion) {
+			return true;
+		}
+		return false;
+	}
 	
 }
