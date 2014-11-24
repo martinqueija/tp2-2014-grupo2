@@ -70,4 +70,8 @@ public class CentralEolica extends CentralElectrica{
 	public String getIdentificador(){
 		return "EO ";
 	}
+	
+	public boolean esEolica(){
+		return true;
+	}
 }

@@ -51,7 +51,6 @@ public class Mapa {
 		redDeAgua.actualizarRed();
 		poblacion.actualizar();
 		redDeEmpleo.actualizar();
-		redDeBomberos.repararMapa();
 	}
 	
 	public void removerConstruccionesSinVida(){
@@ -129,7 +128,6 @@ public class Mapa {
 		return distancia;
 	}
 	
-
 	public boolean obtenerEstadoDelLoteEn(int coordX, int coordY){
 		if (!(this.sonCoordendadasValidas(coordX, coordY))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
@@ -156,8 +154,7 @@ public class Mapa {
 				unLote.daniarConstruccion(factor);
 			}
 	}
-	
-	
+		
 	public double obtenerVidaDeConstruccionEnLote(int coordX, int coordY){
 		if (!(this.sonCoordendadasValidas(coordX, coordY))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
@@ -166,8 +163,7 @@ public class Mapa {
 				return (unLote.obtenerVidaConstruccion());
 			}
 	}
-	
-	
+		
 	public int getConsumoElecticoDeLote(int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
@@ -177,6 +173,7 @@ public class Mapa {
 			}
 				
 	}
+	
 	public boolean getTieneElecticidadLote(int x, int y){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
@@ -186,6 +183,7 @@ public class Mapa {
 			}
 		
 	}
+	
 	public void setElectricidadLote(int x,int y, boolean valor){
 		if (!(this.sonCoordendadasValidas(x, y))) {throw new ExcepcionCoordenadasInvalidas();}
 		else {
@@ -277,10 +275,11 @@ public class Mapa {
 		if(j<0){
 			return false;
 		}
-		if(i-1>this.tamanioLadoMapa){
+		
+		if(i>=this.tamanioLadoMapa){
 			return false;
 		}
-		if(j-1>this.tamanioLadoMapa){
+		if(i>=this.tamanioLadoMapa){
 			return false;
 		}
 		return true;
@@ -331,5 +330,62 @@ public class Mapa {
 			}
 		
 	}
+	
+	public boolean LoteEsDeAgua(int i, int j){
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = this.obtenerLote(i, j);
+				if (unLote.esLoteDeAgua()) return true;
+			}
+		return false;
+	}
+	
+	public boolean LoteEsDeTierra(int i, int j){
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote unLote;
+				unLote = this.obtenerLote(i, j);
+				if (unLote.esLoteDeTierra()) return true;
+			}
+		return false;
+	}
+	
+	public EnumeradoDeLote DameEnumeradoDelLote(int i, int j){
+		if (!(this.sonCoordendadasValidas(i, j))) {throw new ExcepcionCoordenadasInvalidas();}
+		else {
+				Lote loteTemp = this.obtenerLote(i, j);
+				return (loteTemp.obtenerEnumerado());
+		}
+	}
+
+	
+	public boolean LoteTieneConstruccion(int i, int j) {
+		Lote loteTemp = this.obtenerLote(i, j);
+		if (loteTemp.hayConstruccion()) {
+			return true;
+		}
+		return false;
+	}
+
+	
+	public boolean getTieneLineaDeTensionLote(int i, int j) {
+		Lote loteTemp = this.obtenerLote(i, j);
+		if (loteTemp.getTieneLineaDeTension()) {
+			return true;
+		}
+		return false;
+	}
+
+	public boolean getTieneTuberiaLote(int i, int j) {		
+		Lote loteTemp = this.obtenerLote(i, j);
+		if (loteTemp.getTieneTuberiaDeAgua()) {
+			return true;
+		}
+		return false;
+	}
+
 
 }
+
+

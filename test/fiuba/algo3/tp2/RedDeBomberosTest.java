@@ -7,19 +7,19 @@ import org.junit.Test;
 public class RedDeBomberosTest {
 	
 	@Test
-	public void EstacionDeBomberosSoloDeberiaRepararCuandoSeActualizaElMapa(){
-		Mapa unMapa = new Mapa(200);
+	public void EstacionDeBomberosSoloDeberiaRepararCuandoSeAvanzaAlSiguienteTurno(){
+		Juego juego = new Juego(30);
 		Construccion unaCasa = new Casa();
 		Construccion otraCasa = new Casa();
 
-		unMapa.insertarConstruccionEn(5, 5, unaCasa);
-		unMapa.insertarConstruccionEn(10, 10, otraCasa);
+		juego.elMapa.insertarConstruccionEn(5, 5, unaCasa);
+		juego.elMapa.insertarConstruccionEn(10, 10, otraCasa);
 
 		Terremoto unTerremoto = new Terremoto();
-		unTerremoto.iniciarTerremotoEn(7, 7, unMapa);
+		unTerremoto.iniciarTerremotoEn(7, 7, juego.elMapa);
 		
-		double vidaPostTerremoto1 = 100.0 - (100.0 - ((unMapa.calcularDistanciaEntreLotes(5, 5, 7, 7))*(unTerremoto.obtenerFactor())));
-		double vidaPostTerremoto2 = 100.0 - (100.0 - ((unMapa.calcularDistanciaEntreLotes(10, 10, 7, 7))*(unTerremoto.obtenerFactor())));
+		double vidaPostTerremoto1 = 100.0 - (100.0 - ((juego.elMapa.calcularDistanciaEntreLotes(5, 5, 7, 7))*(unTerremoto.obtenerFactor())));
+		double vidaPostTerremoto2 = 100.0 - (100.0 - ((juego.elMapa.calcularDistanciaEntreLotes(10, 10, 7, 7))*(unTerremoto.obtenerFactor())));
 
 		
 		Assert.assertEquals(vidaPostTerremoto1,unaCasa.obtenerVida());
@@ -27,9 +27,9 @@ public class RedDeBomberosTest {
 
 		
 		EstacionBomberos unaEstacionBomberos = new EstacionBomberos();
-		unMapa.agregarALaRedDeBomberos(unaEstacionBomberos, 7, 7);
+		juego.elMapa.agregarALaRedDeBomberos(unaEstacionBomberos, 7, 7);
 		
-		unMapa.actualizarMapa();
+		juego.proximoTurno();
 		
 
 		double vidaPostBomberos1 = vidaPostTerremoto1 + (vidaPostTerremoto1*0.10);

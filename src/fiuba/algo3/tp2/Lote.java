@@ -257,5 +257,49 @@ public class Lote {
 		
 	}
 
+	public EnumeradoDeLote obtenerEnumerado() {
+		EnumeradoDeLote enumLote = new EnumeradoDeLote();
+		if (construccion == null) {
+			enumLote.setSinConstruccion();
+		} else {
+				if (construccion.esCasa()){
+					enumLote.setCasa();
+				}
+				
+				if (construccion.esComercio()){
+					enumLote.setComercio();
+				}
+				
+				if (construccion.esIndustria()){
+					enumLote.setIndustria();
+				}
+				
+				if (construccion.esRuta()){
+					enumLote.setRuta();
+				}
+				
+				if (construccion.esBomberos()){
+					enumLote.setBomberos();
+				}
+				
+				if (construccion.esPozo()){
+					enumLote.setPozo();
+				}
+				
+				if (construccion.esNuclear()){
+					enumLote.setNuclear();
+				}
+				
+				if (construccion.esEolica()){
+					enumLote.setEolica();
+				}
+				
+				if (construccion.esMineral()){
+					enumLote.setMineral();
+				}
+		}
+		return enumLote;
+	}
+
 
 }

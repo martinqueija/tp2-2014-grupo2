@@ -69,4 +69,8 @@ public class CentralNuclear extends CentralElectrica {
 	public String getIdentificador(){
 		return "EN ";
 	}
+	
+	public boolean esNuclear(){
+		return true;
+	}
 }

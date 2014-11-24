@@ -13,7 +13,7 @@ public class AdministradorCatastrofes {
 			int yRand = randomizer.obtenerNumeroRandomY(elMapa.obtenerTamanioLado());
 			unTerremoto.iniciarTerremotoEn(xRand, yRand, elMapa);
 		}
-		if (numRandom == 1) {
+		if (numRandom == -1) {
 			huboCatastrofe = true;
 			Godzilla nuevoGodzilla = new Godzilla();
 			int ladoDeInicio = randomizer.obtenerNumeroRandomCat(4);

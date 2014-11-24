@@ -11,8 +11,7 @@ public class Godzilla {
 	private int yPosicionActual;
 	
 
-	public void iniciarGodzilla(int ladoDeInicio, int ladoDeFinalizacion,
-			int alturaDeInicio, int alturaDeFinalizacion, Mapa elMapa) {
+	public void iniciarGodzilla(int ladoDeInicio, int ladoDeFinalizacion, int alturaDeInicio, int alturaDeFinalizacion, Mapa elMapa) {
 		//Si el lado es 0 es la izquierda, si es 1 es la derecha
 		//si es 2 es arriba, y si es 3 es abajo
 		mapa=elMapa;

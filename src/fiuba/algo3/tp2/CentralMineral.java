@@ -69,5 +69,9 @@ public class CentralMineral extends CentralElectrica {
 	public String getIdentificador(){
 		return "EM ";
 	}
+	
+	public boolean esMineral(){
+		return true;
+	}
 
 }
