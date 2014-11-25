@@ -34,5 +34,47 @@ public class CajaTests {
 		Assert.assertEquals(true, lanzo);
 	}
 	
+	@Test
+	public void CajaDeberiaDecrementarSaldoCorrectamente(){
+		Caja unaCaja = new Caja();
+		int saldoPre = unaCaja.ObtenerSaldo();
+		int saldoPost = saldoPre - 100;
+		unaCaja.DecrementarSaldo(100);
+		Assert.assertEquals(saldoPost, unaCaja.ObtenerSaldo());
+	}
+	
+	@Test
+	public void CajaDeberiaIncrementarSaldoCorrectamente(){
+		Caja unaCaja = new Caja();
+		int saldoPre = unaCaja.ObtenerSaldo();
+		int saldoPost = saldoPre + 100;
+		unaCaja.IncrementarSaldo(100);
+		Assert.assertEquals(saldoPost, unaCaja.ObtenerSaldo());
+	}
+	
+	@Test
+	public void CajaDeberiaCalcularCorrectamenteSiPuedeComprar(){
+		Caja unaCaja = new Caja();
+		int saldoPre = unaCaja.obtenerSaldoInicial();
+		unaCaja.DecrementarSaldo(saldoPre);
+		unaCaja.IncrementarSaldo(10);
+		Assert.assertEquals(10, unaCaja.ObtenerSaldo());
+		Assert.assertEquals(false, unaCaja.verificarSaldoParaCompra(15));
+		Assert.assertEquals(true, unaCaja.verificarSaldoParaCompra(5));
+	}
+	
+	@Test
+	public void RecoleccionDeImpuestosDeberiaFuncionarCorrectamente(){
+		Caja unaCaja = new Caja();
+		int saldoPre = unaCaja.obtenerSaldoInicial();
+		unaCaja.DecrementarSaldo(saldoPre);
+		unaCaja.IncrementarSaldo(10);
+		Assert.assertEquals(10, unaCaja.ObtenerSaldo());
+		
+		
+		unaCaja.RecoleccionImpuestosPorPoblacion(10); ///10*10=100
+		
+		Assert.assertEquals(10+100, unaCaja.ObtenerSaldo());
+	}
 
 }
