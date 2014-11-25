@@ -11,7 +11,7 @@ public class CajaTests {
 	@Test
 	public void CajaDeberiaInicializarseConSaldoInicial(){
 		Caja unaCaja = new Caja();
-		Assert.assertEquals(unaCaja.obtenerSaldoInicial(),unaCaja.ObtenerSaldo());
+		Assert.assertEquals(unaCaja.ObtenerSaldo(),unaCaja.ObtenerSaldo());
 	}
 	
 	@Test
@@ -19,15 +19,19 @@ public class CajaTests {
 		Caja unaCaja = new Caja();
 		Poblacion laPoblacion = new Poblacion();
 		laPoblacion.agregarPoblacion(100);
+		unaCaja.setSaldo(0);
 		unaCaja.RecoleccionImpuestosPorPoblacion(laPoblacion.getCantidadPoblacion());
-		Assert.assertEquals(unaCaja.obtenerSaldoInicial()+(100*10), unaCaja.ObtenerSaldo());
+		Assert.assertEquals((100*10), unaCaja.ObtenerSaldo());
 	}
+	
+	
 	@Test
 	public void CajaDeberiaLanzarExcepcionSiSeQuedaSinSaldo(){
 		Caja unaCaja = new Caja();
 		boolean lanzo = false;
+		unaCaja.setSaldo(0);
 		try {
-			unaCaja.DecrementarSaldo(unaCaja.obtenerSaldoInicial()*2);
+			unaCaja.DecrementarSaldo(2);
 		} catch (ExcepcionSinSaldo e){
 			lanzo = true;
 		}
@@ -37,6 +41,7 @@ public class CajaTests {
 	@Test
 	public void CajaDeberiaDecrementarSaldoCorrectamente(){
 		Caja unaCaja = new Caja();
+		unaCaja.setSaldo(100000);
 		int saldoPre = unaCaja.ObtenerSaldo();
 		int saldoPost = saldoPre - 100;
 		unaCaja.DecrementarSaldo(100);
@@ -53,9 +58,19 @@ public class CajaTests {
 	}
 	
 	@Test
+	public void CajaDeberiaSetearElSaldo(){
+		Caja unaCaja = new Caja();
+		int saldoPre = unaCaja.ObtenerSaldo();
+		Assert.assertEquals(saldoPre, unaCaja.ObtenerSaldo());
+		unaCaja.setSaldo(5000);
+		Assert.assertEquals(5000, unaCaja.ObtenerSaldo());
+	}
+	
+	
+	@Test
 	public void CajaDeberiaCalcularCorrectamenteSiPuedeComprar(){
 		Caja unaCaja = new Caja();
-		int saldoPre = unaCaja.obtenerSaldoInicial();
+		int saldoPre = unaCaja.ObtenerSaldo();
 		unaCaja.DecrementarSaldo(saldoPre);
 		unaCaja.IncrementarSaldo(10);
 		Assert.assertEquals(10, unaCaja.ObtenerSaldo());
@@ -66,7 +81,7 @@ public class CajaTests {
 	@Test
 	public void RecoleccionDeImpuestosDeberiaFuncionarCorrectamente(){
 		Caja unaCaja = new Caja();
-		int saldoPre = unaCaja.obtenerSaldoInicial();
+		int saldoPre = unaCaja.ObtenerSaldo();
 		unaCaja.DecrementarSaldo(saldoPre);
 		unaCaja.IncrementarSaldo(10);
 		Assert.assertEquals(10, unaCaja.ObtenerSaldo());
