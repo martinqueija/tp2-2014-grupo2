@@ -40,17 +40,19 @@ public class Poblacion {
 	}
 
 	private boolean tieneRutaAdyacente(int i, int j) {
-		if(mapa.getTieneRutaElLote(i-1,j)){
-			return true;
-		}
-		if(mapa.getTieneRutaElLote(i+1,j)){
-			return true;
-		}
-		if(mapa.getTieneRutaElLote(i,j-1)){
-			return true;
-		}
-		if(mapa.getTieneRutaElLote(i,j+1)){
-			return true;
+		for(int k=1; k<4;k++){
+				if(mapa.getTieneRutaElLote(i-k,j)){
+					return true;
+				}
+				if(mapa.getTieneRutaElLote(i+k,j)){
+					return true;
+				}
+				if(mapa.getTieneRutaElLote(i,j-k)){
+					return true;
+				}
+				if(mapa.getTieneRutaElLote(i,j+k)){
+					return true;
+				}
 		}
 		return false;
 	}
