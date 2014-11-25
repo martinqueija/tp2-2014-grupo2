@@ -20,14 +20,16 @@ public class AlgoCityVista extends JFrame {
         miJbutton[][] grid; 
         JLabel[] gridLabel;
         AlgoCityControlador controlador;
+        int tamanioLadoMapa;
         
-        public AlgoCityVista(int tamanioJuego){ 
+        public AlgoCityVista(int TamanioLadoMapa){ 
+        		tamanioLadoMapa = TamanioLadoMapa;
         		Font unfont;
         		setTitle("AlgoCity");
         		setResizable(false);
         		float flot;
         		Dimension dimen = new Dimension(80,50);
-        		int tamanioGrilla = tamanioJuego + 2;
+        		int tamanioGrilla = tamanioLadoMapa + 2;
                 setLayout(new GridLayout(tamanioGrilla,tamanioGrilla));
                 grid=new miJbutton[tamanioGrilla][tamanioGrilla]; 
                 gridLabel = new JLabel[tamanioGrilla];
@@ -53,7 +55,7 @@ public class AlgoCityVista extends JFrame {
                 
                 
                 setBotonesMenu(tamanioGrilla);
-                setBotonesLote(tamanioJuego);
+                setBotonesLote(tamanioLadoMapa);
                 
                 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 pack(); 
@@ -253,7 +255,7 @@ public class AlgoCityVista extends JFrame {
 	         action = new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						////////////////
+						controlador.actualizarVista();
 					}
 				};
 				boton.addActionListener(action);   
@@ -262,7 +264,7 @@ public class AlgoCityVista extends JFrame {
         }
   
         
-        private void setBotonesLote(int tamanioJuego){
+        private void setBotonesLote(int tamanioLadoMapa){
         	JButton boton;
         	ActionListener escuchador;
         	escuchador = new ActionListener(){
@@ -276,8 +278,8 @@ public class AlgoCityVista extends JFrame {
         		}
         	};
      
-        	for (int i=0; i<tamanioJuego; i++){
-        		for (int j=0; j<tamanioJuego; j++){
+        	for (int i=0; i<tamanioLadoMapa; i++){
+        		for (int j=0; j<tamanioLadoMapa; j++){
         			boton = grid[i+2][j];
         			boton.addActionListener(escuchador);
         		}
@@ -328,5 +330,22 @@ public class AlgoCityVista extends JFrame {
         	JButton temp = grid[x][y];
         	temp.setForeground(color);
         }
+
+
+		public void mostrarDaniosDeUltimaCatastrofe(double[][] daniosALotes) {
+			
+			double DanioDeUltimaCat = 0;
+	        
+			for (int i=0; i<tamanioLadoMapa; i++){
+				for (int j=0; j<tamanioLadoMapa; j++){
+					DanioDeUltimaCat = daniosALotes[i][j];
+					if (DanioDeUltimaCat>0){
+						JButton boton = grid[i+2][j];
+				        boton.setText("<html>XXXXX<br/>-" + String.valueOf((int)DanioDeUltimaCat) + "</html>");
+					}
+				}
+			}
+			
+		}
         
 }

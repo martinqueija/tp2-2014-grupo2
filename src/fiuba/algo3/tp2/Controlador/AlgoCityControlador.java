@@ -46,24 +46,6 @@ public class AlgoCityControlador {
 		
 		actualizarLotesParaVista();
 		juego.elMapa.actualizarMapa();
-		/*
-		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
-			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
-				loteTemp = juego.elMapa.obtenerLote(i, j);
-				if (loteTemp.esLoteDeAgua()) {
-					vista.setBotonColorBackground(colorAzul, i+2, j);
-				} else if (loteTemp.esLoteDeTierra()){
-					vista.setBotonColorBackground(colorMarron, i+2, j);
-				};
-				
-				if (loteTemp.esLoteDeRuta()){
-					vista.setBotonColorBackground(colorGris, i+2, j);
-				}
-				stringTemp = loteTemp.obtenerIdentificadorLote();
-				vista.setBotonTexto(stringTemp, i+2, j);
-				vista.setBotonColorTexto(colorBlanco, i+2, j);
-			}
-		}*/
 		
 		for (int i = 0; i<juego.elMapa.obtenerTamanioLado(); i++){
 			for (int j = 0; j<juego.elMapa.obtenerTamanioLado(); j++){
@@ -147,8 +129,12 @@ public class AlgoCityControlador {
 	}
 	
 	public void proximoTurno(){
-		juego.proximoTurno();
+		boolean huboCatastrofe = juego.proximoTurno();
 		actualizarVista();
+		if (huboCatastrofe) {
+			double DaniosALotes[][] = juego.obtenerDaniosUltimaCatastrofe();
+			vista.mostrarDaniosDeUltimaCatastrofe(DaniosALotes);
+		}
 	}
 	
 	public void setTodosFalso(){
