@@ -19,22 +19,6 @@ public class Juego {
 		elMapa = new Mapa(tamLadoMapa);
 	}
 	
-	/*
-	public void iniciarJuego() {
-		int turnos = 0;
-		
-		while (laCaja.ObtenerSaldo()>0) {
-			if (turnos>=30) {
-				laCaja.RecoleccionImpuestosPorPoblacion(elMapa.getCantidadPoblacion());
-				turnos=0;
-			}
-			this.turnoJugador(elMapa, laCaja);
-			adminCatastrofes.actuar(elMapa, randomizer);
-			elMapa.actualizarMapa();
-			turnos++;
-		}
-	}*/
-	
 	public boolean proximoTurno(){
 		boolean huboCatastrofe = dispararCatastrofes();
 		elMapa.reparacionBomberos();
@@ -51,6 +35,10 @@ public class Juego {
 	public boolean dispararCatastrofes(){
 		boolean huboCatastrofe = adminCatastrofes.actuar(elMapa, randomizer);
 		return huboCatastrofe;
+	}
+	
+	public double[][] obtenerDaniosUltimaCatastrofe(){
+		return (adminCatastrofes.getDaniosALotesDeUltimaCatastrofe());
 	}
 	
 	public int obtenerCantidadTurnos(){

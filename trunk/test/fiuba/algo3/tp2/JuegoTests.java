@@ -175,8 +175,8 @@ public class JuegoTests {
 			juego.ComprarCasaEnCoord(5,5);
 		
 			} catch (ExcepcionSuperficieInvalida excepcion) {
-				lanzo = true;
-			}
+				
+			}lanzo = true;
 		Assert.assertEquals(lanzo,true);
 	}
 }
