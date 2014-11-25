@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
+
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
 import fiuba.algo3.tp2.Vista.LoteParaVista;
@@ -251,4 +252,10 @@ public class AlgoCityControlador {
 		}
 	}
 
+	public void clickeoJugar(int valorSlider) {
+		juego.laCaja.setSaldo(valorSlider);
+		vista.setVisible(true);
+		actualizarVista();
+	}
+		
 }
