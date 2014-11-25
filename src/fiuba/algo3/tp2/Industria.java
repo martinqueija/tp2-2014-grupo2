@@ -18,12 +18,10 @@ public class Industria extends Construccion{
 		return 10;
 	}
 	
-	public String getIdentificador(){
-		return "I ";
-	}
 	public boolean esIndustria() {
 		return true;
 	}
+	
 	public int danioPorGozilla(){
 		return (int) (vidaTotal*0.40);
 	}

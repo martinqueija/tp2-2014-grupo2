@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.Excepciones.*;
 
 
 public class Mapa {
-	int tamanioLadoMapa;; //define la cantidad de lotes en un lado de la cuadrilla
+	int tamanioLadoMapa;; //define la cantidad de lotes en un lado del mapa
 	ArrayList<Lote> lotes = new ArrayList<Lote>();
 	RedElectrica redElectrica = new RedElectrica();
 	RedDeAgua redDeAgua = new RedDeAgua();
@@ -30,10 +30,8 @@ public class Mapa {
 				loteTemp = new Lote(i,j);
 				
 				if (j<var) {
-					loteTemp.definirTerrerno(terrenoLlano);  //provisorio implementar algoritmo mapa
+					loteTemp.definirTerrerno(terrenoLlano);
 				} else {
-					//loteTemp.definirTerrerno(agua);
-					
 					if ((i+j)>2*var){
 						loteTemp.definirTerrerno(agua);
 					} else {

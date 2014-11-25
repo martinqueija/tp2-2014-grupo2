@@ -28,10 +28,6 @@ public class EstacionBomberos extends Construccion {
 		return 1500;
 	}
 	
-	public String getIdentificador(){
-		return "B ";
-	}
-	
 	public boolean esBomberos(){
 		return true;
 	}

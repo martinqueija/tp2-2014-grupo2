@@ -2,10 +2,9 @@ package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
+import fiuba.algo3.tp2.Vista.LoteParaVista;
 
 public class AlgoCityControlador {
-	
-	String FIN_JUEGO = "Usted ha entrado en bancarrota. Game over...";
 	
 	public Juego juego;
 	public AlgoCityVista vista;

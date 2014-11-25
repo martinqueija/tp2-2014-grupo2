@@ -16,9 +16,6 @@ public class Ruta extends Construccion { //Casa es una instancia construible
 		return 10;
 	}
 	
-	public String getIdentificador(){
-		return "R ";
-	}
 	public int danioPorGozilla(){
 		return (int) (vidaTotal*0.80);
 	}

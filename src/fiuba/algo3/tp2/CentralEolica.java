@@ -11,8 +11,6 @@ public class CentralEolica extends CentralElectrica{
 		super(x, y);
 		posicionX=x;
 		posicionY=y;
-
-
 	}
 
 	public int getUsoActual(){
@@ -65,10 +63,6 @@ public class CentralEolica extends CentralElectrica{
 
 	public int obtenerCostoConstruccion(){
 		return 1000;
-	}
-	
-	public String getIdentificador(){
-		return "EO ";
 	}
 	
 	public boolean esEolica(){

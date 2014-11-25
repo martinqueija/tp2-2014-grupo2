@@ -50,9 +50,5 @@ public class LineaDeTension extends Construccion {
 	public int obtenerCostoConstruccion(){
 		return 5;
 	}
-	
-	public String getIdentificador(){
-		return "! ";
-	}
 
 }

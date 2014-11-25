@@ -1,4 +1,4 @@
-package fiuba.algo3.tp2.Controlador;
+package fiuba.algo3.tp2.Vista;
 import fiuba.algo3.tp2.EnumeradoDeLote;
 
 public class LoteParaVista {
