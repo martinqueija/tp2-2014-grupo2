@@ -22,16 +22,10 @@ public class Construccion {
 
 
 	public boolean puedeConstruirEnSuperficie(Superficie superficieDelLote) {
-		//deberia estar implementada en una clase inferior
 		return true;
 	}
 	
 	public void reparacionBomberos(){
-		//subclassResponsibility
-	}
-	
-	public String getIdentificador(){
-		return "";
 	}
 	
 	public int obtenerCostoConstruccion(){
@@ -41,7 +35,6 @@ public class Construccion {
 	public int danioPorGozilla(){
 		return (int) vidaTotal;
 	}
-	
 	
 	
 	public boolean esCasa(){

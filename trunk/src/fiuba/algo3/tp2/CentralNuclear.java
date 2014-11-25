@@ -10,8 +10,6 @@ public class CentralNuclear extends CentralElectrica {
 		super(x, y);
 		posicionX=x;
 		posicionY=y;
-
-
 	}
 
 	public int getUsoActual(){
@@ -51,9 +49,9 @@ public class CentralNuclear extends CentralElectrica {
 	int getPosicionY(){
 		return posicionY;
 	}
+	
 	public int getCapacidadAbastecimiento(){
 		return capacidadAbastecimiento;
-		
 	}
 	
 	public void reparacionBomberos(){
@@ -64,10 +62,6 @@ public class CentralNuclear extends CentralElectrica {
 	
 	public int obtenerCostoConstruccion(){
 		return 10000;
-	}
-	
-	public String getIdentificador(){
-		return "EN ";
 	}
 	
 	public boolean esNuclear(){

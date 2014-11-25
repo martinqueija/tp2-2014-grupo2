@@ -220,8 +220,6 @@ public class Lote {
 	public double getVidaLineaDeTension() {
 		if(lineaDeTension!=null){
 			return lineaDeTension.obtenerVida();
-		} else {
-			//throw new ExcepcionLote
 		}
 		return 0;
 	}

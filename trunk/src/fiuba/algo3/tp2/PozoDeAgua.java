@@ -40,10 +40,6 @@ public class PozoDeAgua extends Construccion {
 		return 250;
 	}
 	
-	public String getIdentificador(){
-		return "PA ";
-	}
-	
 	public boolean esPozo(){
 		return true;
 	}

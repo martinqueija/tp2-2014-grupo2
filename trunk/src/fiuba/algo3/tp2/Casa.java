@@ -21,9 +21,4 @@ public class Casa extends Construccion { //Casa es una instancia construible
 	public int obtenerCostoConstruccion(){
 		return 5;
 	}
-	
-	public String getIdentificador(){
-		return "V ";
-	}
-
 }

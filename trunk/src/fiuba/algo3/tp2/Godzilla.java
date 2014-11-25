@@ -17,26 +17,31 @@ public class Godzilla {
 		mapa=elMapa;
 		this.setCoordenadasInicio(ladoDeInicio,alturaDeInicio);
 		this.setCoordenadasFinal(ladoDeFinalizacion,alturaDeFinalizacion);
-		double danios[][] = this.daniarMapa();
-		return danios;
+		
+		double danios[][] = this.daniarMapa();////// las lineas marcadas con // las agregue yo,
+		return danios;////// devuelven que lotes tuvieron danio y eso lo uso despues para mostrar en el mapa por adonde paso godzilla
 		
 	}
 
 	private double[][] daniarMapa() {
 		xPosicionActual=xInicio;
 		yPosicionActual=yInicio;
-		double danios[][] = new double[mapa.obtenerTamanioLado()][mapa.obtenerTamanioLado()];
 		
-		for (int i = 0; i<mapa.obtenerTamanioLado(); i++){
-			for (int j = 0; j<mapa.obtenerTamanioLado(); j++){
-				danios[i][j] = 0;
-			}
-		}
+		double danios[][] = new double[mapa.obtenerTamanioLado()][mapa.obtenerTamanioLado()];///////
+		
+		for (int i = 0; i<mapa.obtenerTamanioLado(); i++){//////
+			for (int j = 0; j<mapa.obtenerTamanioLado(); j++){//////
+				danios[i][j] = 0;//////
+			}//////
+		}///////
 		
 		this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-		if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){
-			danios[xPosicionActual][yPosicionActual] = 1;
-		}
+		
+		if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
+			danios[xPosicionActual][yPosicionActual] = 1;/////////
+		}/////////
+		
+		
 		while(xPosicionActual!=xFinal || yPosicionActual!=yFinal){
 			if(xPosicionActual!=xFinal){
 				if((xPosicionActual+1)<=xFinal){
@@ -46,9 +51,13 @@ public class Godzilla {
 				}
 			}
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){
-				danios[xPosicionActual][yPosicionActual] = 1;
-			}
+			
+			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
+				danios[xPosicionActual][yPosicionActual] = 1;////////
+			}/////////
+			
+			
+			
 			if(yPosicionActual!=yFinal){
 				if((yPosicionActual+1)<=yFinal){
 					yPosicionActual=yPosicionActual+1;}
@@ -57,11 +66,17 @@ public class Godzilla {
 				}
 			}
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){
-				danios[xPosicionActual][yPosicionActual] = 1;
-			}
+			
+			
+			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
+				danios[xPosicionActual][yPosicionActual] = 1;/////////
+			}////////
+			
+			
 		}while(xPosicionActual!=xFinal || yPosicionActual!=yFinal);
-		return danios;
+		
+		
+		return danios;//////
 	}
 
 	private void daniarMapaEnCoordenadas(int xPosicionActual,int yPosicionActual) {

@@ -98,8 +98,4 @@ public class EnumeradoDeLote {
 	public void setSinConstruccion() {
 		construccionLote = TipoDeConstruccion.SINCONSTRUCCION;
 	}
-	
-	
-	
-	
 }
