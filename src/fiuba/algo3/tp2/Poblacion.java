@@ -25,7 +25,11 @@ public class Poblacion {
 					if(mapa.getTieneAguaLote(i, j)){
 						if(mapa.getTieneElecticidadLote(i, j)){
 							if(this.tieneRutaAdyacente(i,j)){
-								this.agregarPoblacion(100);
+								if(mapa.loteTieneComercioCercano(6, i, j)){
+									if(mapa.loteTieneIndustriaCercano(14, i, j)){
+										this.agregarPoblacion(100);
+									}
+								}
 							}
 						}
 					}
