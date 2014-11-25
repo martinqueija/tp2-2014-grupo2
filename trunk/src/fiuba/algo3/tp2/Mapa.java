@@ -414,8 +414,37 @@ public class Mapa {
 		}
 		return false;
 	}
-
-
+	
+	public boolean loteTieneComercioCercano(int distanciaMax, int x, int y){
+		int distanciaTemp=0;
+		for (int i=0;i<tamanioLadoMapa;i++){
+			for (int j=0;j<tamanioLadoMapa;j++){
+				distanciaTemp = calcularDistanciaEntreLotes(x, y, i, j);
+				if (distanciaTemp<=distanciaMax){
+					if (getTieneComercioLote(i,j)){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean loteTieneIndustriaCercano(int distanciaMax, int x, int y){
+		int distanciaTemp=0;
+		for (int i=0;i<tamanioLadoMapa;i++){
+			for (int j=0;j<tamanioLadoMapa;j++){
+				distanciaTemp = calcularDistanciaEntreLotes(x, y, i, j);
+				if (distanciaTemp<=distanciaMax){
+					if (getTieneIndustriaLote(i,j)){
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
 }
+
 
 

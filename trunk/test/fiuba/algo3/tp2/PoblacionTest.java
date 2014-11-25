@@ -29,10 +29,15 @@ public class PoblacionTest {
 	public void PoblacionDeberiaAumentarSiSeCumplenTodasLasCondciones(){
 		Mapa mapa = new Mapa(200);
 		
+		Industria ind = new Industria();
+		Comercio com = new Comercio();
+		
 		Assert.assertEquals(mapa.getCantidadPoblacion(), 0);
 		
 		Construccion casa = new Casa();
 		mapa.insertarConstruccionEn(5, 6, casa);
+		mapa.insertarConstruccionEn(4, 4, ind);
+		mapa.insertarConstruccionEn(4, 5, com);
 
 		Assert.assertEquals(mapa.getCantidadPoblacion(), 0);
 		
