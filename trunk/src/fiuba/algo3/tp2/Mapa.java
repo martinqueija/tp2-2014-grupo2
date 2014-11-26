@@ -5,12 +5,12 @@ import fiuba.algo3.tp2.Excepciones.*;
 
 public class Mapa {
 	int tamanioLadoMapa;; //define la cantidad de lotes en un lado del mapa
-	ArrayList<Lote> lotes = new ArrayList<Lote>();
-	RedElectrica redElectrica = new RedElectrica();
-	RedDeAgua redDeAgua = new RedDeAgua();
-	Poblacion poblacion = new Poblacion();
-	RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
-	RedDeBomberos redDeBomberos = new RedDeBomberos();
+	private ArrayList<Lote> lotes = new ArrayList<Lote>();
+	private RedElectrica redElectrica = new RedElectrica();
+	private RedDeAgua redDeAgua = new RedDeAgua();
+	private Poblacion poblacion = new Poblacion();
+	private RedDeEmpleo redDeEmpleo = new RedDeEmpleo();
+	private RedDeBomberos redDeBomberos = new RedDeBomberos();
 	
 	
 	public Mapa(int tamLadoMapa){

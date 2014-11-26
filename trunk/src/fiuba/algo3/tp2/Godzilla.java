@@ -7,8 +7,6 @@ public class Godzilla {
 	private int yInicio;
 	private int xFinal;
 	private int yFinal;
-	private int xPosicionActual;
-	private int yPosicionActual;
 	
 
 	public double[][] iniciarGodzilla(int ladoDeInicio, int ladoDeFinalizacion, int alturaDeInicio, int alturaDeFinalizacion, Mapa elMapa) {
@@ -24,8 +22,9 @@ public class Godzilla {
 	}
 
 	private double[][] daniarMapa() {
-		xPosicionActual=xInicio;
-		yPosicionActual=yInicio;
+		
+		int xPosicionActual=xInicio;
+		int yPosicionActual=yInicio;
 		
 		double danios[][] = new double[mapa.obtenerTamanioLado()][mapa.obtenerTamanioLado()];///////
 		
