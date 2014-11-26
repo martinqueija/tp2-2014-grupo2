@@ -14,7 +14,7 @@ public class AdministradorCatastrofes {
 			int yRand = randomizer.obtenerNumeroRandomY(elMapa.obtenerTamanioLado());
 			DaniosAlotesDeUltimaCatastrofe = unTerremoto.iniciarTerremotoEn(xRand, yRand, elMapa);
 		}
-		if (numRandom == -1) {
+		if (numRandom == 1) {
 			Godzilla nuevoGodzilla = new Godzilla();
 			int ladoDeInicio = randomizer.obtenerNumeroRandomCat(4);
 			int ladoDeFinalizacion = randomizer.obtenerNumeroRandomCat(4);
