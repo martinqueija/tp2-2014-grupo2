@@ -62,7 +62,7 @@ public class AlgoCityVistaInicio extends JFrame {
 		slider.setValue(500000);
 		slider.setMaximum(1000000);
 		slider.setValue(500000);
-		JLabel lblNewLabel = new JLabel("$"+Integer.toString(slider.getValue()));
+		final JLabel lblNewLabel = new JLabel("$"+Integer.toString(slider.getValue()));
 		slider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
 				lblNewLabel.setText("$"+Integer.toString(slider.getValue()));
