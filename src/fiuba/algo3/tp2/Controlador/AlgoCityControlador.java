@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
-import java.util.ArrayList;
-
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
 import fiuba.algo3.tp2.Vista.LoteParaVista;
