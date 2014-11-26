@@ -77,7 +77,7 @@ public class AlgoCityVista extends JFrame {
                 		botonTemporal.setVisible(false);
                 	}
                 	
-                	if ((x==0)&&(y<=12)) {
+                	if ((x==0)&&(y<=13)) {
                 		botonTemporal = grid[x][y];
                 		botonTemporal.setVisible(true);
                 	}
@@ -260,6 +260,17 @@ public class AlgoCityVista extends JFrame {
 				};
 				boton.addActionListener(action);   
 
+
+		         boton = grid[0][13];
+		         boton.setText("<html>Salir</html>");
+		         boton.setFont(elfont);
+		         action = new ActionListener(){
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							System.exit(0);;
+						}
+					};
+					boton.addActionListener(action);   
 				
         }
   
