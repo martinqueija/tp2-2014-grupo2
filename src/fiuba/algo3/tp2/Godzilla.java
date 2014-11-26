@@ -89,7 +89,7 @@ public class Godzilla {
 			yFinal=alturaDeFinalizacion;
 		}
 		if(ladoDeFinalizacion==1){
-			xFinal=mapa.obtenerTamanioLado();
+			xFinal=mapa.obtenerTamanioLado()-1;
 			yFinal=alturaDeFinalizacion;
 		}
 		if(ladoDeFinalizacion==2){
@@ -98,7 +98,7 @@ public class Godzilla {
 		}
 		if(ladoDeFinalizacion==3){
 			xFinal=alturaDeFinalizacion;
-			yFinal=mapa.obtenerTamanioLado();
+			yFinal=mapa.obtenerTamanioLado()-1;
 		}
 		
 	}
