@@ -35,7 +35,7 @@ public class Godzilla {
 		}///////
 		
 		this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-		danios[xPosicionActual][yPosicionActual] = 1;
+		danios[xPosicionActual][yPosicionActual] = 100;
 				
 		
 		while(xPosicionActual!=xFinal || yPosicionActual!=yFinal){
@@ -48,7 +48,7 @@ public class Godzilla {
 			}
 
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-			danios[xPosicionActual][yPosicionActual] = 1;
+			danios[xPosicionActual][yPosicionActual] = 100;
 
 			
 			
@@ -61,7 +61,7 @@ public class Godzilla {
 			}
 
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-			danios[xPosicionActual][yPosicionActual] = 1;
+			danios[xPosicionActual][yPosicionActual] = 100;
 			
 			
 		}
