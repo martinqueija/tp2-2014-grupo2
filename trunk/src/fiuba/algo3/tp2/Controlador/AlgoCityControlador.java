@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2.Controlador;
 import java.awt.Color;
+import java.util.ArrayList;
 
 import fiuba.algo3.tp2.*;
 import fiuba.algo3.tp2.Vista.AlgoCityVista;
@@ -132,7 +133,7 @@ public class AlgoCityControlador {
 		boolean huboCatastrofe = juego.proximoTurno();
 		actualizarVista();
 		if (huboCatastrofe) {
-			double DaniosALotes[][] = juego.obtenerDaniosUltimaCatastrofe();
+			double[][] DaniosALotes = juego.obtenerDaniosUltimaCatastrofe();
 			vista.mostrarDaniosDeUltimaCatastrofe(DaniosALotes);
 		}
 	}
