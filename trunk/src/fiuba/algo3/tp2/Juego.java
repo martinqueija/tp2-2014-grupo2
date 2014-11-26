@@ -20,7 +20,7 @@ public class Juego {
 	}
 	
 	public boolean proximoTurno(){
-		boolean huboCatastrofe = dispararCatastrofes();
+		boolean huboCatastrofe = adminCatastrofes.actuar(elMapa, randomizer);
 		elMapa.reparacionBomberos();
 		contadorAImpuestos = contadorAImpuestos + 1;
 		totalTurnos = totalTurnos + 1;
@@ -32,10 +32,6 @@ public class Juego {
 		return huboCatastrofe;
 	}
 	
-	public boolean dispararCatastrofes(){
-		boolean huboCatastrofe = adminCatastrofes.actuar(elMapa, randomizer);
-		return huboCatastrofe;
-	}
 	
 	public double[][] obtenerDaniosUltimaCatastrofe(){
 		return (adminCatastrofes.getDaniosALotesDeUltimaCatastrofe());
