@@ -36,11 +36,8 @@ public class Godzilla {
 		}///////
 		
 		this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-		
-		if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
-			danios[xPosicionActual][yPosicionActual] = 1;/////////
-		}/////////
-		
+		danios[xPosicionActual][yPosicionActual] = 1;
+				
 		
 		while(xPosicionActual!=xFinal || yPosicionActual!=yFinal){
 			if(xPosicionActual!=xFinal){
@@ -50,12 +47,10 @@ public class Godzilla {
 					xPosicionActual=xPosicionActual-1;
 				}
 			}
+
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
-			
-			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
-				danios[xPosicionActual][yPosicionActual] = 1;////////
-			}/////////
-			
+			danios[xPosicionActual][yPosicionActual] = 1;
+
 			
 			
 			if(yPosicionActual!=yFinal){
@@ -65,17 +60,12 @@ public class Godzilla {
 					yPosicionActual=yPosicionActual-1;
 				}
 			}
+
 			this.daniarMapaEnCoordenadas(xPosicionActual,yPosicionActual);
+			danios[xPosicionActual][yPosicionActual] = 1;
 			
 			
-			if ((xPosicionActual <= mapa.obtenerTamanioLado())&&(yPosicionActual <= mapa.obtenerTamanioLado())){///////
-				danios[xPosicionActual][yPosicionActual] = 1;/////////
-			}////////
-			
-			
-		}while(xPosicionActual!=xFinal || yPosicionActual!=yFinal);
-		
-		
+		}
 		return danios;//////
 	}
 

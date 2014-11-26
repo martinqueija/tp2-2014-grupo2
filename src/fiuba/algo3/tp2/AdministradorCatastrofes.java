@@ -1,8 +1,9 @@
 package fiuba.algo3.tp2;
 
+
 public class AdministradorCatastrofes {
 	
-	double DaniosAlotesDeUltimaCatastrofe[][];
+	double[][] DaniosAlotesDeUltimaCatastrofe;
 	
 	public boolean actuar(Mapa elMapa, RandomizadorInterface randomizer){
 		boolean huboCatastrofe = false;
@@ -15,13 +16,14 @@ public class AdministradorCatastrofes {
 			DaniosAlotesDeUltimaCatastrofe = unTerremoto.iniciarTerremotoEn(xRand, yRand, elMapa);
 		}
 		if (numRandom == 1) {
+			huboCatastrofe = true;
 			Godzilla nuevoGodzilla = new Godzilla();
 			int ladoDeInicio = randomizer.obtenerNumeroRandomCat(4);
 			int ladoDeFinalizacion = randomizer.obtenerNumeroRandomCat(4);
 			int alturaDeInicio = randomizer.obtenerNumeroRandomCat(elMapa.obtenerTamanioLado());
 			int alturaDeFinalizacion = randomizer.obtenerNumeroRandomCat(elMapa.obtenerTamanioLado());
 			DaniosAlotesDeUltimaCatastrofe = nuevoGodzilla.iniciarGodzilla(ladoDeInicio,ladoDeFinalizacion,alturaDeInicio,alturaDeFinalizacion,elMapa);
-			}
+		}
 
 		return huboCatastrofe;
 	}

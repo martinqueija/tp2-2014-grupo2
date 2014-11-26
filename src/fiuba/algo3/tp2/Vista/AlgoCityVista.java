@@ -14,6 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 @SuppressWarnings("serial")
 public class AlgoCityVista extends JFrame {
 		
@@ -333,18 +334,21 @@ public class AlgoCityVista extends JFrame {
 
 		public void mostrarDaniosDeUltimaCatastrofe(double[][] daniosALotes) {
 			
+
 			double DanioDeUltimaCat = 0;
-	        
-			for (int i=0; i<tamanioLadoMapa; i++){
-				for (int j=0; j<tamanioLadoMapa; j++){
-					DanioDeUltimaCat = daniosALotes[i][j];
-					if (DanioDeUltimaCat>0){
-						JButton boton = grid[i+2][j];
-				        boton.setText("<html>XXXXX<br/>-" + String.valueOf((int)DanioDeUltimaCat) + "</html>");
+
+
+				for (int i=0; i<tamanioLadoMapa; i++){
+					for (int j=0; j<tamanioLadoMapa; j++){
+						DanioDeUltimaCat = daniosALotes[i][j];
+						if (DanioDeUltimaCat>0){
+							JButton boton = grid[i+2][j];
+					        boton.setText("<html>XXXXX<br/>-" + String.valueOf((int)DanioDeUltimaCat) + "</html>");
+						}
 					}
-				}
-			}
+				
 			
-		}
+	        }
+	     }
         
 }
